@@ -13,7 +13,7 @@ it.
 | **OBSERVED NUMERICALLY** | reproducible measurement over a finite sample/grid; no proof of the general statement |
 | **NOT YET TESTED** | out of scope of this repository |
 
-Test suite at the time of writing: **2246 passed** (`pytest -q`).
+Test suite at the time of writing: **2245 passed** (`pytest -q`).
 
 ---
 
