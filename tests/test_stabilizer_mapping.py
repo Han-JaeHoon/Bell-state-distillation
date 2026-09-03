@@ -70,3 +70,33 @@ def test_bell_products_are_stabilizer_eigenstates():
             psi = np.kron(bell_state(a, b), bell_state(c, d))
             assert np.allclose(XXXX @ psi, ((-1.0) ** (b ^ d)) * psi, atol=TOL)
             assert np.allclose(ZZZZ @ psi, ((-1.0) ** (a ^ c)) * psi, atol=TOL)
+
+
+def test_rule_based_propagation_matches_dense_for_all_256_paulis():
+    """Basis-complete check INCLUDING THE SIGN: for every four-qubit Pauli P,
+    the rule-based V^dag P V must equal the dense V^dag P V exactly.
+
+    This guards the phase bookkeeping of the CNOT conjugation rule, which the
+    two stabilizer checks above cannot see (no Y appears in either)."""
+    import itertools
+
+    from pqec_distill.gates import PAULI_Y
+
+    letter_to_matrix = {"I": np.eye(2, dtype=complex), "X": PAULI_X,
+                        "Y": PAULI_Y, "Z": PAULI_Z}
+    v = full_unitary()
+    n_checked = 0
+    for letters in itertools.product("IXYZ", repeat=4):
+        ps = PauliString(N_QUBITS)
+        for q, L in enumerate(letters):
+            if L in ("X", "Y"):
+                ps.x[q] = 1
+            if L in ("Z", "Y"):
+                ps.z[q] = 1
+        sym = conjugate_by_circuit(ps, CNOT_SEQUENCE, Q3)
+        from_rules = ((-1.0) ** sym.sign) * kron_list(
+            [letter_to_matrix[c] for c in sym.letters()])
+        dense = v.conj().T @ kron_list([letter_to_matrix[c] for c in letters]) @ v
+        assert np.allclose(from_rules, dense, atol=TOL), "".join(letters)
+        n_checked += 1
+    assert n_checked == 256

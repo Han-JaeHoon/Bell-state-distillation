@@ -9,6 +9,8 @@ that is logically independent of the dense simulator in
 Conjugation rules used (U P U^dagger convention is stated per function):
 
     CNOT(c,t):  X_c -> X_c X_t ,  X_t -> X_t ,  Z_c -> Z_c ,  Z_t -> Z_c Z_t
+                with the Aaronson-Gottesman phase rule for products (e.g.
+                Y_c Y_t -> -X_c Z_t)
     H(q):       X_q -> Z_q ,  Z_q -> X_q ,  Y_q -> -Y_q
 
 Qubit indices follow the package convention: q1->0 .. q4->3.
@@ -65,11 +67,23 @@ class PauliString:
 
 
 def _cnot_conjugate(ps: PauliString, control: int, target: int) -> PauliString:
-    """Return  CNOT P CNOT  (CNOT is its own inverse, so direction is moot)."""
+    """Return  CNOT P CNOT  (CNOT is its own inverse, so direction is moot).
+
+    Bit update: X on the control propagates X onto the target, Z on the target
+    propagates Z onto the control.  Phase update is the Aaronson-Gottesman rule
+    for the (x, z) encoding with (1, 1) = Y:
+
+        r ^= x_c * z_t * (x_t ^ z_c ^ 1)
+
+    e.g.  Y_c Y_t -> -X_c Z_t  and  X_c Z_t -> -Y_c Y_t  pick up a sign, while
+    X_c Y_t -> Y_c Z_t does not.  Verified against dense conjugation for all
+    256 four-qubit Paulis in tests/test_stabilizer_mapping.py.
+    """
     out = ps.copy()
-    # X on control propagates X onto target; Z on target propagates Z onto control.
-    out.x[target] ^= ps.x[control]
-    out.z[control] ^= ps.z[target]
+    xc, zc, xt, zt = ps.x[control], ps.z[control], ps.x[target], ps.z[target]
+    out.sign ^= xc & zt & (xt ^ zc ^ 1)
+    out.x[target] ^= xc
+    out.z[control] ^= zt
     return out
 
 
