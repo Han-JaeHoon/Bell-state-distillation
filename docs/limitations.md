@@ -122,12 +122,14 @@ five-CNOT arrangement is new, and how it compares to known constructions, is an
 open question that requires a proper literature review — not answered by any
 calculation in this repository.
 
-## 7. No cross-comparison with the parent project's Step 3/4/5 numbers
+## 7. The comparison with the Step 3/4/5 gadgets is equal-noise, not equal-resource
 
-The parent project's 16-CNOT / 14-CNOT / 12-CNOT figures come from a
-**different protocol** (a 5-qubit SWAP-test gadget read out through a
-parity-weighted correlator, with no postselection) under its own noise
-conventions.  The numbers in `results/data/noisy_sweep_*.csv` are **not**
-comparable to those thresholds and no such comparison is made here.  Doing it
-properly requires importing those exact circuits and noise definitions and
-re-running both under one common convention.
+`docs/comparison_swap_test.md` compares repeated-round fixed points with the
+parent project's 16 / 14 / 14-CNOT SWAP-test gadgets **at the same per-CNOT
+replacement noise**.  That is legitimate because the noise convention is
+identical, and the Step 3/4 recursions are re-derived and checked against the
+parent's frozen data.  It is **not** an equal-resource comparison: the gadgets
+pay a sampling overhead on a parity-weighted effective state, this circuit pays
+a postselection probability `P_succ* < 1` on a physical state, and the two
+repeated maps idealise "re-preparing two copies" differently.  Read every
+"higher fixed point" statement with that qualifier attached.

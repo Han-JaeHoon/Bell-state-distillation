@@ -49,7 +49,7 @@ CNOT decompositions of that same ideal unitary:
 |---|---|---|
 | Step 3 | textbook Fredkin decomposition | 16 |
 | Step 4 | compiler-resynthesized | 14 |
-| Step 5 | optimized / learned | 12 |
+| Step 5 | learned and pruned | 14 (the task brief said 12; the parent repository's circuit has 14) |
 
 The ideal unitaries agree, but once gate-local noise is inserted after
 individual CNOTs the resulting **channels differ**, and the repeated map

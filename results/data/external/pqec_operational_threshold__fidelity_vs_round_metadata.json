@@ -1,0 +1,131 @@
+{
+  "script": "scripts/generate_fidelity_vs_round.py",
+  "git_commit": "dab86cae07176f6fe692e40e7aa139d31bd6a5aa",
+  "generated_utc": "2026-08-31T14:17:49Z",
+  "condition": {
+    "eps_bar": 0.9,
+    "q": 0.01,
+    "n_rounds": 5000,
+    "rho0": "rho(eps_bar, eps_bar) = 1/4[II + eps_bar(XX - YY + ZZ)]",
+    "fidelity": "F_n = <Phi+|rho_n|Phi+> = Tr(Phi rho_n)"
+  },
+  "model": {
+    "round_map": "iterated_noisy_pqec.one_round_effective_map",
+    "noise": "two-qubit replacement depolarizing D_q after every CNOT; single-qubit gates ideal",
+    "step3": "iterated_noisy_pqec circuit 'step3' (verify_analytic_decomposed._fred), dense 32x32 map, projected onto S_BD every round",
+    "step4": "iterated_noisy_pqec circuit 'step4' (pqec_resynth_noise.GATES), dense 32x32 map, projected onto S_BD every round",
+    "step5": "iterated_noisy_pqec circuit 'step5cal' (pqc_ring_prune.ansatz_masked + pqc_ring_pruned_params.npy, post-composed with the exact-compilation correction C_corr = U_PQEC Vbar^dag), dense 32x32 map, no projection",
+    "controls": "step3_raw / step4_raw (no S_BD projection), step5_uncalibrated (no C_corr), step3_uv_closed_form / step4_uv_closed_form ((u,v) recursion of notes 01/02)"
+  },
+  "n_cnots": {
+    "step3": 16,
+    "step4": 14,
+    "step5": 14,
+    "step5cal": 14
+  },
+  "validation": {
+    "compilation_residual": {
+      "step3": {
+        "max_abs": 2.3551386880256624e-16,
+        "frobenius": 1.620450243877094e-15
+      },
+      "step4": {
+        "max_abs": 9.515336678508264e-16,
+        "frobenius": 4.372932261911252e-15
+      },
+      "step5": {
+        "max_abs": 2.3369593191565957e-08,
+        "frobenius": 2.0357079847069396e-07
+      }
+    },
+    "ideal_limit_q0": {
+      "step3": 3.65934150561775e-16,
+      "step4": 1.982713805798391e-16,
+      "step5": 6.0884533388169435e-09,
+      "step5cal": 1.4766123507226718e-15
+    },
+    "max_bell_diagonal_leakage": {
+      "step3": 1.4230381264320665e-16,
+      "step4": 7.011597313399184e-16,
+      "step5": 0.8102839352547534,
+      "step3_raw": 2.4630544947748465e-16,
+      "step4_raw": 0.6981757948205567
+    },
+    "dense_vs_closed_form_max_dF": {
+      "step3": 7.771561172376096e-16,
+      "step4": 5.551115123125783e-16
+    },
+    "physicality": {
+      "step3": {
+        "min_eig": 0.006389130971256219,
+        "max_trace_err": 2.220446049250313e-16,
+        "max_herm_err": 1.437012739606394e-16,
+        "min_Q": 0.7538586000093543
+      },
+      "step4": {
+        "min_eig": 0.005051841967391391,
+        "max_trace_err": 2.220446049250313e-16,
+        "max_herm_err": 2.1450211964786945e-16,
+        "min_Q": 0.7645743283197499
+      },
+      "step5": {
+        "min_eig": 6.281441393395193e-06,
+        "max_trace_err": 4.440892098500626e-16,
+        "max_herm_err": 9.249586153946095e-16,
+        "min_Q": 0.760075027496957
+      }
+    }
+  },
+  "F_at_rounds": {
+    "step3": {
+      "0": 0.9249999999999998,
+      "1": 0.97548947916005,
+      "2": 0.9782552656711389,
+      "3": 0.9783430142676149,
+      "5": 0.9783458014101175,
+      "10": 0.978345804077312,
+      "100": 0.9783458040773121,
+      "500": 0.9783458040773124,
+      "1000": 0.9783458040773121,
+      "2000": 0.9783458040773124,
+      "5000": 0.9783458040773124
+    },
+    "step4": {
+      "0": 0.9249999999999998,
+      "1": 0.9798454608824757,
+      "2": 0.9822989360119245,
+      "3": 0.9823499045597516,
+      "5": 0.9823509511010391,
+      "10": 0.9823509515358246,
+      "100": 0.9823509515358249,
+      "500": 0.9823509515358247,
+      "1000": 0.9823509515358249,
+      "2000": 0.9823509515358247,
+      "5000": 0.9823509515358247
+    },
+    "step5": {
+      "0": 0.9249999999999998,
+      "1": 0.9854647745569038,
+      "2": 0.9874900766148749,
+      "3": 0.987506937556774,
+      "5": 0.987507065677439,
+      "10": 0.9875070654810706,
+      "100": 0.9875070223654523,
+      "500": 0.987399651742807,
+      "1000": 0.5441865668772511,
+      "2000": 0.4086053581718766,
+      "5000": 0.4079663666221317
+    }
+  },
+  "palette": {
+    "step3": "#0072B2",
+    "step4": "#D55E00",
+    "step5": "#009E73"
+  },
+  "outputs": [
+    "figures/fidelity_vs_round.pdf",
+    "figures/fidelity_vs_round.png",
+    "results/fidelity_vs_round/fidelity_vs_round.csv",
+    "results/fidelity_vs_round/metadata.json"
+  ]
+}

@@ -13,7 +13,7 @@ it.
 | **OBSERVED NUMERICALLY** | reproducible measurement over a finite sample/grid; no proof of the general statement |
 | **NOT YET TESTED** | out of scope of this repository |
 
-Test suite at the time of writing: **2232 passed** (`pytest -q`).
+Test suite at the time of writing: **2241 passed** (`pytest -q`).
 
 ---
 
@@ -264,11 +264,10 @@ input sector, not of the noise dephasing everything.
 **Status: OBSERVED NUMERICALLY** over the tested grid and inputs.  This is not a
 symbolic proof for all `p`.
 
-### J.3 No comparison with the 16 / 14 / 12-CNOT implementations
+### J.3 Comparison with the 16 / 14 / 14-CNOT implementations
 
-**Status: NOT YET TESTED — deliberately.**  Those results come from a different
-protocol (5-qubit SWAP-test gadget, parity-weighted read-out, no postselection)
-under its own noise conventions.  No cross-comparison is made or implied.
+Initially deferred; now done at equal per-CNOT noise in §J.8, with the
+resource-accounting caveat stated there.
 
 ### J.4 Exact noisy one-round map on Bell-diagonal states
 
@@ -354,6 +353,28 @@ Pauli-covariant noise preserves this.  Contrast with the parent project's
 This is **OBSERVED NUMERICALLY** as a property of the tested grid; the
 vanishing of the off-Bell block follows from the Schur-square structure but a
 symbolic all-`p` proof of that block for the *noisy* map is not written out.
+
+### J.8 Comparison with the parent project's Steps 3/4/5
+
+Equal per-CNOT replacement noise (same convention).  Step 3/4 from the parent
+notes' closed forms, re-implemented and checked against the parent's frozen
+dense trajectories to `< 1e-12` (`tests/test_comparison.py`, SHA-256 of the
+frozen files verified); Step 5 from the frozen trajectory.
+
+| | Step 3 | Step 4 | Step 5 | 4-qubit |
+|---|---|---|---|---|
+| `1-F* ~ A q` | 17/8 | 7/4 | (5/4 one round; no fixed point) | **1** |
+| `F*(0.01)` | 0.9783 | 0.9824 | 0.9875 plateau → 0.408 | **0.9897** |
+| `F*(0.05)` | 0.8812 | 0.9081 | 0.9373 plateau | **0.9415** |
+| `q_SN` | 0.1306 | **0.1894** | — | 0.1807 |
+| full-state `rho(J)` @0.01 | 1.023 | 1.018 | 1.012 | **0.019** |
+
+`F*(4q) > F*(S4) > F*(S3)` for all `q < 0.17` (60-point grid): **NUMERICALLY
+VERIFIED**.  Step 4's branch outlives the 4-qubit one by `0.009` in `q`:
+**NUMERICALLY VERIFIED**.  This is an equal-gate-quality comparison of the
+effective maps, **NOT** an equal-resource comparison (postselection vs
+sampling overhead) — see `docs/comparison_swap_test.md`.  Parent stability
+numbers are quoted, not re-derived: **NOT YET TESTED** here.
 
 ## K. Discrepancies found
 
