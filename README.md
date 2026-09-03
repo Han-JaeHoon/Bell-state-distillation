@@ -1,4 +1,4 @@
-# pqec-bell-distillation
+# Bell-state-distillation
 
 A **4-qubit / 5-CNOT** circuit that physically purifies a Bell pair, implemented
 from first principles and verified against independently derived analytics.
@@ -186,7 +186,8 @@ produce an entangled output from a separable input for
 ## 14. Reproducing every result
 
 ```bash
-git clone <this repo> && cd pqec-bell-distillation
+git clone https://github.com/Han-JaeHoon/Bell-state-distillation.git
+cd Bell-state-distillation
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[test]"
 
