@@ -97,6 +97,13 @@ there are specific to:
 Measurement error, idling/decoherence, crosstalk and state-preparation error
 are **not** modelled.
 
+The repeated-round analysis (`docs/derivation.md` §13-14) assumes that two
+*identical* copies of the postselected output can be prepared for the next
+round; it is an effective map, not a shot-by-shot protocol, and the full-tree
+success probability is not tracked there.  The fixed-point stability results
+are numerical on a grid of `p`; the vanishing of the off-Bell Jacobian block
+is explained structurally but not proved symbolically for all `p`.
+
 ## 6. No novelty claim is established here
 
 This repository verifies internal mathematical consistency of a circuit and its

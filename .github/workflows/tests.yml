@@ -38,6 +38,8 @@ jobs:
           python sweep_isotropic.py
           python analyze_repeated_rounds.py
           python sweep_noisy_circuit.py
+          python noisy_threshold.py
+          python repeated_noisy_dynamics.py
 
       - name: Check results are reproducible (no unexpected diff)
         run: git diff --stat -- results/data || true

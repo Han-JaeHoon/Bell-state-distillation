@@ -276,3 +276,162 @@ entangled**.  This is possible because the circuit is *not* an LOCC protocol —
 see [limitations.md](limitations.md).
 
 *(verified: `test_entanglement.py`)*
+
+## 11. Noisy circuit: exact one-round map on Bell-diagonal states
+
+Insert the two-qubit replacement channel after every CNOT, with
+no-replacement weight `qbar = 1 - p` (the Pauli convention is the same family
+with `qbar = 1 - 16 p/15`, see `noise.py`).  Its Heisenberg action on a Pauli
+string `P` is
+
+    D_j^dag(P) = P          if P is the identity on both qubits of CNOT j
+               = qbar P     otherwise
+
+so a back-propagated Pauli string simply collects a factor `qbar` at every
+noisy location it touches.  The success branch is read out by the four
+observables `P_A (x) Pi_00` with `P_A in {II, XX, YY, ZZ}` and
+`Pi_00 = 1/4 (I + Z_3)(I + Z_4)`; expand `Pi_00` into its four Pauli terms,
+propagate each backwards through `H_3` and then, for `j = 5..1`, apply the
+noise weight and conjugate by CNOT `j`.  Evaluating on `rho (x) rho` with
+`rho = 1/4(II + xXX + yYY + zZZ)` (so only `<II>=1, <XX>=x, <YY>=y, <ZZ>=z`
+survive) gives the unnormalized retained operator
+`tau = 1/4 [Q II + X XX + Y YY + Z ZZ]` with
+
+    Q = 1/4 [ 1 + qbar^5 (x^2 + y^2) + qbar^3 z^2 ]          (= P_success)
+    X = 1/4 qbar^3 [ (1+qbar) x - 2 qbar^2 y z ]
+    Y = 1/4 qbar^4 [ (1+qbar) y - 2 qbar   x z ]
+    Z = 1/4 qbar^4 [ (1+qbar) z - 2 qbar   x y ]
+
+and therefore the **exact noisy one-round map**
+
+    D  = 1 + qbar^5 (x^2 + y^2) + qbar^3 z^2
+    x' = qbar^3 [(1+qbar) x - 2 qbar^2 y z] / D
+    y' = qbar^4 [(1+qbar) y - 2 qbar   x z] / D
+    z' = qbar^4 [(1+qbar) z - 2 qbar   x y] / D
+
+At `qbar = 1` this is `x' = 2(x - yz)/(1+x^2+y^2+z^2)` etc., i.e. exactly
+`rho -> rho^2/Tr(rho^2)`.  The map keeps Bell-diagonal states Bell diagonal
+(consistent with section J.2 of the report) but is *not* symmetric between
+`XX` and `YY`: the phase-type correlator `x` is damped by `qbar^3`, the other
+two by `qbar^4`, because the CNOTs feed `XXXX` and `ZZZZ` to the two measured
+qubits asymmetrically.
+
+*(derived by weighted Pauli propagation and verified against the dense noisy
+simulator to 4.4e-16 for both conventions in `test_noisy_closed_form.py`)*
+
+### 11.1 Invariant plane and reduced map
+
+From the formulas, `y = -z` implies `y' = -z'` for every `qbar`, so the plane
+`y = -z` is invariant.  (The plane `y = -x` used in the 5-qubit SWAP-test
+study is *not* invariant here for `qbar < 1`.)  A Bell-isotropic input
+`(x, y, z) = (eb, -eb, eb)` therefore stays on the two-parameter family
+
+    rho(u, v) = 1/4 [ II + u XX + v (ZZ - YY) ],   u = <XX>,  v = <ZZ> = -<YY>
+
+with Bell populations (from `<XX> = (-1)^b`, `<ZZ> = (-1)^a`,
+`<YY> = -(-1)^(a+b)` on `|B_ab>`, so `p_ab = 1/4 [1 + (-1)^b x - (-1)^(a+b) y + (-1)^a z]`,
+with `x = u, y = -v, z = v`)
+
+    p_Phi+ = (1 + u + 2v)/4,      p_Psi+ = (1 + u - 2v)/4,
+    p_Phi- = p_Psi- = (1 - u)/4.
+
+The two "wrong-`XX`-sign" Bell states are always equally populated on this
+plane, while `Psi+` (right `XX` sign, wrong `ZZ`/`YY` signs) is not — e.g. the
+`p = 0.05` fixed point has populations `(0.9415, 0.0149, 0.0286, 0.0149)`.
+
+Hence `F = <Phi+|rho|Phi+> = (1 + u + 2v)/4`, and the reduced map is
+
+    D(u, v) = 1 + qbar^5 u^2 + (qbar^5 + qbar^3) v^2
+    u' = qbar^3 [ (1+qbar) u + 2 qbar^2 v^2 ] / D
+    v' = qbar^4 v [ (1+qbar) + 2 qbar u ] / D
+
+## 12. One-round operational threshold
+
+For a pure Bell input (`u = v = 1`)
+
+    F_1(1, p) = 1 - p - (5/4) p^2 + O(p^3)
+
+and in general `F_1(eb, p) = F_ideal(eb) - K(eb) p + O(p^2)` with
+
+    K(eb) = eb (12 eb^3 - 3 eb^2 + 30 eb + 25) / (4 (3 eb^2 + 1)^2),   K(1) = 1
+
+(both symbolic, SymPy).  The operational threshold is the largest `p` at which
+one round still improves the Bell fidelity, `F_1(eb, p*) = F_in(eb)`; clearing
+denominators this is a quintic in `p` whose physical root is found by
+bracketing.  It reproduces the earlier 41-point grid break-even values to
+`< 5e-6` and is **not monotone in eps**: it peaks at `p* = 0.1779` near
+`eps ~ 0.71` and decreases for noisier inputs (a very mixed input has little
+to gain, and the noisy circuit costs `~ 1 - qbar^3` of what remains).
+
+*(`test_noisy_threshold.py`; data `results/data/noisy_threshold.csv`)*
+
+## 13. Repeated noisy rounds: fixed points
+
+Feeding two copies of the postselected output into the next round defines
+`rho_{n+1} = M_p(rho_n)`.  On the invariant plane, a fixed point with
+`v* != 0` satisfies, from the `v` equation,
+
+    D* = qbar^4 [ (1+qbar) + 2 qbar u* ]
+
+which fixes `v*^2` in terms of `u*`; substituting into the `u` equation
+leaves a **quadratic in `u*`**.  The branch continuously connected to `Phi+`
+has the weak-noise expansion
+
+    u* = 1 -       p - (13/4) p^2 + O(p^3)
+    v* = 1 - (3/2) p - (33/8) p^2 + O(p^3)
+    F* = 1 -       p - (23/8) p^2 + O(p^3)
+
+so, as for the 5-qubit gadgets, the first-order asymptotic loss equals the
+first-order one-round loss (here both equal `1`).  The branch ends at a
+saddle node where the quadratic's discriminant vanishes,
+
+    p_SN  = 0.180669725979
+
+and its fidelity crosses `1/2` slightly earlier,
+
+    p_ent = 0.179815332614
+
+so in the narrow window `p_ent < p < p_SN` a fixed point exists but is
+separable.  Beyond `p_SN` every Bell-isotropic input decays to `I/4`
+(`F -> 1/4`).
+
+Other fixed-point families on the plane: the second root of the quadratic is
+a low-fidelity **unstable** point (Bell-sector eigenvalue `1.77` at
+`p = 0.05`) which exists for `p < 0.143` and again for `p > 0.176` — in
+between its `v*^2` is negative and it has merged with the `v = 0` family
+`1/4 (II + u0 XX)`, `u0^2 = (qbar^3(1+qbar) - 1)/qbar^5`, of classically
+correlated separable states.  These organise the basin boundary; they are not
+reached from Bell-isotropic inputs below `p_SN`.
+
+By the Pauli symmetry of the noise model each of the four Bell states carries
+its own copy of the attracting branch (same `F*`, `C*`; `(x, y, z)` signs
+flipped).  A generic input is purified toward whichever Bell state dominates
+it.
+
+*(`test_repeated_noisy.py`; data `results/data/repeated_fixed_points.csv`)*
+
+## 14. Full-state stability: the fixed point is an attractor
+
+Bell-sector attraction does not by itself imply full-state attraction — in
+the 5-qubit SWAP-test study the corresponding fixed points are saddles with an
+unstable direction `(ZI + IZ)/sqrt2`.  Here the exact 15x15 Jacobian in Pauli
+coordinates is computed without finite differences from the bilinearity of
+the unnormalized map, `d tau/d r_j = B(P_j/4, rho*) + B(rho*, P_j/4)`.
+
+Result: its spectral radius equals the Bell-sector (2x2) value — `0.0193` at
+`p = 0.01`, `0.119` at `p = 0.05`, `0.608` at `p = 0.15` — and **all twelve
+off-Bell eigenvalues are zero** (`< 1e-16`).  The reason is section 5: the
+success branch is a Bell-basis Schur square, `(rho_tilde)_ij = (rho_ij)^2`, so
+an off-Bell coherence `delta` returns as `delta^2` and its linearization at
+any Bell-diagonal point vanishes.  The noise does not spoil this: it is Pauli
+and hence Bell-basis covariant.  Seeding the fixed point with
+`eta (ZI + IZ)/(4 sqrt2)` confirms the quadratic contraction,
+`1e-2 -> 3.6e-5 -> 4.6e-10 -> 0`.
+
+The fixed point is therefore a genuine **full-state attractor** (superattracting
+off the Bell sector), and the same structural fact that restricts the exact
+`rho^2` identity to Bell-diagonal inputs is what makes the repeated noisy
+dynamics robust.
+
+*(`test_repeated_noisy.py`; figures `repeated_stability.png`,
+`repeated_offbell_decay.png`)*

@@ -13,7 +13,7 @@ it.
 | **OBSERVED NUMERICALLY** | reproducible measurement over a finite sample/grid; no proof of the general statement |
 | **NOT YET TESTED** | out of scope of this repository |
 
-Test suite at the time of writing: **2055 passed** (`pytest -q`).
+Test suite at the time of writing: **2232 passed** (`pytest -q`).
 
 ---
 
@@ -270,6 +270,91 @@ symbolic proof for all `p`.
 protocol (5-qubit SWAP-test gadget, parity-weighted read-out, no postselection)
 under its own noise conventions.  No cross-comparison is made or implied.
 
+### J.4 Exact noisy one-round map on Bell-diagonal states
+
+**Status: PROVED (weighted Pauli propagation, all 256 Paulis' conjugation
+checked against dense matrices) and NUMERICALLY VERIFIED** against the dense
+noisy simulator on 12 random Bell-diagonal states x 5 noise strengths x both
+conventions, max deviation **4.4e-16**:
+
+    D  = 1 + qbar^5 (x^2 + y^2) + qbar^3 z^2,        P_success = D/4
+    x' = qbar^3 [(1+qbar) x - 2 qbar^2 y z] / D
+    y' = qbar^4 [(1+qbar) y - 2 qbar   x z] / D
+    z' = qbar^4 [(1+qbar) z - 2 qbar   x y] / D
+
+Reduces to `rho^2/Tr(rho^2)` at `qbar = 1`.  The plane `y = -z` is invariant
+(the plane `y = -x` is not, unlike the SWAP-test gadgets); on it
+`F = (1 + u + 2v)/4` with `u = <XX>`, `v = <ZZ> = -<YY>`.
+
+### J.5 One-round operational threshold
+
+`F_1(1,p) = 1 - p - (5/4)p^2 + O(p^3)` and
+`K(eb) = eb(12eb^3 - 3eb^2 + 30eb + 25)/(4(3eb^2+1)^2)`: **PROVED** (SymPy).
+`p*(eps)` is the physical root of a quintic, found by bracketing to 1e-14:
+**NUMERICALLY VERIFIED** (`F_1(eps, p*) = F_in` to 1e-12, sign change on both
+sides, agrees with the earlier grid break-even to `< 5e-6`).
+
+| eps | 0.01 | 0.05 | 0.1 | 0.2 | 0.3 | 0.5 | 2/3 | 0.8 | 0.9 |
+|---|---|---|---|---|---|---|---|---|---|
+| `p*` replace | 0.00734 | 0.03370 | 0.06116 | 0.10282 | 0.13212 | 0.16654 | 0.17742 | 0.17599 | 0.16859 |
+
+`p*` is non-monotone, peaking at `0.177945` near `eps = 0.712`
+(**OBSERVED NUMERICALLY** on a 499-point grid).
+
+### J.6 Repeated noisy rounds: fixed points
+
+Feeding two copies of the postselected output into the next round.
+Fixed points of the reduced map with `v* != 0` solve a quadratic in `u*`
+(**PROVED**).  Weak-noise expansion of the `Phi+` branch (**PROVED**, SymPy;
+**NUMERICALLY VERIFIED** at `p = 1e-3, 3e-4`):
+
+    u* = 1 - p - (13/4)p^2,   v* = 1 - (3/2)p - (33/8)p^2,   F* = 1 - p - (23/8)p^2
+
+Dense 32x32 iteration reproduces the closed-form fixed point to `< 3.1e-13` at
+11 values of `p`: **NUMERICALLY VERIFIED**.
+
+    p_SN  = 0.180669725979   (discriminant = 0; branch ceases to exist)
+    p_ent = 0.179815332614   (F* = 1/2)
+
+**NUMERICALLY VERIFIED** (root-finding to 1e-14; existence/non-existence on
+either side of `p_SN`; separability inside `(p_ent, p_SN)`).  Beyond `p_SN`
+Bell-isotropic inputs converge to `I/4`: **NUMERICALLY VERIFIED** at
+`p = 0.19, 0.25`.  All Bell-isotropic `eps_0 in {0.05, 0.3, 0.5, 0.8}`
+converge to the same fixed point (`< 1e-11`): **NUMERICALLY VERIFIED**.
+
+Each of the four Bell states carries its own attracting fixed point with the
+same `F*` and `C*` (Pauli symmetry); generic non-Bell-diagonal inputs converge
+to one of the four: **NUMERICALLY VERIFIED** (6 seeded random states).
+
+| p | u* | v* | F* | C* | P_success* | rho(J_2D) | rho(J_15D) |
+|---|---|---|---|---|---|---|---|
+| 0.001 | 0.998997 | 0.998496 | 0.998997 | 0.99799 | 0.99476 | 0.001793 | 0.001793 |
+| 0.010 | 0.989664 | 0.984575 | 0.989704 | 0.97941 | 0.94848 | 0.019266 | 0.019266 |
+| 0.050 | 0.940283 | 0.912875 | 0.941508 | 0.88302 | 0.76086 | 0.118797 | 0.118797 |
+| 0.100 | 0.851048 | 0.790233 | 0.857878 | 0.71576 | 0.56292 | 0.304458 | 0.304458 |
+| 0.150 | 0.693360 | 0.589572 | 0.718126 | 0.43625 | 0.39525 | 0.608022 | 0.608022 |
+| 0.170 | 0.570170 | 0.443117 | 0.614101 | 0.22820 | 0.32942 | 0.802010 | 0.802010 |
+
+### J.7 Full-state stability: attractor, not saddle
+
+Exact 15x15 Jacobian from bilinearity (no finite differences).  At every
+tested `p` its spectral radius **equals the Bell-sector value** and **all
+twelve off-Bell eigenvalues are `< 1.2e-16`**: **NUMERICALLY VERIFIED** at
+11 values of `p` (and at `p = 0`, where all 15 vanish at `Phi+`).  Seeding the
+fixed point along `(ZI+IZ)/sqrt2` — the unstable direction of the SWAP-test
+fixed points — decays quadratically, `1e-2 -> 3.6e-5 -> 4.6e-10 -> 0`:
+**NUMERICALLY VERIFIED** at `p = 0.01, 0.05, 0.1`.
+
+Mechanism (**PROVED** from section H): the success branch is a Bell-basis
+Schur square, so off-Bell coherences enter only at second order.  The
+Pauli-covariant noise preserves this.  Contrast with the parent project's
+5-qubit fixed points (`rho(J_full) = 1.023 > 1` at `q = 0.01`): here
+`rho(J_full) = 0.019`.
+
+This is **OBSERVED NUMERICALLY** as a property of the tested grid; the
+vanishing of the off-Bell block follows from the Schur-square structure but a
+symbolic all-`p` proof of that block for the *noisy* map is not written out.
+
 ## K. Discrepancies found
 
 Two claims from the manual derivation needed refinement.  In both cases the
@@ -293,6 +378,18 @@ level `k` by its `2^(l-k)` nodes; with that weighting the identity holds to
 **K.3 — noise-convention naming.**  An initial docstring asserted the two
 conventions "agree only at `p = 1`".  That is wrong: they are the same family
 under `p_replace = 16 p_pauli/15`.  Corrected and now tested.
+
+**K.4 — phase bookkeeping in the rule-based Pauli propagation.**  The
+"independent" route in `pauli_propagation.py` originally updated the `(x, z)`
+bits of a Pauli under CNOT conjugation but not its sign, so products such as
+`Y_c Y_t -> -X_c Z_t` came out with the wrong sign (72 of the 256 four-qubit
+Paulis).  It was caught when the noisy closed form came out as
+`x' = 2(x + yz)/D` at `p = 0` instead of `2(x - yz)/D`.  The two stabilizer
+results in §C and the Bell-sector support analysis in §G were unaffected (no
+`Y` appears in the former; the latter used only the support, and the
+`XX/YY/ZZ` signs happened to be right).  Fixed with the Aaronson-Gottesman
+phase rule; a new basis-complete test compares all 256 conjugations against
+dense matrices including the sign.
 
 Nothing else disagreed with the manual derivation.  In particular, the central
 five-CNOT identity, the stabilizer mapping, the `rho^2` law, `P = Tr(rho^2)`,
@@ -318,6 +415,12 @@ The proposed circuit does what it was claimed to do:
 6. Under per-CNOT depolarizing noise the circuit retains a finite break-even
    window and — unlike some implementations studied in the parent project —
    does not leak out of the Bell-diagonal sector.
+7. The noisy one-round map has the exact closed form of §J.4; the operational
+   threshold peaks at `p* = 0.178`; repeated noisy rounds converge to a
+   fixed point with `F* = 1 - p - (23/8)p^2 + ...` that exists up to
+   `p_SN = 0.18067` (entangled up to `p_ent = 0.17982`) and — unlike the
+   SWAP-test gadgets — is a **full-state attractor**, with all off-Bell
+   directions superattracting because the map is a Bell-basis Schur square.
 
 **What this does not establish:** any novelty, priority, optimality, or
 advantage over existing Bell-purification protocols; and nothing about LOCC
