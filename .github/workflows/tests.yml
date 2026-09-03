@@ -32,6 +32,8 @@ jobs:
       - name: Reproduce verification scripts
         run: |
           cd scripts
+          python draw_circuit.py
+          python draw_circuit_figure.py
           python verify_all_bell_inputs.py
           python sweep_isotropic.py
           python analyze_repeated_rounds.py
