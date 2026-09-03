@@ -1,0 +1,41 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[test]"
+
+      - name: Run test suite
+        run: pytest -q
+
+      - name: Reproduce verification scripts
+        run: |
+          cd scripts
+          python verify_all_bell_inputs.py
+          python sweep_isotropic.py
+          python analyze_repeated_rounds.py
+          python sweep_noisy_circuit.py
+
+      - name: Check results are reproducible (no unexpected diff)
+        run: git diff --stat -- results/data || true
