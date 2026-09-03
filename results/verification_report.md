@@ -13,7 +13,7 @@ it.
 | **OBSERVED NUMERICALLY** | reproducible measurement over a finite sample/grid; no proof of the general statement |
 | **NOT YET TESTED** | out of scope of this repository |
 
-Test suite at the time of writing: **2241 passed** (`pytest -q`).
+Test suite at the time of writing: **2246 passed** (`pytest -q`).
 
 ---
 
@@ -316,9 +316,17 @@ Dense 32x32 iteration reproduces the closed-form fixed point to `< 3.1e-13` at
     p_ent = 0.179815332614   (F* = 1/2)
 
 **NUMERICALLY VERIFIED** (root-finding to 1e-14; existence/non-existence on
-either side of `p_SN`; separability inside `(p_ent, p_SN)`).  Beyond `p_SN`
-Bell-isotropic inputs converge to `I/4`: **NUMERICALLY VERIFIED** at
-`p = 0.19, 0.25`.  All Bell-isotropic `eps_0 in {0.05, 0.3, 0.5, 0.8}`
+either side of `p_SN`; separability inside `(p_ent, p_SN)`).  Above `p_SN`
+there are **three regimes** (derivation §13.1): for `p_SN < p < p0 =
+0.180827486603836` the attractor is the separable `1/4(II + u0 XX)` with
+`u0^2 = (qbar^3(1+qbar)-1)/qbar^5` (exact fixed point of the full circuit to
+`3.5e-18` at `p = 0.1807`; reached by the reduced map after ~1e4–4e4 rounds, the saddle-node ghost), and
+only for `p > p0` is it `I/4`: **NUMERICALLY VERIFIED** (`p = 0.19, 0.25` for
+`I/4`).  For `p_B = 0.175833265266489 < p < p_SN` the map is bistable; at
+`p = 0.18` the isotropic-line basin boundary is `t_c ~ 0.2226` and all
+entangled inputs reach the `Phi+` branch: **OBSERVED NUMERICALLY**.  The
+fixed-point threshold `F*(p) = F_in` sits slightly above the one-round one
+(`0.0615498` vs `0.0611604` at `eps = 0.1`): **NUMERICALLY VERIFIED**.  All Bell-isotropic `eps_0 in {0.05, 0.3, 0.5, 0.8}`
 converge to the same fixed point (`< 1e-11`): **NUMERICALLY VERIFIED**.
 
 Each of the four Bell states carries its own attracting fixed point with the
@@ -411,6 +419,17 @@ results in §C and the Bell-sector support analysis in §G were unaffected (no
 `XX/YY/ZZ` signs happened to be right).  Fixed with the Aaronson-Gottesman
 phase rule; a new basis-complete test compares all 256 conjugations against
 dense matrices including the sign.
+
+**K.5 — "beyond `p_SN` the input decays to `I/4`" was imprecise.**  An
+external review of the analytic calculation (which reproduced every closed
+form and number in §J.4–J.7 independently) pointed out that the `v = 0`
+family `1/4(II + u0 XX)` remains the attractor in the narrow window
+`p_SN < p < p0`, `p0 = 0.180827`, and that the map is bistable for
+`p_B = 0.175833 < p < p_SN`.  Both statements were checked here against the
+full noisy circuit and the reduced map and are correct; the earlier tests at
+`p = 0.19, 0.25` lay outside the window, so they passed while the sentence
+was wrong.  Documentation, helpers and tests now carry the three-regime
+structure.
 
 Nothing else disagreed with the manual derivation.  In particular, the central
 five-CNOT identity, the stabilizer mapping, the `rho^2` law, `P = Tr(rho^2)`,

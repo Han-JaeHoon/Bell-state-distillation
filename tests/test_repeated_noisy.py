@@ -8,8 +8,10 @@ from pqec_distill.analytics import isotropic_populations
 from pqec_distill.bell_states import bell_diagonal_state
 from pqec_distill.gates import I2, PAULI_Z, kron_list
 from pqec_distill.noisy_analytics import (
-    entanglement_limit_p, fidelity_uv, fixed_point_branch, fixed_point_uv,
-    jacobian_uv, saddle_node_p,
+    asymptotic_threshold_p, bistability_onset_p, entanglement_limit_p,
+    fidelity_uv, fixed_point_branch, fixed_point_uv, jacobian_uv, noisy_map_uv,
+    saddle_node_p, threshold_p, v0_family_limit_p, v0_fixed_point_u,
+    v0_transverse_eigenvalue,
 )
 from pqec_distill.repeated_noisy import (
     PAULI_LABELS_2Q, effective_map, fixed_point_dense, full_jacobian, iterate,
@@ -142,9 +144,84 @@ def test_saddle_node_and_entanglement_limit():
 
 
 @pytest.mark.parametrize("p", [0.19, 0.25])
-def test_beyond_saddle_node_no_purification(p):
+def test_beyond_v0_limit_converges_to_maximally_mixed(p):
+    """For p > p0 = 0.18083 the only attractor is I/4."""
+    assert p > v0_family_limit_p()
     rho = iterate(bell_diagonal_state(isotropic_populations(0.05)), p, "replace", 400)[-1]
     assert _fidelity(rho) < 0.5
+    assert np.linalg.norm(rho - np.eye(4) / 4, "fro") < 1e-6
+
+
+def test_three_regime_structure_above_the_saddle_node():
+    """p_B < p_SN < p0, with the v = 0 point  1/4(II + u0 XX)  the attractor in
+    the narrow window p_SN < p < p0 (found in an external review of the
+    analytic calculation; see report K.5)."""
+    p_b, p_sn, p0 = bistability_onset_p(), saddle_node_p(), v0_family_limit_p()
+    assert abs(p_b - 0.175833265266489) < 1e-12
+    assert abs(p_sn - 0.180669725978882) < 1e-12
+    assert abs(p0 - 0.180827486603836) < 1e-12
+    assert p_b < p_sn < p0
+    # the v = 0 point is transversally unstable below p_B and stable above
+    assert v0_transverse_eigenvalue(1 - 0.17) > 1.0
+    assert v0_transverse_eigenvalue(1 - 0.178) < 1.0
+    # in the window it is an exact fixed point of the FULL noisy circuit
+    from pqec_distill.gates import PAULI_X, kron_list
+    p = 0.1807
+    u0 = v0_fixed_point_u(1 - p)
+    assert abs(u0 - 0.0381424) < 1e-6
+    rho = (np.eye(4) + u0 * kron_list([PAULI_X, PAULI_X])) / 4
+    out, _ = effective_map(rho, p, "replace")
+    assert np.linalg.norm(out - rho, "fro") < 1e-15
+    # ...and the Phi+ branch is gone there
+    assert fixed_point_branch(1 - p) is None
+
+
+def test_window_converges_to_v0_point_slowly():
+    """Convergence in the window is governed by the saddle-node ghost, so it
+    takes thousands of rounds; iterate the exact reduced map."""
+    p = 0.1807
+    u0 = v0_fixed_point_u(1 - p)
+    u = v = 0.9
+    for _ in range(60000):
+        u, v = noisy_map_uv(u, v, 1 - p)
+    assert abs(v) < 1e-6 and abs(u - u0) < 1e-6
+
+
+def test_bistability_basin_at_p_0p18():
+    """For p_B < p < p_SN both attractors coexist; at p = 0.18 the basin
+    boundary on the isotropic line is near t_c = 0.2226, below the entangled
+    inputs (t > 1/3), which all reach the Phi+ branch."""
+    p = 0.18
+    u_star, v_star = fixed_point_branch(1 - p)
+
+    def endpoint(t):
+        u = v = t
+        for _ in range(3000):
+            u, v = noisy_map_uv(u, v, 1 - p)
+        return u, v
+    u, v = endpoint(0.20)
+    assert abs(v) < 1e-9 and abs(u - v0_fixed_point_u(1 - p)) < 1e-6
+    for t in (0.25, 1 / 3, 0.5, 0.9):
+        u, v = endpoint(t)
+        assert abs(u - u_star) < 1e-6 and abs(v - v_star) < 1e-6
+
+
+def test_asymptotic_threshold_slightly_above_one_round_threshold():
+    """eps0 = 0.1: one-round break-even at p = 0.061160, but the fixed point
+    still beats the input up to p = 0.061550."""
+    p1, pinf = threshold_p(0.1), asymptotic_threshold_p(0.1)
+    assert abs(p1 - 0.0611603568) < 1e-9
+    assert abs(pinf - 0.0615498) < 1e-6
+    assert pinf > p1
+    # at exactly the one-round threshold the first round is break-even and
+    # later rounds improve a little
+    u = v = 0.9
+    fs = [fidelity_uv(u, v)]
+    for _ in range(3):
+        u, v = noisy_map_uv(u, v, 1 - p1)
+        fs.append(fidelity_uv(u, v))
+    assert abs(fs[1] - 0.925) < 1e-9
+    assert fs[3] > fs[2] > fs[1]
 
 
 def test_low_fidelity_branch_is_unstable_in_bell_sector():

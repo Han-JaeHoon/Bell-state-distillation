@@ -43,6 +43,8 @@ __all__ = [
     "isotropic_uv", "one_round_fidelity", "one_round_slope_pure_bell",
     "threshold_p", "fixed_point_uv", "fixed_point_branch", "jacobian_uv",
     "iterate_uv", "saddle_node_p", "entanglement_limit_p",
+    "v0_fixed_point_u", "v0_family_limit_p", "v0_transverse_eigenvalue",
+    "bistability_onset_p", "asymptotic_threshold_p",
 ]
 
 
@@ -216,3 +218,44 @@ def entanglement_limit_p():
         fp = fixed_point_branch(1.0 - p)
         return (fidelity_uv(*fp) - 0.5) if fp else -1.0
     return brentq(gap, 1e-6, saddle_node_p() - 1e-12, xtol=1e-14)
+
+
+# --------------------------------------------------------------------------
+# the v = 0 family (classically correlated separable fixed points)
+# --------------------------------------------------------------------------
+
+def v0_fixed_point_u(qb):
+    """u0 > 0 with  1/4 (II + u0 XX)  a fixed point:  u0^2 = (qbar^3(1+qbar) - 1)/qbar^5.
+    Returns 0.0 when the nonzero solution does not exist (then I/4 is the point)."""
+    a = (qb ** 3 * (1.0 + qb) - 1.0) / qb ** 5
+    return float(np.sqrt(a)) if a > 0.0 else 0.0
+
+
+def v0_family_limit_p():
+    """p0: the nonzero v = 0 fixed point exists for p < p0, where qbar^3(1+qbar) = 1.
+    For p > p0 the maximally mixed state I/4 is the (only) stable fixed point."""
+    return brentq(lambda p: (1 - p) ** 3 * (2 - p) - 1.0, 0.05, 0.5, xtol=1e-15)
+
+
+def v0_transverse_eigenvalue(qb):
+    """d v'/d v at (u0, 0):  qbar + 2 qbar^2 u0 / (1 + qbar)  (using 1 + qbar^5 u0^2 = qbar^3(1+qbar))."""
+    u0 = v0_fixed_point_u(qb)
+    return qb + 2.0 * qb * qb * u0 / (1.0 + qb)
+
+
+def bistability_onset_p():
+    """p_B: the v = 0 fixed point becomes transversally stable (pitchfork in v).
+    For p_B < p < p_SN both the Phi+ branch and the v = 0 point are attracting."""
+    return brentq(lambda p: v0_transverse_eigenvalue(1 - p) - 1.0, 0.05, 0.18, xtol=1e-15)
+
+
+def asymptotic_threshold_p(eps):
+    """Largest p at which the FIXED POINT still beats the input:  F*(p) = F_in(eps).
+    Slightly above the one-round threshold, because the anisotropic output keeps
+    improving after a break-even first round."""
+    f_in = (1.0 + 3.0 * (1.0 - float(eps))) / 4.0
+
+    def gap(p):
+        fp = fixed_point_branch(1.0 - p)
+        return (fidelity_uv(*fp) - f_in) if fp else -1.0
+    return brentq(gap, 1e-6, saddle_node_p() - 1e-9, xtol=1e-13)

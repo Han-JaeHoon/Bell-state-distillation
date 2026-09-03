@@ -392,16 +392,55 @@ and its fidelity crosses `1/2` slightly earlier,
     p_ent = 0.179815332614
 
 so in the narrow window `p_ent < p < p_SN` a fixed point exists but is
-separable.  Beyond `p_SN` every Bell-isotropic input decays to `I/4`
-(`F -> 1/4`).
+separable.
 
-Other fixed-point families on the plane: the second root of the quadratic is
-a low-fidelity **unstable** point (Bell-sector eigenvalue `1.77` at
-`p = 0.05`) which exists for `p < 0.143` and again for `p > 0.176` — in
-between its `v*^2` is negative and it has merged with the `v = 0` family
-`1/4 (II + u0 XX)`, `u0^2 = (qbar^3(1+qbar) - 1)/qbar^5`, of classically
-correlated separable states.  These organise the basin boundary; they are not
-reached from Bell-isotropic inputs below `p_SN`.
+### 13.1 Above the saddle node: the `v = 0` family and three regimes
+
+Setting `v = 0` (which the map preserves) leaves `u' = qbar^3(1+qbar) u /
+(1 + qbar^5 u^2)`, whose fixed points are `u = 0` (the maximally mixed
+state) and
+
+    u0^2 = (qbar^3 (1 + qbar) - 1) / qbar^5 ,       rho_x* = 1/4 (II + u0 XX)
+
+a classically correlated, separable state that exists for
+`qbar^3(1+qbar) > 1`, i.e. `p < p0 = 0.180827486603836`.  Its transverse
+eigenvalue is `d v'/d v = qbar + 2 qbar^2 u0/(1+qbar)`, which drops below 1 at
+
+    p_B = 0.175833265266489
+
+(a pitchfork in `v`: below `p_B` the point is a saddle and the low-fidelity
+second root of the quadratic is the branch that emanates from it; that branch
+has `v*^2 < 0`, i.e. does not exist, for `0.143 < p < p_B`).  Together with
+`p_SN` this gives
+
+| noise | attractor reached from Bell-isotropic input |
+|---|---|
+| `p < p_SN = 0.180670` | the `Phi+` branch (entangled for `p < p_ent`) |
+| `p_SN < p < p0 = 0.180827` | `rho_x* = 1/4 (II + u0 XX)`, separable, `F = (1+u0)/4` (e.g. `u0 = 0.0381` at `p = 0.1807`) |
+| `p > p0` | `I/4` |
+
+so the decay to `I/4` sets in only above `p0`, not at `p_SN` — a
+`1.6e-4`-wide window that an earlier version of this document glossed over.
+`rho_x*` is an exact fixed point of the full noisy circuit (`3.5e-18` at
+`p = 0.1807`), and the reduced map reaches it, but only after tens of
+thousands of rounds: just above the saddle node the vanished `Phi+` pair
+leaves a "ghost" through which the trajectory crawls.
+
+For `p_B < p < p_SN` the map is **bistable**: the `Phi+` branch and `rho_x*`
+are both attracting, separated by the unstable second root.  On the
+Bell-isotropic line at `p = 0.18` the basin boundary is near `t_c = 0.2226`,
+so every entangled isotropic input (`t > 1/3`) still reaches the `Phi+`
+branch; the basin statement is numerical, the fixed points and their
+eigenvalues are closed-form.
+
+### 13.2 One-round versus asymptotic threshold
+
+Because the output leaves the isotropic line, a first round that exactly
+breaks even (`F_1 = F_in`) is followed by rounds that improve slightly:
+at `eps_0 = 0.1` and `p = p*_{1-round} = 0.0611603568`, `F_1 = 0.925`,
+`F_2 = 0.9254556`, `F_3 = 0.9255568`, `F* = 0.9255794`.  The threshold defined
+on the fixed point, `F*(p) = F_in`, is therefore a little higher,
+`p*_infty(0.1) = 0.0615498`.
 
 By the Pauli symmetry of the noise model each of the four Bell states carries
 its own copy of the attracting branch (same `F*`, `C*`; `(x, y, z)` signs
