@@ -1,0 +1,88 @@
+{
+  "purpose": "circuit-only input->output reference; no analytic map used",
+  "generated_utc": "2026-09-18T07:51:00Z",
+  "this_repo_commit": "f1ff6fae00b83547296b05a8b96427cb01080fee",
+  "noise": {
+    "convention": "replace",
+    "definition": "D_q(rho) = (1-q) rho + q [I_ij/4 (x) Tr_ij rho], after every CNOT",
+    "single_qubit_gates": "ideal"
+  },
+  "bell_order": [
+    "Phi+",
+    "Phi-",
+    "Psi+",
+    "Psi-"
+  ],
+  "seed": 20260918,
+  "q_values": [
+    0.0,
+    0.0001,
+    0.001,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "n_cases": 87,
+  "n_rows": 2871,
+  "circuits": {
+    "4Q": {
+      "n_cnot": 5,
+      "qubit_order": "(q1,q2,q3,q4)=(0,1,2,3), q1 most significant",
+      "gates": "pqec_distill.circuit.CNOT_SEQUENCE then H on q3",
+      "output_definition": "postselect (m3,m4)=(0,0); rho_out = rho_tilde/P_success",
+      "backends": [
+        "pqec_distill numpy dense 16x16",
+        "PennyLane default.mixed"
+      ]
+    },
+    "Type3": {
+      "n_cnot": 16,
+      "qubit_order": "(a,A1,A2,B1,B2)=(0,1,2,3,4)",
+      "gates": "verify_analytic_decomposed._fred x2 (textbook CSWAP)",
+      "output_definition": "tau_A = Tr_{a,B}[(Z_a (x) I) sigma_out]; rho_out = tau_A/Tr(tau_A) (parity-weighted, NOT a postselected physical state)",
+      "backends": [
+        "dense 32x32 (iterated_noisy_pqec)",
+        "PennyLane default.mixed"
+      ],
+      "source": "origin/iterated-noisy-pqec:iterated_noisy_pqec.py (extracted; not on the checked-out branch)",
+      "parent_commit": "1e2ce0a67c4c893a20b42d5cc01dc10456bd6171",
+      "compilation_residual_vs_U_PQEC": {
+        "max_abs": 2.3551386880256624e-16,
+        "frobenius": 1.620450243877094e-15
+      }
+    },
+    "Type4": {
+      "n_cnot": 14,
+      "qubit_order": "(a,A1,A2,B1,B2)=(0,1,2,3,4)",
+      "gates": "pqec_resynth_noise.GATES",
+      "output_definition": "tau_A = Tr_{a,B}[(Z_a (x) I) sigma_out]; rho_out = tau_A/Tr(tau_A) (parity-weighted, NOT a postselected physical state)",
+      "backends": [
+        "dense 32x32 (iterated_noisy_pqec)",
+        "PennyLane default.mixed"
+      ],
+      "source": "origin/iterated-noisy-pqec:iterated_noisy_pqec.py (extracted; not on the checked-out branch)",
+      "parent_commit": "1e2ce0a67c4c893a20b42d5cc01dc10456bd6171",
+      "compilation_residual_vs_U_PQEC": {
+        "max_abs": 9.515336678508264e-16,
+        "frobenius": 4.372932261911252e-15
+      }
+    }
+  },
+  "backend_cross_check_max_abs_diff": {
+    "Type3": 1.3324301609784804e-15,
+    "Type4": 1.2221736963486295e-15,
+    "4Q": 6.106226635438361e-16
+  },
+  "excluded_modules": [
+    "pqec_distill.noisy_analytics",
+    "pqec_distill.swap_test_reference",
+    "pqec_distill.repeated_noisy",
+    "pqec_distill.analytics",
+    "iterated_noisy_pqec closed-form/fixed-point helpers"
+  ]
+}
