@@ -1,0 +1,45 @@
+{
+  "purpose": "repeated dynamics derived independently from the verified one-round map",
+  "generated_utc": "2026-09-22T14:13:05Z",
+  "commit": "c77478361554e99ead4ef394103fe787dff81dbd",
+  "precision_dps": 60,
+  "root_solver": "mpmath.findroot (anderson), analytic conditions, not grid search",
+  "invariant_planes": {
+    "Type3": "y = -x",
+    "Type4": "y = -x",
+    "4Q": "y = -z"
+  },
+  "reduced_maps": {
+    "Type3/Type4": "D = 1 + qbar^k (2u^2+v^2); u' = 2 qbar^(k+2) u (1+v)/D; v' = qbar^(k+1)(1+qbar)(u^2+v)/D;  k=4 (Type3), 2 (Type4); F = (1+2u+v)/4",
+    "4Q": "D = 1 + qbar^5 a^2 + (qbar^5+qbar^3) b^2; a' = qbar^3[(1+qbar)a + 2 qbar^2 b^2]/D; b' = qbar^4 b[(1+qbar) + 2 qbar a]/D;  F = (1+a+2b)/4"
+  },
+  "fixed_point_quadratics": {
+    "Type3/Type4": "qbar^k(5qbar+1) v^2 - 2 qbar^k(qbar^3+qbar^2-qbar+1) v - (qbar+1)(2 qbar^(k+2)-1) = 0, u^2 = v(2 qbar v + qbar - 1)/(1+qbar)",
+    "4Q": "2 qbar^3(2qbar^2+1) a^2 - qbar(3qbar^4+1) a - 2(qbar^5+qbar^4-1) = 0, b^2 = a(2 a qbar^2 + qbar^2 - 1)/(2 qbar^2)"
+  },
+  "offplane_branches": {
+    "Type3/Type4": "u = 0, v^2 = [qbar^(k+1)(1+qbar) - 1]/qbar^k",
+    "4Q": "b = 0, a^2 = [qbar^3(1+qbar) - 1]/qbar^5"
+  },
+  "origin_eigenvalues": {
+    "Type3/Type4": "2 qbar^(k+2)  and  qbar^(k+1)(1+qbar)",
+    "4Q": "qbar^3(1+qbar)  and  qbar^4(1+qbar)"
+  },
+  "excluded": [
+    "pqec_distill.noisy_analytics",
+    "pqec_distill.repeated_noisy",
+    "pqec_distill.swap_test_reference",
+    "pqec_distill.analytics",
+    "scripts/repeated_noisy_dynamics.py",
+    "scripts/analyze_repeated_rounds.py",
+    "scripts/compare_with_swap_test.py",
+    "results/data/repeated_*.csv",
+    "results/data/compare_fixed_points.csv",
+    "docs/derivation.md ss13-14",
+    "docs/comparison_swap_test.md",
+    "results/verification_report.md ssJ.6-J.7",
+    "tests/test_repeated_noisy.py",
+    "tests/test_repeated_rounds.py"
+  ],
+  "disclosure": "Prior repeated-dynamics numbers from earlier in the same working session were present in the analyst's context; the derivation here was redone from the one-round map and no stored result file was read, but this is an independent derivation path, not a blind replication."
+}

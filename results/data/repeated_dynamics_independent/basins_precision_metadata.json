@@ -1,0 +1,9 @@
+{
+  "generated_utc": "2026-09-22T14:22:19Z",
+  "commit": "c77478361554e99ead4ef394103fe787dff81dbd",
+  "precision_dps": 60,
+  "attractor_match_rule": "labelled only when dist_to_fixed_point < 1e-06 AND residual of the FULL 4-component one-round map < 1e-09 AND the analytic spectral radius there is < 1; otherwise 'unresolved'",
+  "float64_orbit_max_rounds": 200000,
+  "float64_orbit_stop_tol": 1e-16,
+  "boundary_method": "bisection on eps at fixed q, 50 halvings, max_rounds=60000; transitions whose upper side is the exact maximally mixed fixed point are not bisected"
+}

@@ -1,0 +1,26 @@
+{
+  "Type3": {
+    "q_saddle_node_discriminant_zero": "0.13057926796877357347",
+    "q_offplane_branch_vanishes": "0.11872853836643040559",
+    "q_origin_lambda1_eq_1": "0.10910128185966069526",
+    "q_origin_lambda2_eq_1": "0.11872853836643040559",
+    "q_offplane_branch_spectral_radius_eq_1": "0.11829076290692815112",
+    "q_target_branch_fidelity_eq_half": "0.12913747077600534568"
+  },
+  "Type4": {
+    "q_saddle_node_discriminant_zero": "0.18941665588510333581",
+    "q_offplane_branch_vanishes": "0.1808274866038355603",
+    "q_origin_lambda1_eq_1": "0.15910358474628545697",
+    "q_origin_lambda2_eq_1": "0.1808274866038355603",
+    "q_offplane_branch_spectral_radius_eq_1": "0.17893265219838291056",
+    "q_target_branch_fidelity_eq_half": "0.18473580536511805152"
+  },
+  "4Q": {
+    "q_saddle_node_discriminant_zero": "0.18066972597888191884",
+    "q_offplane_branch_vanishes": "0.1808274866038355603",
+    "q_origin_lambda1_eq_1": "0.1808274866038355603",
+    "q_origin_lambda2_eq_1": "0.14332511614549712515",
+    "q_offplane_branch_spectral_radius_eq_1": "0.17583326526648862875",
+    "q_target_branch_fidelity_eq_half": "0.17981533261354221516"
+  }
+}
