@@ -81,6 +81,7 @@ from .noise import noisy_full_channel_dm
 
 __all__ = [
     "PROTOCOLS", "DIAGNOSTIC_PROTOCOLS", "PROTOCOL_INFO", "BELL_NAMES",
+    "INVARIANT_PAIR",
     "isotropic_dm", "isotropic_populations",
     "bell_populations", "bell_offdiagonal_c", "state_diagnostics",
     "one_round", "run_dynamics", "cross_check_exact_vs_dm",
@@ -120,6 +121,15 @@ PROTOCOL_INFO: dict[str, dict] = {
 }
 
 _ALL_PROTOCOLS = PROTOCOLS + DIAGNOSTIC_PROTOCOLS
+
+#: The pair of Bell populations each protocol keeps exactly equal on a
+#: Bell-diagonal trajectory.  Type 3/4 preserve the Pauli-coordinate plane
+#: y = -x, which reads p_Psi+ = p_Psi-; 4Q preserves y = -z, which reads
+#: p_Phi- = p_Psi-.  Type 5 preserves neither, so it has no entry: its noisy
+#: dynamics does not stay Bell-diagonal at all.
+INVARIANT_PAIR = {"Type3": ("Psi+", "Psi-"),
+                  "Type4": ("Psi+", "Psi-"),
+                  "4Q": ("Phi-", "Psi-")}
 
 
 # ---------------------------------------------------------------------------
@@ -286,17 +296,21 @@ def run_dynamics(protocol: str, eps: float, q: float, n_rounds: int = 50,
     if backend == "exact":
         step = _exact_map(protocol)
         p = isotropic_populations(eps)
+        # weight[n] is the weight of the round that PRODUCED p_n, so it is NaN
+        # at n = 0 -- the same indexing the density-matrix backend uses.
+        weight = float("nan")
         for n in range(n_rounds + 1):
             if n % record_every == 0 or n == n_rounds:
                 ns.append(n)
                 pops.append(p.copy())
                 fid.append(float(p[0]))
                 cb.append(0.0)
-                wts.append(float(analytic_success_4q(p, q)) if protocol == "4Q"
-                           else float("nan"))
+                wts.append(weight)
                 diags.append({"pop_sum_err": float(abs(p.sum() - 1.0)),
                               "min_pop": float(p.min())})
             if n < n_rounds:
+                if protocol == "4Q":
+                    weight = float(analytic_success_4q(p, q))
                 p = step(p, q)
         final = bell_diagonal_state(p)
     else:

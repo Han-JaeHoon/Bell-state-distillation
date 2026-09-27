@@ -1,5 +1,6 @@
 {
   "protocol": "Type4",
+  "n_cnot": 14,
   "q": 0.02,
   "eps_values": [
     0.02,
@@ -27,7 +28,9 @@
     "F": 0.9643811148767123,
     "max_spread_across_epsilon": 0.0,
     "same_for_every_epsilon": true,
-    "n_long": 2000
+    "n_long": 2000,
+    "break_even_eps": 0.04749184683105027,
+    "break_even_note": "the eps at which F_0 = F_infty; NOT a threshold, just where the input crosses the attractor"
   },
   "tables": {
     "0.02": {
@@ -92,7 +95,16 @@
       "F_infty": 0.9643811148767123,
       "n_converged": 8,
       "n_anisotropic": 1,
-      "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+      "contraction_rate": {
+        "fit": 0.04270521531440265,
+        "last_ratio": 0.04274988644561413,
+        "n_last": 8
+      },
       "F_infty_minus_F_0": -0.02061888512328769,
       "round_improves_on_input": false
     },
@@ -158,7 +170,16 @@
       "F_infty": 0.9643811148767123,
       "n_converged": 7,
       "n_anisotropic": 1,
-      "max_abs_Psi_plus_minus_Psi_minus": 0.0,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_max_abs_diff": 0.0,
+      "contraction_rate": {
+        "fit": 0.030721005470098376,
+        "last_ratio": 0.03236931466730626,
+        "n_last": 6
+      },
       "F_infty_minus_F_0": 0.0018811148767122754,
       "round_improves_on_input": true
     },
@@ -224,7 +245,16 @@
       "F_infty": 0.9643811148767123,
       "n_converged": 8,
       "n_anisotropic": 1,
-      "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+      "contraction_rate": {
+        "fit": 0.04239132655946314,
+        "last_ratio": 0.04263740842331863,
+        "n_last": 8
+      },
       "F_infty_minus_F_0": 0.03938111487671225,
       "round_improves_on_input": true
     },
@@ -290,7 +320,16 @@
       "F_infty": 0.9643811148767123,
       "n_converged": 9,
       "n_anisotropic": 1,
-      "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+      "contraction_rate": {
+        "fit": 0.04243471765799446,
+        "last_ratio": 0.04265798903478228,
+        "n_last": 8
+      },
       "F_infty_minus_F_0": 0.07688111487671234,
       "round_improves_on_input": true
     },
@@ -356,7 +395,16 @@
       "F_infty": 0.9643811148767123,
       "n_converged": 9,
       "n_anisotropic": 1,
-      "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+      "contraction_rate": {
+        "fit": 0.04248457543622963,
+        "last_ratio": 0.042639631066539785,
+        "n_last": 9
+      },
       "F_infty_minus_F_0": 0.11438111487671232,
       "round_improves_on_input": true
     },
@@ -422,15 +470,25 @@
       "F_infty": 0.9643811148767123,
       "n_converged": 9,
       "n_anisotropic": 1,
-      "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+      "contraction_rate": {
+        "fit": 0.04248298049344844,
+        "last_ratio": 0.04269297876180735,
+        "n_last": 9
+      },
       "F_infty_minus_F_0": 0.18938111487671228,
       "round_improves_on_input": true
     }
   },
   "checks": {
     "map_used": "pqec_distill.analytic_exact_map.analytic_map_type4 -- the verified exact Bell-diagonal map; no map was re-derived for this analysis",
+    "invariant_relation_checked": "p_Psi+ = p_Psi-",
     "cnot_count": {
-      "Type4_measured": 14,
+      "measured": 14,
       "expected": 14,
       "match": true,
       "all_protocols": {
@@ -450,7 +508,7 @@
         "population_sum_max_err": 1.1102230246251565e-16,
         "min_population": 0.005,
         "no_negative_population": true,
-        "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
         "exact_vs_full_dm_max_population_diff": 6.661338147750939e-16,
         "exact_vs_full_dm_max_F_diff": 6.661338147750939e-16,
         "full_dm_max_C_Bell": 9.648839961434576e-28
@@ -459,7 +517,7 @@
         "population_sum_max_err": 1.1102230246251565e-16,
         "min_population": 0.010215259704181828,
         "no_negative_population": true,
-        "max_abs_Psi_plus_minus_Psi_minus": 0.0,
+        "invariant_pair_max_abs_diff": 0.0,
         "exact_vs_full_dm_max_population_diff": 4.440892098500626e-16,
         "exact_vs_full_dm_max_F_diff": 4.440892098500626e-16,
         "full_dm_max_C_Bell": 9.669668759347317e-28
@@ -468,7 +526,7 @@
         "population_sum_max_err": 2.220446049250313e-16,
         "min_population": 0.010215259704181828,
         "no_negative_population": true,
-        "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
         "exact_vs_full_dm_max_population_diff": 4.440892098500626e-16,
         "exact_vs_full_dm_max_F_diff": 4.440892098500626e-16,
         "full_dm_max_C_Bell": 9.584814241225845e-28
@@ -477,7 +535,7 @@
         "population_sum_max_err": 2.220446049250313e-16,
         "min_population": 0.010215259704181828,
         "no_negative_population": true,
-        "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
         "exact_vs_full_dm_max_population_diff": 4.440892098500626e-16,
         "exact_vs_full_dm_max_F_diff": 4.440892098500626e-16,
         "full_dm_max_C_Bell": 9.461588011401445e-28
@@ -486,7 +544,7 @@
         "population_sum_max_err": 0.0,
         "min_population": 0.0102152597041818,
         "no_negative_population": true,
-        "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
         "exact_vs_full_dm_max_population_diff": 5.551115123125783e-16,
         "exact_vs_full_dm_max_F_diff": 5.551115123125783e-16,
         "full_dm_max_C_Bell": 9.662968075660199e-28
@@ -495,14 +553,13 @@
         "population_sum_max_err": 1.1102230246251565e-16,
         "min_population": 0.0102152597041818,
         "no_negative_population": true,
-        "max_abs_Psi_plus_minus_Psi_minus": 2.7755575615628914e-17,
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
         "exact_vs_full_dm_max_population_diff": 3.3306690738754696e-16,
         "exact_vs_full_dm_max_F_diff": 3.3306690738754696e-16,
         "full_dm_max_C_Bell": 9.518404915093691e-28
       }
     }
   },
-  "generated_utc": "2026-09-27T15:18:57Z",
-  "commit": "9564402475638508c34da36e62768dc0b990c5f2",
-  "n_cnot": 14
+  "generated_utc": "2026-09-27T15:33:13Z",
+  "commit": "3b02ce97c2eb4b64a35ce739856a4273e4d844d6"
 }

@@ -25,6 +25,7 @@ __all__ = [
     "plot_stacked_area", "plot_population_lines", "plot_offdiagonal",
     "plot_long_time_fidelity", "plot_fidelity_overview", "plot_pair_comparison",
     "plot_fidelity_epsilon_overlay", "plot_summary_vs_epsilon",
+    "plot_success_epsilon_overlay", "eps_ramp",
 ]
 
 SURFACE = "#fcfcfb"
@@ -442,14 +443,15 @@ def plot_fidelity_epsilon_overlay(runs: Sequence[Dynamics], zoom: bool = True,
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=len(runs), frameon=False,
                fontsize=9.5, labelcolor=INK_2, bbox_to_anchor=(0.5, -0.01))
-    fig.suptitle(rf"Type 4 - target fidelity per round, {len(runs)} inputs at "
+    fig.suptitle(f"{PROTOCOL_INFO[runs[0].protocol]['label']}   |   "
+                 rf"target fidelity per round, {len(runs)} inputs at "
                  rf"$q = {runs[0].q:g}$", color=INK, fontsize=11, x=0.01, ha="left")
     fig.tight_layout(rect=(0.03, 0.09, 1, 0.93))
     return fig
 
 
 def plot_summary_vs_epsilon(eps_values, series: dict, q: float,
-                            fixed_point: float = None):
+                            fixed_point: float = None, label: str = None):
     """F at selected rounds against eps.  ``series`` maps a label to a list of
     F values, one per eps; these are different QUANTITIES, so they take the
     categorical slots, not the eps ramp."""
@@ -471,7 +473,44 @@ def plot_summary_vs_epsilon(eps_values, series: dict, q: float,
     ax.set_xlabel(r"input mixing $\epsilon$", color=INK_2)
     ax.set_ylabel(r"target Bell fidelity $F$", color=INK_2)
     ax.legend(frameon=False, fontsize=9, labelcolor=INK_2, loc="best")
-    ax.set_title(rf"Type 4 - fidelity at selected rounds vs $\epsilon$   ($q = {q:g}$)",
+    ax.set_title(rf"{label or ''} fidelity at selected rounds vs $\epsilon$   "
+                 rf"($q = {q:g}$)".strip(),
                  color=INK, fontsize=11, loc="left")
     fig.tight_layout(rect=(0, 0, 0.94, 1))
+    return fig
+
+
+def plot_success_epsilon_overlay(runs: Sequence[Dynamics], protocol_label: str = None):
+    """Per-round postselection success probability for several eps at one q.
+
+    Only meaningful for a protocol whose round weight IS a probability (4Q);
+    ``P_succ`` is undefined at n = 0, so the curves start at n = 1.
+    """
+    colours = eps_ramp(len(runs))
+    fig, ax = _fig(figsize=(7.8, 4.8))
+    every = max(1, len(runs[0].n) // 14)
+    labels = []
+    for k, (colour, d) in enumerate(zip(colours, runs)):
+        m = np.isfinite(d.weight)
+        ax.plot(d.n[m], d.weight[m], lw=2, color=colour,
+                marker=SERIES_MARKERS[k % len(SERIES_MARKERS)],
+                markevery=(k, every), markersize=5,
+                markeredgecolor=SURFACE, markeredgewidth=0.8,
+                label=rf"$\epsilon = {d.eps:g}$")
+        labels.append((float(d.weight[m][0]), rf"$\epsilon={d.eps:g}$", colour))
+    ax.set_xlim(1, runs[0].n[-1])
+    _spread_end_labels(ax, labels, side="left", inside=True)
+    pend = float(runs[0].weight[-1])
+    ax.axhline(pend, color=INK_2, ls="--", lw=1.2)
+    ax.annotate(rf"$P_{{\mathrm{{succ}}}}^{{(\infty)}} = {pend:.9f}$"
+                r"  (same for every $\epsilon$)",
+                xy=(0.33, 0.44), xycoords="axes fraction", fontsize=9.5, color=INK)
+    ax.set_xlabel("purification round $n$", color=INK_2)
+    ax.set_ylabel(r"per-round success probability $P_{\mathrm{succ}}^{(n)}$",
+                  color=INK_2)
+    ax.legend(frameon=False, fontsize=9, labelcolor=INK_2, loc="lower right", ncol=2)
+    ax.set_title((protocol_label or runs[0].protocol)
+                 + rf" - postselection success per round   ($q = {runs[0].q:g}$)",
+                 color=INK, fontsize=11, loc="left")
+    fig.tight_layout()
     return fig

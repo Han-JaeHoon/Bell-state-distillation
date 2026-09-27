@@ -10,7 +10,7 @@ import numpy as np
 import pytest
 
 from pqec_distill.bell_population_dynamics import (
-    BELL_NAMES, PROTOCOLS, bell_offdiagonal_c, bell_populations,
+    BELL_NAMES, INVARIANT_PAIR, PROTOCOLS, bell_offdiagonal_c, bell_populations,
     cross_check_exact_vs_dm, isotropic_dm, isotropic_populations,
     plateau_and_escape, run_dynamics, state_diagnostics,
     verify_cnot_counts, verify_noise_convention,
@@ -199,77 +199,142 @@ def test_type5_plateau_then_escape():
 
 
 # ---------------------------------------------------------------------------
-# Type 4 along the Bell-isotropic initial line (scripts/type4_epsilon_sweep.py)
+# the eps sweep along the Bell-isotropic initial line (scripts/epsilon_sweep.py)
 # ---------------------------------------------------------------------------
 
 SWEEP_EPS = (0.02, 0.05, 0.10, 0.15, 0.20, 0.30)
-#: the Type 4 fixed point at q = 0.02, as found independently in the
-#: repeated-dynamics analysis (results/data/repeated_dynamics_independent/
-#: fixed_points.csv, branch "main0"): F = 0.96438111487671,
-#: Jacobian spectral radius 0.04276005297530256
-TYPE4_FIXED_POINT_F_Q002 = 0.96438111487671
-TYPE4_SPECTRAL_RADIUS_Q002 = 0.04276005297530256
+SWEEP_PROTOCOLS = ("Type3", "Type4", "4Q")
+
+#: Fixed points at q = 0.02 as found INDEPENDENTLY in the repeated-dynamics
+#: analysis (results/data/repeated_dynamics_independent/fixed_points.csv,
+#: branch "main0"): target-branch fidelity and Jacobian spectral radius.
+FIXED_POINT_Q002 = {
+    "Type3": (0.95580256178356484048, 0.06514242096884506),
+    "Type4": (0.96438111487671234217, 0.04276005297530256),
+    "4Q": (0.97877575986304003999, 0.04082909309888361),
+}
+
+#: The pair of populations each protocol keeps exactly equal.
+EXPECTED_INVARIANT_PAIR = {"Type3": ("Psi+", "Psi-"), "Type4": ("Psi+", "Psi-"),
+                           "4Q": ("Phi-", "Psi-")}
 
 
+def _residual_ratio(protocol, eps, rounds=20):
+    """r_n / r_{n-1} at the last round above the round-off floor."""
+    f_inf = FIXED_POINT_Q002[protocol][0]
+    dyn = run_dynamics(protocol, eps, Q, n_rounds=rounds, backend="exact")
+    r = np.abs(dyn.fidelity - f_inf)
+    m = (r > 1e-13) & (dyn.n >= 3)
+    j = int(np.where(m)[0][-1])
+    return float(r[j] / r[j - 1])
+
+
+def test_invariant_pair_table_matches_expectation():
+    assert {k: tuple(v) for k, v in INVARIANT_PAIR.items()} == EXPECTED_INVARIANT_PAIR
+
+
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
 @pytest.mark.parametrize("eps", SWEEP_EPS)
-def test_type4_sweep_populations_stay_valid(eps):
-    dyn = run_dynamics("Type4", eps, Q, n_rounds=50, backend="exact")
+def test_sweep_populations_stay_valid(protocol, eps):
+    dyn = run_dynamics(protocol, eps, Q, n_rounds=50, backend="exact")
     assert np.all(np.abs(dyn.pops.sum(axis=1) - 1.0) < 1e-14)
     assert dyn.pops.min() >= 0.0
     assert dyn.fidelity[0] == pytest.approx(1 - 3 * eps / 4, abs=1e-15)
 
 
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
 @pytest.mark.parametrize("eps", SWEEP_EPS)
-def test_type4_keeps_psi_symmetry_for_every_epsilon(eps):
-    dyn = run_dynamics("Type4", eps, Q, n_rounds=50, backend="exact")
-    i_p, i_m = BELL_NAMES.index("Psi+"), BELL_NAMES.index("Psi-")
-    assert np.max(np.abs(dyn.pops[:, i_p] - dyn.pops[:, i_m])) < 1e-15
+def test_each_protocol_keeps_its_own_invariant_pair(protocol, eps):
+    dyn = run_dynamics(protocol, eps, Q, n_rounds=50, backend="exact")
+    a, b = INVARIANT_PAIR[protocol]
+    i_a, i_b = BELL_NAMES.index(a), BELL_NAMES.index(b)
+    assert np.max(np.abs(dyn.pops[:, i_a] - dyn.pops[:, i_b])) < 1e-15
 
 
-def test_type4_every_epsilon_reaches_the_same_fixed_point():
-    finals = [run_dynamics("Type4", e, Q, n_rounds=200, backend="exact",
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
+def test_the_other_pairs_are_not_invariant(protocol):
+    """Guard against carrying one protocol's symmetry over to another."""
+    dyn = run_dynamics(protocol, 0.30, Q, n_rounds=50, backend="exact")
+    keep = set(INVARIANT_PAIR[protocol])
+    others = [(a, b) for a in BELL_NAMES[1:] for b in BELL_NAMES[1:]
+              if a < b and {a, b} != keep]
+    for a, b in others:
+        i_a, i_b = BELL_NAMES.index(a), BELL_NAMES.index(b)
+        assert np.max(np.abs(dyn.pops[:, i_a] - dyn.pops[:, i_b])) > 1e-6
+
+
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
+def test_every_epsilon_reaches_the_same_fixed_point(protocol):
+    finals = [run_dynamics(protocol, e, Q, n_rounds=200, backend="exact",
                            record_every=200).pops[-1]
               for e in SWEEP_EPS]
     ref = finals[0]
     for p in finals[1:]:
         assert np.max(np.abs(p - ref)) < 1e-14
-    assert ref[0] == pytest.approx(TYPE4_FIXED_POINT_F_Q002, abs=1e-13)
+    assert ref[0] == pytest.approx(FIXED_POINT_Q002[protocol][0], abs=1e-13)
 
 
-def test_type4_fixed_point_matches_the_independent_jacobian_analysis():
-    """F_infty and the measured contraction rate must agree with the fixed
-    point and spectral radius found by the separate repeated-dynamics work."""
-    dyn = run_dynamics("Type4", 0.30, Q, n_rounds=20, backend="exact")
-    f_inf = float(run_dynamics("Type4", 0.30, Q, n_rounds=200, backend="exact",
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
+def test_fixed_point_and_rate_match_the_independent_jacobian_analysis(protocol):
+    f_expected, rho_expected = FIXED_POINT_Q002[protocol]
+    f_inf = float(run_dynamics(protocol, 0.30, Q, n_rounds=200, backend="exact",
                                record_every=200).pops[-1][0])
-    assert f_inf == pytest.approx(TYPE4_FIXED_POINT_F_Q002, abs=1e-13)
-    resid = np.abs(dyn.fidelity - f_inf)
-    m = (resid > 1e-13) & (dyn.n >= 3)
-    rate = float(np.exp(np.polyfit(dyn.n[m], np.log(resid[m]), 1)[0]))
-    assert rate == pytest.approx(TYPE4_SPECTRAL_RADIUS_Q002, rel=0.02)
+    assert f_inf == pytest.approx(f_expected, abs=1e-13)
+    # the per-round residual ratio approaches the spectral radius; it is still
+    # a few percent above it by the time round-off stops the sequence
+    assert _residual_ratio(protocol, 0.30) == pytest.approx(rho_expected, rel=0.05)
 
 
 @needs_parent
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
 @pytest.mark.parametrize("eps", [0.02, 0.15, 0.30])
-def test_type4_sweep_exact_matches_full_circuit_simulation(eps):
-    r = cross_check_exact_vs_dm("Type4", eps, Q, n_rounds=50)
+def test_sweep_exact_matches_full_circuit_simulation(protocol, eps):
+    r = cross_check_exact_vs_dm(protocol, eps, Q, n_rounds=50)
     assert r["max_abs_pop_diff"] < 1e-12
     assert r["max_C_Bell_dm"] < 1e-20
 
 
-def test_type4_small_epsilon_loses_fidelity_large_epsilon_gains():
-    """F_infty is the same for every eps, so whether a round helps depends
+@pytest.mark.parametrize("protocol", SWEEP_PROTOCOLS)
+def test_break_even_epsilon_decides_whether_a_round_helps(protocol):
+    """F_infty is the same for every eps, so whether repetition helps depends
     only on where F_0 starts relative to it."""
+    f_inf = FIXED_POINT_Q002[protocol][0]
+    break_even = 4 * (1 - f_inf) / 3
     for eps in SWEEP_EPS:
-        f0 = 1 - 3 * eps / 4
-        gained = TYPE4_FIXED_POINT_F_Q002 > f0
-        assert gained == (eps > 4 * (1 - TYPE4_FIXED_POINT_F_Q002) / 3)
-    # eps = 0.02 starts above the fixed point, so its trajectory falls
-    dyn = run_dynamics("Type4", 0.02, Q, n_rounds=20, backend="exact")
-    assert np.all(np.diff(dyn.fidelity) <= 1e-15)
-    # eps = 0.30 starts below it, so its trajectory rises
-    dyn = run_dynamics("Type4", 0.30, Q, n_rounds=20, backend="exact")
-    assert np.all(np.diff(dyn.fidelity) >= -1e-15)
+        assert (f_inf > 1 - 3 * eps / 4) == (eps > break_even)
+    below = min(e for e in SWEEP_EPS if e < break_even)
+    above = max(SWEEP_EPS)
+    assert np.all(np.diff(run_dynamics(protocol, below, Q, n_rounds=20,
+                                       backend="exact").fidelity) <= 1e-15)
+    assert np.all(np.diff(run_dynamics(protocol, above, Q, n_rounds=20,
+                                       backend="exact").fidelity) >= -1e-15)
+
+
+def test_4q_success_probability_is_recorded_and_others_are_not():
+    dyn = run_dynamics("4Q", 0.15, Q, n_rounds=10, backend="exact")
+    assert np.isnan(dyn.weight[0])                 # undefined before any round
+    assert np.all(np.isfinite(dyn.weight[1:]))
+    assert np.all((dyn.weight[1:] > 0) & (dyn.weight[1:] <= 1))
+    for protocol in ("Type3", "Type4"):
+        other = run_dynamics(protocol, 0.15, Q, n_rounds=10, backend="exact")
+        assert np.all(np.isnan(other.weight))
+
+
+@needs_parent
+def test_4q_success_probability_agrees_between_backends():
+    """The exact map and the full circuit simulation must index P_succ the same
+    way and give the same numbers."""
+    a = run_dynamics("4Q", 0.15, Q, n_rounds=8, backend="dm")
+    b = run_dynamics("4Q", 0.15, Q, n_rounds=8, backend="exact")
+    assert np.isnan(a.weight[0]) and np.isnan(b.weight[0])
+    assert a.weight[1:] == pytest.approx(b.weight[1:], abs=1e-13)
+
+
+def test_4q_success_probability_converges_with_the_state():
+    finals = [run_dynamics("4Q", e, Q, n_rounds=200, backend="exact",
+                           record_every=200).weight[-1] for e in SWEEP_EPS]
+    for p in finals[1:]:
+        assert p == pytest.approx(finals[0], abs=1e-13)
 
 
 def test_eps_ramp_refuses_to_invent_steps():

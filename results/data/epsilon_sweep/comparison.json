@@ -1,0 +1,85 @@
+{
+  "q": 0.02,
+  "eps_values": [
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "rounds": 50,
+  "per_protocol": {
+    "Type3": {
+      "n_cnot": 16,
+      "fixed_point_populations": [
+        0.9558025617835648,
+        0.018028568420518143,
+        0.013084434897958519,
+        0.013084434897958519
+      ],
+      "F_infty": 0.9558025617835648,
+      "fixed_point_same_for_every_eps": true,
+      "max_spread_across_epsilon": 0.0,
+      "break_even_eps": 0.058929917621913575,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_worst": 2.7755575615628914e-17,
+      "contraction_rate_last_ratio_median": 0.06514089148889007,
+      "n_converged_max": 10,
+      "eps_that_lose_fidelity": [
+        0.02,
+        0.05
+      ]
+    },
+    "Type4": {
+      "n_cnot": 14,
+      "fixed_point_populations": [
+        0.9643811148767123,
+        0.015188365714924074,
+        0.010215259704181828,
+        0.010215259704181828
+      ],
+      "F_infty": 0.9643811148767123,
+      "fixed_point_same_for_every_eps": true,
+      "max_spread_across_epsilon": 0.0,
+      "break_even_eps": 0.04749184683105027,
+      "invariant_pair": [
+        "Psi+",
+        "Psi-"
+      ],
+      "invariant_pair_worst": 2.7755575615628914e-17,
+      "contraction_rate_last_ratio_median": 0.04264881005066103,
+      "n_converged_max": 9,
+      "eps_that_lose_fidelity": [
+        0.02
+      ]
+    },
+    "4Q": {
+      "n_cnot": 5,
+      "fixed_point_populations": [
+        0.97877575986304,
+        0.005347567500505052,
+        0.010529105135949929,
+        0.005347567500505052
+      ],
+      "F_infty": 0.97877575986304,
+      "fixed_point_same_for_every_eps": true,
+      "max_spread_across_epsilon": 0.0,
+      "break_even_eps": 0.028298986849280006,
+      "invariant_pair": [
+        "Phi-",
+        "Psi-"
+      ],
+      "invariant_pair_worst": 0.0,
+      "contraction_rate_last_ratio_median": 0.04166539925023105,
+      "n_converged_max": 9,
+      "eps_that_lose_fidelity": [
+        0.02
+      ],
+      "P_succ_at_fixed_point": 0.8988650826480032
+    }
+  }
+}
