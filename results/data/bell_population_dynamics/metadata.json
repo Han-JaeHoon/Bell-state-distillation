@@ -1,0 +1,59 @@
+{
+  "generated_utc": "2026-09-27T15:03:03Z",
+  "commit": "5c80375154ab7ecf3a3fbca26c49e83d96b0043d",
+  "eps": 0.15,
+  "q": 0.02,
+  "rounds": 50,
+  "long_rounds": 5000,
+  "noise_model": "two-qubit replacement depolarizing D_q after every CNOT, on that CNOT's two qubits",
+  "protocols": {
+    "Type3": {
+      "label": "Type 3 - textbook 16-CNOT SWAP-test gadget",
+      "n_cnot": 16,
+      "family": "swap_test",
+      "has_exact_map": true,
+      "bell_diagonal_preserved": true
+    },
+    "Type4": {
+      "label": "Type 4 - resynthesised 14-CNOT SWAP-test gadget",
+      "n_cnot": 14,
+      "family": "swap_test",
+      "has_exact_map": true,
+      "bell_diagonal_preserved": true
+    },
+    "Type5": {
+      "label": "Type 5 - learned 14-CNOT SWAP-test gadget",
+      "n_cnot": 14,
+      "family": "swap_test",
+      "has_exact_map": false,
+      "bell_diagonal_preserved": false
+    },
+    "4Q": {
+      "label": "4Q - 4-qubit 5-CNOT postselected comparator",
+      "n_cnot": 5,
+      "family": "postselect",
+      "has_exact_map": true,
+      "bell_diagonal_preserved": true
+    }
+  },
+  "parent_repo_provenance": {
+    "parent_repo": "/home/user/PQEC-Operational-Threshold",
+    "parent_head_commit": "1e2ce0a67c4c893a20b42d5cc01dc10456bd6171",
+    "parent_head_branch": "main-work",
+    "parent_worktree_clean": true,
+    "round_map_file": "iterated_noisy_pqec.py",
+    "round_map_revision": "origin/iterated-noisy-pqec",
+    "round_map_sha256": "21025e26870855c17c3fa105007119eca63d2fd35326bb5fed83fc7e6f699a4e",
+    "circuit_file_sha256": {
+      "verify_analytic_decomposed.py": "dd8de89220cb0b5315f0c5f7b9c2c8cf483980ac96d9ad9cccc1bd3f8e7a7837",
+      "pqec_resynth_noise.py": "8d66cea64f494443ba55983a8b82f220e27184710298e75fba4df313d56078ee",
+      "noisy_bell_state.py": "a66d5fda910b5f8f6218888f4b73f2a777797035b7b9b47c523cfefde39378e7",
+      "pqc_ring_threshold.py": "230e2c6860364798416673ce8c07e27fef85068f89ce46e1343739c53b2bf188",
+      "pqc_ring_prune.py": "159dd8915b334180d64542f893c035a9d85f293a80b1505fe7e9931d927193e9",
+      "pqc_common.py": "5494d98cdeccdd377c70d029cea56362265768e0efe6a923753baf63db304e69",
+      "pqc_ring_pruned.json": "c16489f50266269704f684cc4cbcaf31f2dc7b7ef5d9dab1e43406fd845dc2d9",
+      "pqc_ring_pruned_params.npy": "e8b5e5581e9b3631bd603a6a8013798c53453da5b92c7ded1d642dbe15988594"
+    },
+    "note": "the parent repository is only READ: the round-map file is extracted with `git show` into a temporary directory, and no checkout, branch switch or write is performed"
+  }
+}
