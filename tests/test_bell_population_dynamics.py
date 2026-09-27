@@ -196,3 +196,85 @@ def test_type5_plateau_then_escape():
     assert e["F_end"] < 0.6
     assert e["c_bell_end"] > 0.1
     assert e["c_bell_growth_per_round"] > 1.0
+
+
+# ---------------------------------------------------------------------------
+# Type 4 along the Bell-isotropic initial line (scripts/type4_epsilon_sweep.py)
+# ---------------------------------------------------------------------------
+
+SWEEP_EPS = (0.02, 0.05, 0.10, 0.15, 0.20, 0.30)
+#: the Type 4 fixed point at q = 0.02, as found independently in the
+#: repeated-dynamics analysis (results/data/repeated_dynamics_independent/
+#: fixed_points.csv, branch "main0"): F = 0.96438111487671,
+#: Jacobian spectral radius 0.04276005297530256
+TYPE4_FIXED_POINT_F_Q002 = 0.96438111487671
+TYPE4_SPECTRAL_RADIUS_Q002 = 0.04276005297530256
+
+
+@pytest.mark.parametrize("eps", SWEEP_EPS)
+def test_type4_sweep_populations_stay_valid(eps):
+    dyn = run_dynamics("Type4", eps, Q, n_rounds=50, backend="exact")
+    assert np.all(np.abs(dyn.pops.sum(axis=1) - 1.0) < 1e-14)
+    assert dyn.pops.min() >= 0.0
+    assert dyn.fidelity[0] == pytest.approx(1 - 3 * eps / 4, abs=1e-15)
+
+
+@pytest.mark.parametrize("eps", SWEEP_EPS)
+def test_type4_keeps_psi_symmetry_for_every_epsilon(eps):
+    dyn = run_dynamics("Type4", eps, Q, n_rounds=50, backend="exact")
+    i_p, i_m = BELL_NAMES.index("Psi+"), BELL_NAMES.index("Psi-")
+    assert np.max(np.abs(dyn.pops[:, i_p] - dyn.pops[:, i_m])) < 1e-15
+
+
+def test_type4_every_epsilon_reaches_the_same_fixed_point():
+    finals = [run_dynamics("Type4", e, Q, n_rounds=200, backend="exact",
+                           record_every=200).pops[-1]
+              for e in SWEEP_EPS]
+    ref = finals[0]
+    for p in finals[1:]:
+        assert np.max(np.abs(p - ref)) < 1e-14
+    assert ref[0] == pytest.approx(TYPE4_FIXED_POINT_F_Q002, abs=1e-13)
+
+
+def test_type4_fixed_point_matches_the_independent_jacobian_analysis():
+    """F_infty and the measured contraction rate must agree with the fixed
+    point and spectral radius found by the separate repeated-dynamics work."""
+    dyn = run_dynamics("Type4", 0.30, Q, n_rounds=20, backend="exact")
+    f_inf = float(run_dynamics("Type4", 0.30, Q, n_rounds=200, backend="exact",
+                               record_every=200).pops[-1][0])
+    assert f_inf == pytest.approx(TYPE4_FIXED_POINT_F_Q002, abs=1e-13)
+    resid = np.abs(dyn.fidelity - f_inf)
+    m = (resid > 1e-13) & (dyn.n >= 3)
+    rate = float(np.exp(np.polyfit(dyn.n[m], np.log(resid[m]), 1)[0]))
+    assert rate == pytest.approx(TYPE4_SPECTRAL_RADIUS_Q002, rel=0.02)
+
+
+@needs_parent
+@pytest.mark.parametrize("eps", [0.02, 0.15, 0.30])
+def test_type4_sweep_exact_matches_full_circuit_simulation(eps):
+    r = cross_check_exact_vs_dm("Type4", eps, Q, n_rounds=50)
+    assert r["max_abs_pop_diff"] < 1e-12
+    assert r["max_C_Bell_dm"] < 1e-20
+
+
+def test_type4_small_epsilon_loses_fidelity_large_epsilon_gains():
+    """F_infty is the same for every eps, so whether a round helps depends
+    only on where F_0 starts relative to it."""
+    for eps in SWEEP_EPS:
+        f0 = 1 - 3 * eps / 4
+        gained = TYPE4_FIXED_POINT_F_Q002 > f0
+        assert gained == (eps > 4 * (1 - TYPE4_FIXED_POINT_F_Q002) / 3)
+    # eps = 0.02 starts above the fixed point, so its trajectory falls
+    dyn = run_dynamics("Type4", 0.02, Q, n_rounds=20, backend="exact")
+    assert np.all(np.diff(dyn.fidelity) <= 1e-15)
+    # eps = 0.30 starts below it, so its trajectory rises
+    dyn = run_dynamics("Type4", 0.30, Q, n_rounds=20, backend="exact")
+    assert np.all(np.diff(dyn.fidelity) >= -1e-15)
+
+
+def test_eps_ramp_refuses_to_invent_steps():
+    from pqec_distill.bell_population_plots import eps_ramp
+    assert len(eps_ramp(6)) == 6
+    assert len(set(eps_ramp(6))) == 6
+    with pytest.raises(ValueError, match="facet"):
+        eps_ramp(9)

@@ -21,8 +21,10 @@ from .bell_population_dynamics import BELL_NAMES, Dynamics, PROTOCOL_INFO
 
 __all__ = [
     "BELL_COLORS", "BELL_MARKERS", "STACK_ORDER", "SURFACE",
+    "EPS_RAMP", "SERIES_MARKERS",
     "plot_stacked_area", "plot_population_lines", "plot_offdiagonal",
     "plot_long_time_fidelity", "plot_fidelity_overview", "plot_pair_comparison",
+    "plot_fidelity_epsilon_overlay", "plot_summary_vs_epsilon",
 ]
 
 SURFACE = "#fcfcfb"
@@ -41,9 +43,30 @@ STACK_ORDER = ["Phi+", "Phi-", "Psi+", "Psi-"]
 _PRETTY = {"Phi+": r"$\Phi^+$", "Phi-": r"$\Phi^-$",
            "Psi+": r"$\Psi^+$", "Psi-": r"$\Psi^-$"}
 
+#: eps is a MAGNITUDE, so curves indexed by it get one hue, light to dark --
+#: never the categorical hues, which would read as unordered identities.  These
+#: are six steps of the documented blue ramp, 250 / 350 / 450 / 550 / 650 / 700.
+#: Lightness is monotone, the single-hue gate passes, and the pale end clears
+#: 2:1 on the light surface.  The documented ramp holds only FIVE steps that are
+#: also >= 0.06 apart in OKLCH lightness, so the darkest pair here is closer than
+#: that gate wants; every curve therefore carries its own marker and a direct
+#: label, so no two are ever told apart by lightness alone.
+EPS_RAMP = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281", "#0d366b"]
+SERIES_MARKERS = ["o", "s", "^", "D", "v", "P", "X", "*"]
+
+
+def eps_ramp(n: int) -> list:
+    """``n`` steps of the blue ramp, spread over the validated ordinal range."""
+    if n <= len(EPS_RAMP):
+        idx = np.linspace(0, len(EPS_RAMP) - 1, n).round().astype(int)
+        return [EPS_RAMP[i] for i in idx]
+    raise ValueError(
+        f"{n} ordered series exceed the documented ramp; facet instead of "
+        "inventing steps")
+
 
 def _spread_end_labels(ax, items, min_gap_frac: float = 0.052, dx: int = 7,
-                       inside: bool = False) -> None:
+                       inside: bool = False, side: str = "right") -> None:
     """Direct labels at the right edge, pushed apart so they never overlap.
 
     ``items`` is a sequence of (y_data, text, colour).  Positions are resolved in
@@ -63,18 +86,21 @@ def _spread_end_labels(ax, items, min_gap_frac: float = 0.052, dx: int = 7,
     over = placed[-1][0] - 1.0
     if over > 0:
         placed = [(f - over, t, c) for f, t, c in placed]
+    x_anchor = 1.0 if side == "right" else 0.0
     for frac, txt, col in placed:
         if inside:
-            ax.annotate(txt, xy=(1.0, min(max(frac, 0.0), 1.0)),
+            off, ha = (-dx, "right") if side == "right" else (dx, "left")
+            ax.annotate(txt, xy=(x_anchor, min(max(frac, 0.0), 1.0)),
                         xycoords=ax.transAxes, textcoords="offset points",
-                        xytext=(-dx, 0), va="center", ha="right",
+                        xytext=(off, 0), va="center", ha=ha,
                         fontsize=10, color=col, annotation_clip=False,
                         bbox=dict(facecolor=SURFACE, edgecolor="none",
                                   alpha=0.8, pad=1.4))
         else:
-            ax.annotate(txt, xy=(1.0, min(max(frac, 0.0), 1.0)),
+            off, ha = (dx, "left") if side == "right" else (-dx, "right")
+            ax.annotate(txt, xy=(x_anchor, min(max(frac, 0.0), 1.0)),
                         xycoords=ax.transAxes, textcoords="offset points",
-                        xytext=(dx, 0), va="center", ha="left",
+                        xytext=(off, 0), va="center", ha=ha,
                         fontsize=10, color=col, annotation_clip=False)
 
 
@@ -167,9 +193,15 @@ def plot_stacked_area(dyn: Dynamics, order: Sequence[str] = None,
 # Figure B -- individual populations
 # ---------------------------------------------------------------------------
 
-def plot_population_lines(dyn: Dynamics, zoom: bool = True):
+def plot_population_lines(dyn: Dynamics, zoom: bool = True,
+                          dashed: Sequence[str] = ()):
     """The four populations as lines; right panel zooms on the error components,
-    where the initial threefold equality breaks."""
+    where the initial threefold equality breaks.
+
+    ``dashed`` names series to draw thin and dashed.  Use it for a series that
+    is expected to lie exactly on another one (Type 4 keeps p_Psi+ = p_Psi-),
+    so the reader sees two coincident curves instead of a missing one.
+    """
     ncols = 2 if zoom else 1
     fig, axes = _fig(1, ncols, figsize=(11.4, 4.4) if zoom else (7.2, 4.6))
     axes = np.atleast_1d(axes)
@@ -178,10 +210,13 @@ def plot_population_lines(dyn: Dynamics, zoom: bool = True):
     for ax, keys in zip(axes, ([BELL_NAMES, BELL_NAMES[1:]] if zoom else [BELL_NAMES])):
         for k in keys:
             i = BELL_NAMES.index(k)
-            ax.plot(dyn.n, dyn.pops[:, i], lw=2, color=BELL_COLORS[k],
+            style = (dict(lw=1.5, ls=(0, (5, 4))) if k in dashed
+                     else dict(lw=2))
+            ax.plot(dyn.n, dyn.pops[:, i], color=BELL_COLORS[k],
                     marker=BELL_MARKERS[k], markevery=every, markersize=5,
                     markeredgecolor=SURFACE, markeredgewidth=0.8,
-                    label=_PRETTY[k])
+                    label=_PRETTY[k] + (" (dashed)" if k in dashed else ""),
+                    **style)
         ax.set_xlim(dyn.n[0], dyn.n[-1])
         ax.set_xlabel("purification round $n$", color=INK_2)
         ax.legend(frameon=False, fontsize=9, labelcolor=INK_2, loc="best")
@@ -338,4 +373,105 @@ def plot_pair_comparison(a: Dynamics, b: Dynamics, log_x: bool = True):
                  "does the escape come from the compilation residual or from the noise?",
                  color=INK, fontsize=10, x=0.01, ha="left")
     fig.tight_layout(rect=(0, 0, 1, 0.93))
+    return fig
+
+
+def plot_fidelity_epsilon_overlay(runs: Sequence[Dynamics], zoom: bool = True,
+                                  zoom_from: int = 2):
+    """F_n for several eps at one q, all on one axis.
+
+    Colour encodes eps as a magnitude (light = small eps).  Marker shape and a
+    direct label at n = 0 -- where the curves are furthest apart -- carry the
+    identity as well, so adjacent ramp steps are never told apart by lightness
+    alone.  The right panel repeats the same curves from ``zoom_from`` on, where
+    the whole family has collapsed onto one point and a full-range axis shows
+    nothing.
+    """
+    colours = eps_ramp(len(runs))
+    ncols = 2 if zoom else 1
+    fig, axes = _fig(1, ncols, figsize=(11.8, 5.0) if zoom else (7.6, 4.8))
+    axes = np.atleast_1d(axes)
+    every = max(1, len(runs[0].n) // 14)
+
+    for ax in axes:
+        for k, (colour, d) in enumerate(zip(colours, runs)):
+            ax.plot(d.n, d.fidelity, lw=2, color=colour,
+                    marker=SERIES_MARKERS[k % len(SERIES_MARKERS)],
+                    markevery=(k, every), markersize=5,
+                    markeredgecolor=SURFACE, markeredgewidth=0.8,
+                    label=rf"$\epsilon = {d.eps:g}$")
+        ax.set_xlabel("purification round $n$", color=INK_2)
+        ax.set_ylabel(r"target Bell fidelity $F_n$", color=INK_2)
+
+    fstar = float(runs[0].fidelity[-1])
+    axes[0].set_xlim(runs[0].n[0], runs[0].n[-1])
+    # labels at n = 0, where the six curves are maximally separated
+    _spread_end_labels(axes[0],
+                       [(d.fidelity[0], rf"$\epsilon={d.eps:g}$", c)
+                        for c, d in zip(colours, runs)],
+                       side="left", inside=True)
+    axes[0].set_title("full range", color=INK, fontsize=10, loc="left")
+
+    if zoom:
+        # the six curves sit on top of each other within a few rounds, so a
+        # zoomed F axis still shows one flat line.  Plot the DISTANCE to the
+        # common fixed point instead: same data, log axis, and both the
+        # convergence rate and "they all reach the same point" become readable.
+        ax = axes[1]
+        ax.clear()
+        _style(ax)
+        floor = 1e-17
+        for k, (colour, d) in enumerate(zip(colours, runs)):
+            y = np.maximum(np.abs(d.fidelity - fstar), floor)
+            ax.plot(d.n, y, lw=2, color=colour,
+                    marker=SERIES_MARKERS[k % len(SERIES_MARKERS)],
+                    markevery=(k, every), markersize=5,
+                    markeredgecolor=SURFACE, markeredgewidth=0.8)
+        ax.set_yscale("log")
+        ax.set_xlim(runs[0].n[0], runs[0].n[-1])
+        ax.set_ylim(floor / 3, 1.0)
+        ax.set_xlabel("purification round $n$", color=INK_2)
+        ax.set_ylabel(r"$|F_n - F_\infty|$", color=INK_2)
+        ax.annotate(rf"common fixed point  $F_\infty = {fstar:.12f}$"
+                    "\n(identical for every $\\epsilon$; the floor is round-off)",
+                    xy=(0.30, 0.08), xycoords="axes fraction",
+                    fontsize=9.5, color=INK)
+        ax.set_title(r"distance to the fixed point (log)",
+                     color=INK, fontsize=10, loc="left")
+
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=len(runs), frameon=False,
+               fontsize=9.5, labelcolor=INK_2, bbox_to_anchor=(0.5, -0.01))
+    fig.suptitle(rf"Type 4 - target fidelity per round, {len(runs)} inputs at "
+                 rf"$q = {runs[0].q:g}$", color=INK, fontsize=11, x=0.01, ha="left")
+    fig.tight_layout(rect=(0.03, 0.09, 1, 0.93))
+    return fig
+
+
+def plot_summary_vs_epsilon(eps_values, series: dict, q: float,
+                            fixed_point: float = None):
+    """F at selected rounds against eps.  ``series`` maps a label to a list of
+    F values, one per eps; these are different QUANTITIES, so they take the
+    categorical slots, not the eps ramp."""
+    slots = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]
+    fig, ax = _fig(figsize=(7.6, 4.8))
+    labels = []
+    for k, (name, values) in enumerate(series.items()):
+        colour = slots[k % len(slots)]
+        ax.plot(eps_values, values, lw=2, color=colour,
+                marker=SERIES_MARKERS[k % len(SERIES_MARKERS)], markersize=6,
+                markeredgecolor=SURFACE, markeredgewidth=0.8, label=name)
+        labels.append((values[-1], name, INK))
+    if fixed_point is not None:
+        ax.axhline(fixed_point, color=INK_2, ls="--", lw=1)
+        ax.annotate(rf"$F_\infty = {fixed_point:.9f}$  (same for every $\epsilon$)",
+                    xy=(0.03, 0.06), xycoords="axes fraction",
+                    fontsize=9.5, color=INK)
+    _spread_end_labels(ax, labels)
+    ax.set_xlabel(r"input mixing $\epsilon$", color=INK_2)
+    ax.set_ylabel(r"target Bell fidelity $F$", color=INK_2)
+    ax.legend(frameon=False, fontsize=9, labelcolor=INK_2, loc="best")
+    ax.set_title(rf"Type 4 - fidelity at selected rounds vs $\epsilon$   ($q = {q:g}$)",
+                 color=INK, fontsize=11, loc="left")
+    fig.tight_layout(rect=(0, 0, 0.94, 1))
     return fig
