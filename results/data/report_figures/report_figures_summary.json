@@ -1,0 +1,145 @@
+{
+  "generated_utc": "2026-09-29T12:16:52Z",
+  "setup": {
+    "initial_state": "rho_0(eps) = (1-eps)|Phi+><Phi+| + eps I/4",
+    "bell_order": [
+      "Phi+",
+      "Phi-",
+      "Psi+",
+      "Psi-"
+    ],
+    "eps_main": 0.15,
+    "q": 0.02,
+    "s = 1-q": 0.98,
+    "p_0": [
+      0.8875,
+      0.0375,
+      0.0375,
+      0.0375
+    ],
+    "rounds_main": 50,
+    "rounds_type5": 5000,
+    "noise_model": "two-qubit replacement depolarizing D_q(sigma) = (1-q) sigma + q [I_ij/4 (x) Tr_ij(sigma)], applied after every CNOT on that CNOT's two qubits",
+    "backends": {
+      "Type3": "exact Bell-diagonal recurrence (k=4); full 5-qubit density-matrix simulation as cross-check",
+      "Type4": "exact Bell-diagonal recurrence (k=2); full 5-qubit density-matrix simulation as cross-check",
+      "4Q": "exact Bell-diagonal recurrence + P_succ = D/4; full 4-qubit simulation with (q3,q4)->(0,0) postselection as cross-check",
+      "Type5": "FULL two-qubit density matrix only -- the noisy map does not preserve the Bell-diagonal subspace"
+    },
+    "iteration_rule": "each round's exact output state is the next round's input; no twirling, no re-projection onto Bell-isotropic or Werner form at any round",
+    "bell_isotropic_assumption": "used for the initial state only"
+  },
+  "verification": null,
+  "attractors_recomputed": {
+    "Type3": {
+      "populations": [
+        0.9558025617835648,
+        0.018028568420518143,
+        0.013084434897958519,
+        0.013084434897958519
+      ],
+      "F": 0.9558025617835648,
+      "max_spread_over_tested_eps": 0.0,
+      "break_even_eps": 0.058929917621913575
+    },
+    "Type4": {
+      "populations": [
+        0.9643811148767123,
+        0.015188365714924074,
+        0.010215259704181828,
+        0.010215259704181828
+      ],
+      "F": 0.9643811148767123,
+      "max_spread_over_tested_eps": 0.0,
+      "break_even_eps": 0.04749184683105027
+    },
+    "4Q": {
+      "populations": [
+        0.97877575986304,
+        0.005347567500505052,
+        0.010529105135949929,
+        0.005347567500505052
+      ],
+      "F": 0.97877575986304,
+      "max_spread_over_tested_eps": 0.0,
+      "break_even_eps": 0.028298986849280006,
+      "P_succ": 0.8988650826480032
+    }
+  },
+  "invariant_pairs_on_the_reported_trajectory": {
+    "Type3": {
+      "pair": "p_Psi+ = p_Psi-",
+      "max_abs_diff": 2.7755575615628914e-17
+    },
+    "Type4": {
+      "pair": "p_Psi+ = p_Psi-",
+      "max_abs_diff": 2.7755575615628914e-17
+    },
+    "Type5": null,
+    "4Q": {
+      "pair": "p_Phi- = p_Psi-",
+      "max_abs_diff": 0.0
+    }
+  },
+  "max_abs_population_sum_minus_1": {
+    "Type3": 2.220446049250313e-16,
+    "Type4": 2.220446049250313e-16,
+    "Type5": 4.440892098500626e-16,
+    "4Q": 1.1102230246251565e-16
+  },
+  "type5_metastability": {
+    "F_0": 0.8874999999999996,
+    "plateau_F": 0.9750267248801451,
+    "plateau_measured_at_n": 5,
+    "n_escape": 321,
+    "C_Bell_at_escape": 0.020753590116102574,
+    "F_final": 0.40569648139302644,
+    "n_final": 5000,
+    "C_Bell_final": 0.6508171012462072,
+    "C_Bell_n1": 1.6349539559053443e-06,
+    "F_max": 0.9750267248801451,
+    "n_F_max": 5
+  },
+  "type5_raw_vs_calibrated": {
+    "max_abs_F_raw_minus_calibrated": 9.771499640010006e-05,
+    "max_abs_C_Bell_raw_minus_calibrated": 0.00013880486538492276,
+    "n_escape_raw": 321,
+    "n_escape_calibrated": 321,
+    "F_final_raw": 0.40569648139302644,
+    "F_final_calibrated": 0.40569596976329403
+  },
+  "type4_input_vs_asymptotic": {
+    "F_star": 0.9643811148767123,
+    "eps_break_even_one_round_F1_eq_F0": 0.04746917341616933,
+    "eps_break_even_asymptotic_F0_eq_Fstar": 0.04749184683105027,
+    "difference": 2.2673414880935994e-05,
+    "max_abs_F50_minus_Fstar_over_tested_eps": 0.0,
+    "F_50": {
+      "0.02": 0.9643811148767123,
+      "0.05": 0.9643811148767123,
+      "0.1": 0.9643811148767123,
+      "0.15": 0.9643811148767123,
+      "0.2": 0.9643811148767123,
+      "0.3": 0.9643811148767123
+    }
+  },
+  "4q_success": {
+    "P_succ_star": 0.8988650826480032
+  },
+  "figures": [
+    "results/report_figures/fig01_bell_population_dynamics.png",
+    "results/report_figures/fig01_bell_population_dynamics.pdf",
+    "results/report_figures/fig02_common_attractor_all.png",
+    "results/report_figures/fig02_common_attractor_all.pdf",
+    "results/report_figures/fig02_common_attractor_type4.png",
+    "results/report_figures/fig02_common_attractor_type4.pdf",
+    "results/report_figures/fig03_type4_input_one_round_asymptotic.png",
+    "results/report_figures/fig03_type4_input_one_round_asymptotic.pdf",
+    "results/report_figures/fig04_type5_metastability.png",
+    "results/report_figures/fig04_type5_metastability.pdf",
+    "results/report_figures/fig05_type5_raw_vs_calibrated.png",
+    "results/report_figures/fig05_type5_raw_vs_calibrated.pdf",
+    "results/report_figures/figS1_4q_success_probability.png",
+    "results/report_figures/figS1_4q_success_probability.pdf"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "setup": {
+    "initial_state": "rho_0(eps) = (1-eps)|Phi+><Phi+| + eps I/4",
+    "bell_order": [
+      "Phi+",
+      "Phi-",
+      "Psi+",
+      "Psi-"
+    ],
+    "eps_main": 0.15,
+    "q": 0.02,
+    "s = 1-q": 0.98,
+    "p_0": [
+      0.8875,
+      0.0375,
+      0.0375,
+      0.0375
+    ],
+    "rounds_main": 50,
+    "rounds_type5": 5000,
+    "noise_model": "two-qubit replacement depolarizing D_q(sigma) = (1-q) sigma + q [I_ij/4 (x) Tr_ij(sigma)], applied after every CNOT on that CNOT's two qubits",
+    "backends": {
+      "Type3": "exact Bell-diagonal recurrence (k=4); full 5-qubit density-matrix simulation as cross-check",
+      "Type4": "exact Bell-diagonal recurrence (k=2); full 5-qubit density-matrix simulation as cross-check",
+      "4Q": "exact Bell-diagonal recurrence + P_succ = D/4; full 4-qubit simulation with (q3,q4)->(0,0) postselection as cross-check",
+      "Type5": "FULL two-qubit density matrix only -- the noisy map does not preserve the Bell-diagonal subspace"
+    },
+    "iteration_rule": "each round's exact output state is the next round's input; no twirling, no re-projection onto Bell-isotropic or Werner form at any round",
+    "bell_isotropic_assumption": "used for the initial state only"
+  },
+  "checks": {
+    "cnot_counts": {
+      "measured": {
+        "Type3": 16,
+        "Type4": 14,
+        "Type5": 14,
+        "4Q": 5
+      },
+      "expected": {
+        "Type3": 16,
+        "Type4": 14,
+        "Type5": 14,
+        "4Q": 5
+      },
+      "match": true
+    },
+    "noise_convention": {
+      "max_abs_diff_2q_vs_parent_kraus": 2.220446049250313e-16,
+      "max_abs_diff_5q_vs_parent_replacement": 6.938893903907228e-18
+    },
+    "note_vs_map_random": {
+      "Type3": 0.0,
+      "Type4": 0.0,
+      "4Q": 3.3306690738754696e-16
+    },
+    "note_vs_map_success_4q": 0.0,
+    "map_vs_simulation_random": {
+      "Type3": {
+        "max_abs_population_diff": 4.440892098500626e-16,
+        "max_C_Bell_of_simulated_output": 7.474571069442073e-32
+      },
+      "Type4": {
+        "max_abs_population_diff": 5.551115123125783e-16,
+        "max_C_Bell_of_simulated_output": 3.613211713356033e-31
+      },
+      "4Q": {
+        "max_abs_population_diff": 4.440892098500626e-16,
+        "max_C_Bell_of_simulated_output": 9.657855433556146e-33
+      }
+    },
+    "trajectory": {
+      "Type3": {
+        "max_abs_note_minus_map": 0.0,
+        "max_abs_map_minus_simulation": 5.551115123125783e-16,
+        "max_C_Bell_in_full_simulation": 3.925326616246387e-30,
+        "max_abs_population_sum_minus_1": 2.220446049250313e-16,
+        "min_population": 0.0,
+        "invariant_pair": "p_Psi+ = p_Psi-",
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+        "invariant_plane": "y = -x",
+        "invariant_plane_max_abs_residual": 2.220446049250313e-16,
+        "fidelity_formula": "(1 + 2x + z)/4",
+        "max_abs_fidelity_formula_minus_p_PhiPlus": 1.1102230246251565e-16
+      },
+      "Type4": {
+        "max_abs_note_minus_map": 0.0,
+        "max_abs_map_minus_simulation": 4.440892098500626e-16,
+        "max_C_Bell_in_full_simulation": 9.461588011401445e-28,
+        "max_abs_population_sum_minus_1": 2.220446049250313e-16,
+        "min_population": 0.0,
+        "invariant_pair": "p_Psi+ = p_Psi-",
+        "invariant_pair_max_abs_diff": 2.7755575615628914e-17,
+        "invariant_plane": "y = -x",
+        "invariant_plane_max_abs_residual": 2.220446049250313e-16,
+        "fidelity_formula": "(1 + 2x + z)/4",
+        "max_abs_fidelity_formula_minus_p_PhiPlus": 1.1102230246251565e-16
+      },
+      "4Q": {
+        "max_abs_note_minus_map": 3.3306690738754696e-16,
+        "max_abs_map_minus_simulation": 3.3306690738754696e-16,
+        "max_C_Bell_in_full_simulation": 1.517648426825339e-33,
+        "max_abs_population_sum_minus_1": 1.1102230246251565e-16,
+        "min_population": 0.0,
+        "invariant_pair": "p_Phi- = p_Psi-",
+        "invariant_pair_max_abs_diff": 0.0,
+        "invariant_plane": "y = -z",
+        "invariant_plane_max_abs_residual": 2.220446049250313e-16,
+        "fidelity_formula": "(1 + x + 2z)/4",
+        "max_abs_fidelity_formula_minus_p_PhiPlus": 1.1102230246251565e-16
+      }
+    },
+    "type5": {
+      "max_abs_population_sum_minus_1": 4.440892098500626e-16,
+      "max_C_Bell": 1.8468542282515078e-06,
+      "min_eigenvalue": 0.006746871867087634,
+      "max_anti_hermitian_norm": 0.0,
+      "bell_populations_alone_describe_the_state": false
+    },
+    "all_agreements_at_machine_precision": true
+  }
+}
