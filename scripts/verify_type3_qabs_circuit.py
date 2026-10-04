@@ -627,8 +627,8 @@ def q_abs_full(eps: float, viol_tol=VIOL_TOL, tol=1e-10, components=NON_TARGET,
             "limiting_component": detail["component"],
             "first_violation_round": detail["round"],
             "delta_p_at_violation": detail.get("delta_p_violating"),
-            "p_n_at_violation": detail.get("p_n"),
-            "p_np1_at_violation": detail.get("p_np1"),
+            "p_n_at_q_upper": detail.get("p_n"),
+            "p_np1_at_q_upper": detail.get("p_np1"),
             "all_violating_components": detail.get("all_violating"),
             "below_converged": at_lo["converged"],
             "below_trusted": at_lo["trusted"],
@@ -910,6 +910,7 @@ def main() -> int:
         row = {
             "epsilon": eps,
             "q_abs_full": full["q_abs"],
+            "q_upper_violating": full.get("q_upper"),
             "q_abs_first_round": first["q_abs"],
             "q_abs_full_minus_first": (None if full["q_abs"] is None
                                        or first["q_abs"] is None
@@ -924,10 +925,13 @@ def main() -> int:
             "below_threshold_n_trusted": full.get("below_n_trusted"),
             "bracket_monotone": full["bracket_info"].get("monotone"),
             "bracket_sign_changes": full["bracket_info"].get("n_sign_changes"),
-            "p_n_at_violation": (None if full.get("p_n_at_violation") is None
-                                 else full["p_n_at_violation"].tolist()),
-            "p_np1_at_violation": (None if full.get("p_np1_at_violation") is None
-                                   else full["p_np1_at_violation"].tolist()),
+            # NOTE: these populations are evaluated at q_upper_violating (the
+            # smallest q the bisection knows to violate), NOT at q_abs_full and
+            # NOT at any other q.  Delta_p_at_violation belongs to the same run.
+            "p_n_at_q_upper": (None if full.get("p_n_at_q_upper") is None
+                               else full["p_n_at_q_upper"].tolist()),
+            "p_np1_at_q_upper": (None if full.get("p_np1_at_q_upper") is None
+                                 else full["p_np1_at_q_upper"].tolist()),
             "seconds": round(time.time() - t0, 2),
         }
         table.append(row)
@@ -997,7 +1001,7 @@ def main() -> int:
 
     # ---- outputs --------------------------------------------------------
     with open(OUT / "type3_qabs_circuit.csv", "w", newline="") as fh:
-        cols = ["epsilon", "q_abs_full", "q_abs_first_round",
+        cols = ["epsilon", "q_abs_full", "q_upper_violating", "q_abs_first_round",
                 "q_abs_full_minus_first", "limiting_Bell_component",
                 "first_violation_round_near_threshold", "Delta_p_at_violation",
                 "q_abs_Phi_minus", "q_abs_Psi_plus", "q_abs_Psi_minus",

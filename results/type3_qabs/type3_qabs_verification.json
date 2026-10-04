@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-02T03:24:18Z",
+  "generated_utc": "2026-10-04T12:36:06Z",
   "circuit_source": "PQEC-Operational-Threshold/verify_analytic_decomposed.py _c2/_tof/_fred, commit a4969947, sha256 dd8de89220cb0b5315f0c5f7b9c2c8cf483980ac96d9ad9cccc1bd3f8e7a7837",
   "n_cnot": 16,
   "gate_sequence": [
@@ -269,6 +269,7 @@
     {
       "epsilon": 0.02,
       "q_abs_full": 0.005659445992205293,
+      "q_upper_violating": 0.005659445998026058,
       "q_abs_first_round": 0.005659445992205293,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -282,23 +283,24 @@
       "below_threshold_n_trusted": null,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.9849999999999997,
         0.005000000000000012,
         0.004999999999999999,
         0.004999999999999999
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.9877968716462722,
         0.005000000002956946,
         0.0036015641753853614,
         0.0036015641753855032
       ],
-      "seconds": 0.79
+      "seconds": 1.1
     },
     {
       "epsilon": 0.05,
       "q_abs_full": 0.013937335868831727,
+      "q_upper_violating": 0.013937335874652493,
       "q_abs_first_round": 0.013937335868831727,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -312,23 +314,24 @@
       "below_threshold_n_trusted": null,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.9624999999999996,
         0.012499999999999992,
         0.012499999999999999,
         0.012499999999999999
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.9692615923998991,
         0.012500000005749497,
         0.009119203797175499,
         0.009119203797175582
       ],
-      "seconds": 1.13
+      "seconds": 1.24
     },
     {
       "epsilon": 0.1,
       "q_abs_full": 0.02714167217491195,
+      "q_upper_violating": 0.02714167218073272,
       "q_abs_first_round": 0.02714167217491195,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -342,23 +345,24 @@
       "below_threshold_n_trusted": null,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.9249999999999997,
         0.024999999999999984,
         0.024999999999999998,
         0.024999999999999998
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.9377321085507639,
         0.02500000000178947,
         0.018633945723723226,
         0.018633945723723143
       ],
-      "seconds": 1.6
+      "seconds": 1.69
     },
     {
       "epsilon": 0.15,
       "q_abs_full": 0.03956263153231703,
+      "q_upper_violating": 0.0395626315381378,
       "q_abs_first_round": 0.03956263153231703,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -372,23 +376,24 @@
       "below_threshold_n_trusted": null,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.8874999999999996,
         0.03749999999999994,
         0.03749999999999999,
         0.03749999999999999
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.9053748846110385,
         0.03750000000108565,
         0.02856255769393779,
         0.028562557693937795
       ],
-      "seconds": 1.88
+      "seconds": 1.69
     },
     {
       "epsilon": 0.2,
       "q_abs_full": 0.051155686267884456,
+      "q_upper_violating": 0.05115568627370522,
       "q_abs_first_round": 0.051155686267884456,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -402,23 +407,24 @@
       "below_threshold_n_trusted": null,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.8499999999999996,
         0.05000000000000002,
         0.049999999999999996,
         0.049999999999999996
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.8721629130332814,
         0.05000000000531459,
         0.03891854348070193,
         0.03891854348070186
       ],
-      "seconds": 2.16
+      "seconds": 2.39
     },
     {
       "epsilon": 0.3,
       "q_abs_full": 0.07171059370739384,
+      "q_upper_violating": 0.07171059371321462,
       "q_abs_first_round": 0.07171059370739384,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -432,23 +438,24 @@
       "below_threshold_n_trusted": null,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.7749999999999997,
         0.07499999999999998,
         0.07499999999999998,
         0.07499999999999998
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.8031238777422153,
         0.07500000000461857,
         0.06093806112658296,
         0.06093806112658294
       ],
-      "seconds": 3.15
+      "seconds": 3.5
     },
     {
       "epsilon": 0.4,
       "q_abs_full": 0.08856751145794989,
+      "q_upper_violating": 0.08856751146377065,
       "q_abs_first_round": 0.08856751145794989,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -462,23 +469,24 @@
       "below_threshold_n_trusted": 70,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.6999999999999997,
         0.09999999999999995,
         0.09999999999999999,
         0.09999999999999999
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.7306409413043761,
         0.10000000000543782,
         0.08467952934509299,
         0.08467952934509294
       ],
-      "seconds": 5.33
+      "seconds": 6.13
     },
     {
       "epsilon": 0.5,
       "q_abs_full": 0.10155579713173211,
+      "q_upper_violating": 0.10155579713755289,
       "q_abs_first_round": 0.10155579713173211,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -492,23 +500,24 @@
       "below_threshold_n_trusted": 67,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.6249999999999998,
         0.12499999999999996,
         0.12499999999999997,
         0.12499999999999997
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.6549515848942599,
         0.12500000000339848,
         0.11002420755117072,
         0.11002420755117068
       ],
-      "seconds": 5.8
+      "seconds": 6.82
     },
     {
       "epsilon": 0.6,
       "q_abs_full": 0.11052820056793275,
+      "q_upper_violating": 0.11052820057375352,
       "q_abs_first_round": 0.11052820056793275,
       "q_abs_full_minus_first": 0.0,
       "limiting_Bell_component": "Phi-",
@@ -522,21 +531,21 @@
       "below_threshold_n_trusted": 54,
       "bracket_monotone": true,
       "bracket_sign_changes": 1,
-      "p_n_at_violation": [
+      "p_n_at_q_upper": [
         0.5499999999999998,
         0.15,
         0.14999999999999997,
         0.14999999999999997
       ],
-      "p_np1_at_violation": [
+      "p_np1_at_q_upper": [
         0.5764989643837403,
         0.15000000000242844,
         0.13675051780691558,
         0.13675051780691558
       ],
-      "seconds": 5.17
+      "seconds": 6.52
     }
   ],
   "dense_max_abs_full_minus_first": 0.0,
-  "elapsed_seconds": 77.6
+  "elapsed_seconds": 83.8
 }
