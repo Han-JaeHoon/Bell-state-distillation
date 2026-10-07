@@ -1,0 +1,400 @@
+{
+  "generated_utc": "2026-10-07T13:20:18Z",
+  "protocol": "6Q-L16: two party-local Type-3 Fredkin decompositions",
+  "status": "circuit-level numerical study, ONE ROUND ONLY; no analytic noisy recurrence used or derived",
+  "wire_order": [
+    "a",
+    "b",
+    "A1",
+    "B1",
+    "A2",
+    "B2"
+  ],
+  "alice_triple": [
+    0,
+    2,
+    4
+  ],
+  "bob_triple": [
+    1,
+    3,
+    5
+  ],
+  "circuit_source": "canonical Type-3 Fredkin decomposition: PQEC-Operational-Threshold/verify_analytic_decomposed.py _c2/_tof/_fred, commit a4969947, sha256 dd8de89220cb0b5315f0c5f7b9c2c8cf483980ac96d9ad9cccc1bd3f8e7a7837; same sequence as scripts/verify_type3_qabs_circuit.py",
+  "noise_convention": "two-qubit REPLACEMENT depolarizing applied after every CNOT on that CNOT's two wires, via pqec_distill.noise.replacement_depolarizing",
+  "noise_only_after_cnots": true,
+  "n_cnot_alice": 8,
+  "n_cnot_bob": 8,
+  "n_cnot_total": 16,
+  "n_ancillas": 2,
+  "measurement_settings": [
+    "XX",
+    "YY"
+  ],
+  "all_cnots_party_local": true,
+  "cnot_wire_pairs": [
+    [
+      4,
+      2
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      5,
+      3
+    ]
+  ],
+  "comparison_metadata_note": "the existing 5Q Type-3 baseline also uses 16 CNOTs under the same per-CNOT replacement-depolarizing convention; no performance comparison is drawn here",
+  "structural_checks": {
+    "n_cnot_alice": 8,
+    "n_cnot_bob": 8,
+    "n_cnot_total": 16,
+    "cross_party_two_qubit_gates": [],
+    "alice_block_vs_ideal_fredkin": 3.1401849173675503e-16,
+    "bob_block_vs_ideal_fredkin": 3.1401849173675503e-16,
+    "full_unitary_unitarity": 8.881784197001252e-16,
+    "local_blocks_commutator": 0.0
+  },
+  "noise_convention_checks": {
+    "vs_parent_eps2_kraus_channel": 2.42861286636753e-17,
+    "vs_parent_iterated_replacement_depol": 6.938893903907228e-18,
+    "channel_trace": 4.440892098500626e-16,
+    "channel_herm": 0.0,
+    "channel_min_eig": 0.0,
+    "channel_identity_at_q0": 0.0
+  },
+  "final_state_validity": {
+    "q=0": {
+      "trace_minus_1": 1.4432899320127035e-15,
+      "hermiticity": 1.4196792695050727e-16,
+      "min_eig": -8.022851299829644e-17
+    },
+    "q=0.05": {
+      "trace_minus_1": 1.9984014443252818e-15,
+      "hermiticity": 9.121850548678255e-17,
+      "min_eig": 0.0008657280518719801
+    },
+    "q=0.3": {
+      "trace_minus_1": 2.4424906541753444e-15,
+      "hermiticity": 4.2712694528478316e-18,
+      "min_eig": 0.011425810949867771
+    }
+  },
+  "q0_vs_frozen_ideal": {
+    "n_states": 25,
+    "max_abs_delta_diff": 8.881784197001252e-16,
+    "worst_state_observable": [
+      "isotropic_0.1",
+      "ZZ"
+    ],
+    "max_frobenius_T0_diff": 9.544447934245137e-16
+  },
+  "study_a_worst": {
+    "c": 2.1260108634384464e-16,
+    "state": "dirichlet_4",
+    "q": 0.2,
+    "family": "interior"
+  },
+  "study_a_max_C_Bell_by_q": {
+    "0.0": 1.3763094037235813e-16,
+    "0.0001": 1.6912914542896765e-16,
+    "0.001": 1.5972728634564532e-16,
+    "0.005": 1.5756826464101132e-16,
+    "0.01": 1.9502470543338157e-16,
+    "0.02": 1.237264145776061e-16,
+    "0.05": 1.674427954956783e-16,
+    "0.1": 1.2675519863919925e-16,
+    "0.15": 1.438185363156702e-16,
+    "0.2": 2.1260108634384464e-16,
+    "0.3": 1.3344565940412533e-16
+  },
+  "study_a_roundoff_scale": 1e-12,
+  "study_b_worst_delta_iso": {
+    "d": 0.029404163675520498,
+    "epsilon": 0.0,
+    "q": 0.2
+  },
+  "study_b_max_psi_plus_minus_psi_minus": 2.2898349882893854e-16,
+  "study_b_max_phi_minus_vs_psi_plus": 0.029404163675520498,
+  "break_even": [
+    {
+      "epsilon": 0.0,
+      "scan_min": -0.7039473684210527,
+      "scan_max": -2.220446049250313e-16,
+      "scan_abs_max": 0.7039473684210527,
+      "Delta_F_at_q0": -2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "q_gain_num": null,
+      "n_sign_changes": 0,
+      "unique": false,
+      "status": "no gain at any tested q"
+    },
+    {
+      "epsilon": 0.01,
+      "scan_min": -0.69699286706124,
+      "scan_max": 0.007480965916300764,
+      "scan_abs_max": 0.69699286706124,
+      "Delta_F_at_q0": 0.007480965916300764,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.003506958000361919,
+      "bracket_lo": 0.003506957963109016,
+      "bracket_hi": 0.003506958037614822,
+      "bracket_width": 7.450580603862722e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.05,
+      "scan_min": -0.669176800748363,
+      "scan_max": 0.03699426837491537,
+      "scan_abs_max": 0.669176800748363,
+      "Delta_F_at_q0": 0.03699426837491537,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.01707878325134516,
+      "bracket_lo": 0.017078783214092258,
+      "bracket_hi": 0.017078783288598062,
+      "bracket_width": 7.450580430390374e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.1,
+      "scan_min": -0.6344072164948454,
+      "scan_max": 0.07281341107871686,
+      "scan_abs_max": 0.6344072164948454,
+      "Delta_F_at_q0": 0.07281341107871686,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.03299094270914792,
+      "bracket_lo": 0.03299094267189502,
+      "bracket_hi": 0.032990942746400825,
+      "bracket_width": 7.450580430390374e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.2,
+      "scan_min": -0.5648437500000001,
+      "scan_max": 0.13972602739726003,
+      "scan_abs_max": 0.5648437500000001,
+      "Delta_F_at_q0": 0.13972602739726003,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.0611943332478404,
+      "bracket_lo": 0.061194333210587495,
+      "bracket_hi": 0.0611943332850933,
+      "bracket_width": 7.450580430390374e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.3,
+      "scan_min": -0.49519891242129377,
+      "scan_max": 0.19767206477732746,
+      "scan_abs_max": 0.49519891242129377,
+      "Delta_F_at_q0": 0.19767206477732746,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.08449867237359286,
+      "bracket_lo": 0.08449867233633995,
+      "bracket_hi": 0.08449867241084577,
+      "bracket_width": 7.450581818169155e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.4,
+      "scan_min": -0.42540983606557375,
+      "scan_max": 0.2423076923076921,
+      "scan_abs_max": 0.42540983606557375,
+      "Delta_F_at_q0": 0.2423076923076921,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.1029486671462655,
+      "bracket_lo": 0.1029486671090126,
+      "bracket_hi": 0.1029486671835184,
+      "bracket_width": 7.450580430390374e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.5,
+      "scan_min": -0.3554104477611941,
+      "scan_max": 0.26785714285714257,
+      "scan_abs_max": 0.3554104477611941,
+      "Delta_F_at_q0": 0.26785714285714257,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.11665660452097652,
+      "bracket_lo": 0.11665660448372361,
+      "bracket_hi": 0.11665660455822943,
+      "bracket_width": 7.450581818169155e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.6666666666666666,
+      "scan_min": -0.23809523809523808,
+      "scan_max": 0.25,
+      "scan_abs_max": 0.25,
+      "Delta_F_at_q0": 0.25,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.12917371165007355,
+      "bracket_lo": 0.12917371161282065,
+      "bracket_hi": 0.12917371168732644,
+      "bracket_width": 7.450579042611594e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.75,
+      "scan_min": -0.17905405405405406,
+      "scan_max": 0.20723684210526294,
+      "scan_abs_max": 0.20723684210526294,
+      "Delta_F_at_q0": 0.20723684210526294,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.13052677210420374,
+      "bracket_lo": 0.13052677206695085,
+      "bracket_hi": 0.13052677214145664,
+      "bracket_width": 7.450579042611594e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 0.9,
+      "scan_min": -0.07199781659388649,
+      "scan_max": 0.08519417475728136,
+      "scan_abs_max": 0.08519417475728136,
+      "Delta_F_at_q0": 0.08519417475728136,
+      "tolerance": 1e-10,
+      "q_gain_num": 0.12398910868912935,
+      "bracket_lo": 0.12398910865187646,
+      "bracket_hi": 0.12398910872638226,
+      "bracket_width": 7.450580430390374e-11,
+      "iterations": 27,
+      "n_sign_changes": 1,
+      "unique": true,
+      "status": "root bracketed"
+    },
+    {
+      "epsilon": 1.0,
+      "scan_min": -8.326672684688674e-17,
+      "scan_max": 0.0,
+      "scan_abs_max": 8.326672684688674e-17,
+      "Delta_F_at_q0": -5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "q_gain_num": null,
+      "n_sign_changes": 0,
+      "unique": false,
+      "status": "degenerate: Delta_F = 0 to round-off at every q"
+    }
+  ],
+  "independent_route_check": {
+    "n_states": 7,
+    "q_values": [
+      0.0,
+      0.02,
+      0.1
+    ],
+    "max_abs_density_matrix_diff": 2.930999979282622e-17,
+    "max_abs_delta_P_diff": 1.3877787807814457e-16
+  },
+  "q_grid": [
+    0.0,
+    0.0001,
+    0.001,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "eps_grid": [
+    0.0,
+    0.01,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6666666666666666,
+    0.75,
+    0.9,
+    1.0
+  ],
+  "seed": 20261007,
+  "numpy_version": "2.4.6",
+  "python_version": "3.11.15",
+  "elapsed_seconds": 26.9
+}
