@@ -314,10 +314,35 @@ misread.
 
 ---
 
+## Figures
+
+`scripts/draw_locc_vd_circuit.py` renders the circuits with `qml.draw_mpl`
+(PennyLane). The script first compares the unitary of the drawn PennyLane
+circuit against the unitary that was actually verified and refuses to save
+anything unless they match, so the figures cannot drift from the code:
+
+| comparison | max abs diff |
+|---|---|
+| drawn 6Q vs verified route A | `0.000e+00` |
+| drawn 6Q vs verified route B | `0.000e+00` |
+| drawn 5Q vs verified baseline | `0.000e+00` |
+
+| file | content |
+|---|---|
+| `results/figures/locc_vd/locc_vd_6q_circuit_XX.{png,pdf}` | the 6Q circuit with the `X_a X_b` read-out, in the implementation ordering |
+| `results/figures/locc_vd/locc_vd_6q_circuit_YY.{png,pdf}` | same gates, `Y_a Y_b` read-out |
+| `results/figures/locc_vd/locc_vd_6q_circuit_by_party.{png,pdf}` | same circuit with wires regrouped as `[a, A1, A2, b, B1, B2]` and the Alice/Bob cut drawn; readability only |
+| `results/figures/locc_vd/locc_vd_5q_baseline.{png,pdf}` | the 5Q single-ancilla SWAP test |
+
+The Hadamards in the figures are the state preparation of the `|+>` ancillas
+from `|0>`; the verification script initialises the ancilla density matrix as
+`|+><+|` directly, which is the same state.
+
 ## Reproducing
 
 ```
 python scripts/verify_locc_vd.py      # writes results/data/locc_vd/
+python scripts/draw_locc_vd_circuit.py # writes results/figures/locc_vd/
 python -m pytest tests/test_locc_vd.py -q
 ```
 
