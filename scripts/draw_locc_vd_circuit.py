@@ -90,6 +90,13 @@ def _z_product(wires):
     return obs
 
 
+def _barrier(wires):
+    """A visual-only separator.  ``only_visual=True`` means it carries no
+    operation, so it cannot affect any matrix or expectation value; the matrix
+    checks below run on ``gates_6q`` / ``gates_5q``, which have no barriers."""
+    qml.Barrier(wires=wires, only_visual=True)
+
+
 def circuit_6q(ancilla_pauli="X", data_label="ZZ"):
     """|+> preparation, the two local Fredkins, basis changes, Z read-out.
 
@@ -98,7 +105,9 @@ def circuit_6q(ancilla_pauli="X", data_label="ZZ"):
     """
     qml.Hadamard(wires="a")
     qml.Hadamard(wires="b")
+    _barrier(WIRES_6Q_IMPL)
     gates_6q()
+    _barrier(WIRES_6Q_IMPL)
     rotate_to_z(ancilla_pauli, "a")
     rotate_to_z(ancilla_pauli, "b")
     rotate_to_z(data_label[0], "A1")
@@ -110,7 +119,9 @@ def circuit_6q(ancilla_pauli="X", data_label="ZZ"):
 
 def circuit_5q(data_label="ZZ"):
     qml.Hadamard(wires="c")
+    _barrier(WIRES_5Q)
     gates_5q()
+    _barrier(WIRES_5Q)
     rotate_to_z("X", "c")
     rotate_to_z(data_label[0], "A1")
     rotate_to_z(data_label[1], "B1")
@@ -223,42 +234,6 @@ def _colour_wire_labels(ax, wire_order):
             txt.set_fontweight("bold")
 
 
-def _annotate(ax, wire_order, measured, data_label):
-    """Left-hand input labels and a Z tag on every measured wire."""
-    x_lo, x_hi = ax.get_xlim()
-    x_meas = x_hi - 1.0
-    x_in = x_lo - 1.0
-    ax.set_xlim(x_in - 0.50, x_hi + 1.05)
-    row = {w: k for k, w in enumerate(wire_order)}
-
-    for w in ("a", "b", "c"):
-        if w not in row:
-            continue
-        colour = ALICE_COLOR if w in ALICE else BOB_COLOR if w in BOB else INK
-        ax.text(x_in, row[w], r"$|0\rangle$", va="center", ha="left",
-                fontsize=12, color=colour)
-
-    for label, pair in ((r"$\rho_{A_1B_1}$", ("A1", "B1")),
-                        (r"$\rho_{A_2B_2}$", ("A2", "B2"))):
-        r0, r1 = row[pair[0]], row[pair[1]]
-        if abs(r0 - r1) != 1:
-            continue
-        top, bot = min(r0, r1), max(r0, r1)
-        xb = x_in + 0.30
-        ax.plot([xb, xb], [top - 0.18, bot + 0.18], color=INK, linewidth=1.3)
-        for yy in (top - 0.18, bot + 0.18):
-            ax.plot([xb, xb + 0.16], [yy, yy], color=INK, linewidth=1.3)
-        ax.text(x_in + 0.12, 0.5 * (top + bot), label, va="center", ha="right",
-                fontsize=11.5, color=INK)
-
-    for w in measured:
-        colour = ALICE_COLOR if w in ALICE else BOB_COLOR if w in BOB else INK
-        ax.text(x_meas + 0.72, row[w], r"$Z$", va="center", ha="center",
-                fontsize=12.5, fontweight="bold", color=colour)
-    ax.text(x_meas + 0.72, -0.78, "read out", va="center", ha="center",
-            fontsize=9.5, color=INK2, style="italic")
-
-
 def _save(fig, stem):
     OUT.mkdir(parents=True, exist_ok=True)
     paths = []
@@ -270,12 +245,6 @@ def _save(fig, stem):
     return paths
 
 
-def _measured_wires(ancilla_wires, data_label):
-    return list(ancilla_wires) + [w for w, p in (("A1", data_label[0]),
-                                                 ("B1", data_label[1]))
-                                  if p != "I"]
-
-
 def draw_6q(ancilla_pauli, data_label, wire_order, stem, title,
             party_cut=False):
     _style()
@@ -283,16 +252,15 @@ def draw_6q(ancilla_pauli, data_label, wire_order, stem, title,
                           show_all_wires=True, style="pennylane", decimals=None)
     fig, ax = drawer(ancilla_pauli, data_label)
     _colour_wire_labels(ax, wire_order)
-    _annotate(ax, wire_order, _measured_wires(("a", "b"), data_label),
-              data_label)
     if party_cut:
-        x_lo, x_hi = ax.get_xlim()
+        # axhline and text inside the existing limits: no axis is resized, so
+        # the aspect ratio stays exactly the one qml.draw_mpl produced
+        x_lo, _x_hi = ax.get_xlim()
         ax.axhline(2.5, color=INK2, linestyle=(0, (5, 4)), linewidth=1.2)
         for name, y, colour in (("Alice", 1.0, ALICE_COLOR),
                                 ("Bob", 4.0, BOB_COLOR)):
-            ax.text(x_lo + 0.12, y, name, rotation=90, va="center", ha="center",
-                    color=colour, fontsize=12, fontweight="bold")
-        ax.set_xlim(x_lo, x_hi)
+            ax.text(x_lo + 0.10, y, name, rotation=90, va="center", ha="center",
+                    color=colour, fontsize=11, fontweight="bold")
     ax.set_title(title, color=INK, fontsize=12, pad=12)
     return _save(fig, stem)
 
@@ -303,7 +271,6 @@ def draw_5q(data_label, stem, title):
                           style="pennylane", decimals=None)
     fig, ax = drawer(data_label)
     _colour_wire_labels(ax, WIRES_5Q)
-    _annotate(ax, WIRES_5Q, _measured_wires(("c",), data_label), data_label)
     ax.set_title(title, color=INK, fontsize=12, pad=12)
     return _save(fig, stem)
 
