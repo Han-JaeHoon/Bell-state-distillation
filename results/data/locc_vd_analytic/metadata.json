@@ -1,0 +1,144 @@
+{
+  "generated_utc": "2026-10-07T08:14:54Z",
+  "role": "independent analytic cross-check of frozen blind circuit data",
+  "frozen_inputs_read_only": true,
+  "frozen_sha256": {
+    "blind_verification.csv": "9f1c65bcf2a4712edc268fa112c7c209ead42b04fc89e17f1d1fe803c2b66499",
+    "input_state_validity.csv": "f349f03d9e0605069d01312a24e2507304b67861a8c080c20cb86ee1f329a1d4",
+    "metadata.json": "eac921a290393f35da178b8d81b6d80ccbc98df83304e8941a496af98e6083fb",
+    "per_state_summary.csv": "bb95e9037e5db72cc69b9974ab6caf3d13eccce4eb91d9a77638c74ee3647d72",
+    "representative_operators.npz": "d55c51078c4a94678a5e344d0891fb2b4fea90bafa73da7ee0e0e67e8b658710"
+  },
+  "frozen_state_record_match": {
+    "max_abs_rho_diff_vs_frozen_npz": 0.0,
+    "n_states_cross_checked_against_npz": 19,
+    "state_list_and_order_identical": true,
+    "n_states_regenerated": 151,
+    "n_states_in_frozen_summary": 151
+  },
+  "analytic_claims": {
+    "Delta(O)": "Tr(O rho^2)",
+    "Delta(I)": "Tr(rho^2)",
+    "T_6Q": "rho^2",
+    "normalised_estimator": "Tr(O rho^2) / Tr(rho^2)",
+    "bell_diagonal": "p_i' = p_i^2 / sum_j p_j^2",
+    "bell_isotropic": "(1-3e/4)^2 / [(1-3e/4)^2 + 3 (e/4)^2]",
+    "nonidentical_inputs": "(1/2) Tr[O (rho sigma + sigma rho)]"
+  },
+  "ingredient_checks": {
+    "swap_identity": {
+      "max_err_Tr2_AB_S_equals_AB": 3.580361673049448e-15,
+      "max_err_Tr2_S_AB_equals_BA": 1.831026719408895e-15,
+      "max_err_Tr_AB_S_equals_Tr_AB": 3.794299872214038e-15,
+      "n_trials": 50
+    },
+    "pauli_orthogonality": {
+      "max_err_Tr_PP_minus_4": 0.0,
+      "max_abs_Tr_PQ_offdiagonal": 0.0
+    },
+    "identical_copy_commutation": {
+      "max_err_S_R_S_minus_R": 0.0,
+      "max_err_SR_minus_RS": 0.0,
+      "n_states": 20
+    }
+  },
+  "delta_comparison": {
+    "n_comparisons": 2416,
+    "6Q_vs_analytic": {
+      "max": 6.661338147750939e-16,
+      "mean": 1.0211793311363657e-16,
+      "rms": 1.5449771019401804e-16,
+      "worst": {
+        "err": 6.661338147750939e-16,
+        "state": "pure_5",
+        "observable": "II",
+        "frozen": 0.9999999999999998,
+        "analytic": 1.0000000000000004
+      }
+    },
+    "5Q_vs_analytic": {
+      "max": 4.440892098500626e-16,
+      "mean": 5.153245236484372e-17,
+      "rms": 8.331401123619572e-17,
+      "worst": {
+        "err": 4.440892098500626e-16,
+        "state": "pure_5",
+        "observable": "II",
+        "frozen": 1.0,
+        "analytic": 1.0000000000000004
+      }
+    },
+    "per_family_6Q_vs_analytic": {
+      "A_pure_bell": {
+        "n": 64,
+        "max": 4.440892098500626e-16,
+        "mean": 1.1102230246251565e-16,
+        "rms": 2.220446049250313e-16
+      },
+      "B_isotropic": {
+        "n": 112,
+        "max": 4.440892098500626e-16,
+        "mean": 6.359620171750687e-17,
+        "rms": 1.5038322429985659e-16
+      },
+      "C_bell_diagonal": {
+        "n": 320,
+        "max": 4.440892098500626e-16,
+        "mean": 4.038856380415845e-17,
+        "rms": 1.0433244958868528e-16
+      },
+      "D_random_pure": {
+        "n": 640,
+        "max": 6.661338147750939e-16,
+        "mean": 1.7862230791698686e-16,
+        "rms": 2.2396919335269683e-16
+      },
+      "E_random_full_rank": {
+        "n": 640,
+        "max": 3.3306690738754696e-16,
+        "mean": 6.64582050415724e-17,
+        "rms": 8.828728424557319e-17
+      },
+      "F_rank_deficient": {
+        "n": 640,
+        "max": 5.551115123125783e-16,
+        "mean": 9.798883709652429e-17,
+        "rms": 1.33491658860137e-16
+      }
+    }
+  },
+  "operator_comparison": {
+    "max_frobenius_T6Q_minus_rho2": 4.784594874407588e-16,
+    "max_frobenius_T5Q_minus_rho2": 2.5521678557763055e-16,
+    "worst_representative": "pure_1",
+    "n_representatives": 19
+  },
+  "bell_comparison": {
+    "isotropic": {
+      "n": 7,
+      "max_abs_error_formula_vs_frozen": 3.3306690738754696e-16,
+      "mean_abs_error_formula_vs_frozen": 1.2688263138573217e-16,
+      "max_abs_error_if_epsilon_taken_from_the_label_instead": 3.750001874580633e-07,
+      "note": "epsilon is recovered from the state; taking it from the rounded state name instead shifts F by ~4e-7 at eps = 2/3"
+    },
+    "bell_diagonal": {
+      "n": 31,
+      "max_abs_p_prime_error": 2.220446049250313e-16,
+      "max_abs_error_F_vs_p0_prime": 2.220446049250313e-16,
+      "max_offdiagonal_weight_of_rho_squared": 1.326716907101311e-32
+    }
+  },
+  "nonidentical_section": {
+    "n_pairs": 60,
+    "n_comparisons": 960,
+    "max_abs_error_6Q": 2.7755575615628914e-16,
+    "mean_abs_error_6Q": 4.87890977618477e-17,
+    "rms_error_6Q": 6.411870572409812e-17,
+    "max_abs_error_5Q": 1.6653345369377348e-16,
+    "max_gap_to_identical_copy_formula": 0.95163216192126,
+    "mean_gap_to_identical_copy_formula": 0.20609921099889794
+  },
+  "numpy_version": "2.4.6",
+  "python_version": "3.11.15",
+  "elapsed_seconds": 0.68
+}
