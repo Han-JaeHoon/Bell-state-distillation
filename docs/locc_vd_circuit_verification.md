@@ -327,15 +327,34 @@ anything unless they match, so the figures cannot drift from the code:
 | drawn 6Q vs verified route B | `0.000e+00` |
 | drawn 5Q vs verified baseline | `0.000e+00` |
 
+Every measurement is drawn as a computational-basis (Z) measurement, with the
+basis-change gates that make it one shown explicitly:
+
+| measuring | drawn as |
+|---|---|
+| `X` | `H` then `Z`, since `H^dag Z H = X` |
+| `Y` | `S^dag`, `H` then `Z`, since `(H S^dag)^dag Z (H S^dag) = S X S^dag = Y` |
+| `Z` | `Z` |
+
+so the second check above is not only about the gate network: it confirms that
+reading `Z` after the drawn rotations reproduces the frozen correlators
+`<X_a X_b (x) O>` and `<Y_a Y_b (x) O>` (max difference `3.331e-16` over 12
+random states and 8 observables).
+
 | file | content |
 |---|---|
-| `results/figures/locc_vd/locc_vd_6q_circuit_XX.{png,pdf}` | the 6Q circuit with the `X_a X_b` read-out, in the implementation ordering |
-| `results/figures/locc_vd/locc_vd_6q_circuit_YY.{png,pdf}` | same gates, `Y_a Y_b` read-out |
+| `results/figures/locc_vd/locc_vd_6q_circuit_XX.{png,pdf}` | `C_XX(O)` for `O = Z (x) Z`, display order `[a, A1, B1, A2, B2, b]` |
+| `results/figures/locc_vd/locc_vd_6q_circuit_YY.{png,pdf}` | `C_YY(O)` for the same `O`: the only change is `S^dag, H` instead of `H` on the two ancillas |
+| `results/figures/locc_vd/locc_vd_6q_circuit_XX_data_XY.{png,pdf}` | `C_XX(O)` for `O = X (x) Y`, so the data-side basis changes are visible too |
 | `results/figures/locc_vd/locc_vd_6q_circuit_by_party.{png,pdf}` | same circuit with wires regrouped as `[a, A1, A2, b, B1, B2]` and the Alice/Bob cut drawn; readability only |
 | `results/figures/locc_vd/locc_vd_5q_baseline.{png,pdf}` | the 5Q single-ancilla SWAP test |
 
-The Hadamards in the figures are the state preparation of the `|+>` ancillas
-from `|0>`; the verification script initialises the ancilla density matrix as
+The display order `[a, A1, B1, A2, B2, b]` puts each input copy on adjacent
+rows; the simulator's ordering is still `[a, b, A1, B1, A2, B2]` and the matrix
+checks are performed in that ordering.
+
+The leftmost Hadamards are the state preparation of the `|+>` ancillas from
+`|0>`; the verification script initialises the ancilla density matrix as
 `|+><+|` directly, which is the same state.
 
 ## Reproducing
