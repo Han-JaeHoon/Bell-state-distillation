@@ -1,0 +1,12 @@
+epsilon,max_off_Bell_weight_before_convergence,below_threshold_converged,below_threshold_trusted,below_threshold_n_trusted,below_threshold_rounds_run,below_worst_delta_R,below_worst_component,below_worst_round,below_n_abs_rise_with_rel_fall,limiting_at_q_upper,bracket_monotone,bracket_sign_changes
+0.02,2.540978201552894e-29,True,True,,8,2.6039760625540254e-13,Phi-,0,0,Phi-,True,1
+0.05,3.715141181877045e-29,True,True,,10,-9.71445146547012e-17,Psi-,9,1,Phi-,True,1
+0.1,5.296154263125111e-29,True,True,,12,-1.214306433183765e-15,Psi+,11,1,Phi-,True,1
+0.15,6.347214294562453e-29,True,True,,14,-3.8719027983802334e-15,Psi+,13,1,Phi-,True,1
+0.2,9.10972049275492e-29,True,True,,17,-1.8665624601510444e-15,Psi-,16,0,Phi-,True,1
+0.3,1.5764722922955614e-28,True,True,,23,-3.066991105526995e-15,Psi+,22,1,Phi-,True,1
+0.4,1.229702667378834e-18,False,False,68,68,3.608224830031759e-16,Phi-,42,1,Phi-,True,1
+0.5,1.0217131015701298e-18,False,False,54,54,1.6653345369377348e-16,Phi-,53,1,Phi-,True,1
+0.6,1.32401465265628e-18,False,False,44,44,-4.517941576409612e-12,Phi-,0,2,Phi-,True,1
+0.65,1.6365142611118018e-18,False,False,43,43,-6.813716257880742e-12,Phi-,0,2,Phi-,True,1
+0.66,1.4438837344905188e-18,False,False,44,44,-6.376066341573505e-12,Phi-,0,2,Phi-,True,1
