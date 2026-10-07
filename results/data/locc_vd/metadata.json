@@ -1,0 +1,122 @@
+{
+  "generated_utc": "2026-10-07T07:43:28Z",
+  "status": "BLIND circuit-level result, frozen before any analytic comparison",
+  "analytic_input_used": false,
+  "matrix_square_used_anywhere": false,
+  "six_qubit_ordering": [
+    "a",
+    "b",
+    "A1",
+    "B1",
+    "A2",
+    "B2"
+  ],
+  "five_qubit_ordering": [
+    "c",
+    "A1",
+    "B1",
+    "A2",
+    "B2"
+  ],
+  "alice_gate": "Fredkin(a; A1, A2) = Fredkin(wire 0; wires 2, 4)",
+  "bob_gate": "Fredkin(b; B1, B2) = Fredkin(wire 1; wires 3, 5)",
+  "gate_order_in_simulator": "Alice then Bob (they commute; checked)",
+  "five_qubit_gates": [
+    "Fredkin(c; A1, A2)",
+    "Fredkin(c; B1, B2)"
+  ],
+  "ancilla_initial_state": "|+> on every ancilla",
+  "ideal": true,
+  "noise": null,
+  "postselection": false,
+  "twirling": false,
+  "bell_diagonal_projection": false,
+  "estimators": {
+    "Delta_6Q": "<X_a X_b (x) O_(A1B1) (x) I_(A2B2)> - <Y_a Y_b (x) O (x) I>",
+    "Delta_5Q": "<X_c (x) O_(A1B1) (x) I_(A2B2)>"
+  },
+  "observables": [
+    "II",
+    "IX",
+    "IY",
+    "IZ",
+    "XI",
+    "XX",
+    "XY",
+    "XZ",
+    "YI",
+    "YX",
+    "YY",
+    "YZ",
+    "ZI",
+    "ZX",
+    "ZY",
+    "ZZ"
+  ],
+  "seed": 20261007,
+  "structural_checks": {
+    "fredkin_unitarity": 0.0,
+    "alice_embedding_unitarity": 0.0,
+    "bob_embedding_unitarity": 0.0,
+    "route_a_unitarity": 0.0,
+    "route_b_unitarity": 0.0,
+    "u5_unitarity": 0.0,
+    "alice_gate_leaks_onto_bob_wires": 0.0,
+    "bob_gate_leaks_onto_alice_wires": 0.0,
+    "local_fredkins_commutator": 0.0,
+    "S_A_S_B_commutator": 0.0,
+    "S_A_S_B_is_complete_copy_swap_error": 0.0,
+    "four_branch_structure_error": 0.0,
+    "route_a_minus_route_b_matrix": 0.0,
+    "u5_gate_minus_permutation_matrix": 0.0
+  },
+  "summary": {
+    "n_states": 151,
+    "n_observables": 16,
+    "n_comparisons": 2416,
+    "max_abs_error": 4.440892098500626e-16,
+    "mean_abs_error": 5.390809369791647e-17,
+    "rms_error": 8.749777435802805e-17,
+    "worst_state": "pure_3",
+    "worst_observable": "XZ",
+    "max_route_a_minus_route_b": 0.0,
+    "final_state_6q_validity": {
+      "trace": 1.2212453270876722e-15,
+      "herm": 1.4337890731446443e-16,
+      "min_eig": -6.478492897296353e-16
+    },
+    "final_state_5q_validity": {
+      "trace": 8.881784197001252e-16,
+      "herm": 1.4337890731446438e-16,
+      "min_eig": -3.987696703608816e-16
+    },
+    "worst_C_XX_alone": {
+      "err": 0.4999999999999998,
+      "state": "bell_Phi+",
+      "obs": "XX",
+      "c_xx": 0.49999999999999956,
+      "ref": 0.9999999999999993
+    },
+    "worst_C_YY_alone": {
+      "err": 1.499999999999999,
+      "state": "bell_Phi+",
+      "obs": "XX",
+      "c_yy": -0.49999999999999956,
+      "ref": 0.9999999999999993
+    },
+    "max_T_frobenius_6Q_minus_5Q": 3.7212143582632037e-16,
+    "max_T_6Q_hermiticity_error": 0.0,
+    "max_bell_fidelity_6Q_minus_5Q": 2.220446049250313e-16
+  },
+  "n_states_by_family": {
+    "A_pure_bell": 4,
+    "B_isotropic": 7,
+    "C_bell_diagonal": 20,
+    "D_random_pure": 40,
+    "E_random_full_rank": 40,
+    "F_rank_deficient": 40
+  },
+  "numpy_version": "2.4.6",
+  "python_version": "3.11.15",
+  "elapsed_seconds": 1.71
+}
