@@ -1,0 +1,592 @@
+{
+  "generated_utc": "2026-10-08T05:36:57.068579+00:00",
+  "script": "scripts/verify_5q_6q_type3_noisy_equivalence.py",
+  "git_branch": "feature/5q-6q-type3-noisy-equivalence",
+  "git_head": "bb97cca7dd655fa62f6e477b4e2de72539c0949c",
+  "python": "3.11.15",
+  "numpy": "2.4.6",
+  "platform": "Linux-6.18.44-fc-v80-x86_64-with-glibc2.39",
+  "quick_mode": false,
+  "question": "does the raw noisy 5Q Type-3 estimator Delta_5(q;O,R) = <X_c (x) O (x) I> equal the raw noisy 6Q-L16 estimator Delta_6(q;O,R) = <X_a X_b (x) O (x) I> - <Y_a Y_b (x) O (x) I> ?",
+  "not_used": [
+    "analytic equivalence argument",
+    "Type-3 Bell-diagonal recurrence",
+    "closed-form noisy map",
+    "pqec_distill.analytic_exact_map",
+    "any assumption of Bell diagonality, isotropy or estimator equality"
+  ],
+  "circuit_source_5q": "canonical Type-3 Fredkin decomposition _c2(b,a); _tof(q,a,b); _c2(b,a) with the Clifford+T Toffoli, 8 CNOTs per Fredkin; same wire-index gate list as scripts/verify_type3_qabs_circuit.py TYPE3_OPS",
+  "circuit_source_6q": "canonical Type-3 Fredkin decomposition: PQEC-Operational-Threshold/verify_analytic_decomposed.py _c2/_tof/_fred, commit a4969947, sha256 dd8de89220cb0b5315f0c5f7b9c2c8cf483980ac96d9ad9cccc1bd3f8e7a7837; same sequence as scripts/verify_type3_qabs_circuit.py",
+  "noise_convention": "two-qubit REPLACEMENT depolarizing applied after every CNOT on that CNOT's two wires, via pqec_distill.noise.replacement_depolarizing",
+  "tolerances": {
+    "sanity": 1e-12,
+    "equivalence": 1e-12,
+    "negative_control_min_signal": 1e-06
+  },
+  "seeds": {
+    "pure": 20240517,
+    "mixed": 7761103,
+    "rank_def": 31415926,
+    "observables": 1618033,
+    "general_r": 2718281,
+    "projectors": 1414213
+  },
+  "q_grid": [
+    0.0,
+    1e-06,
+    0.0001,
+    0.001,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "n_states": 94,
+  "n_observables": 56,
+  "n_general_r": 22,
+  "state_families": [
+    "A_bell",
+    "B_computational",
+    "C_random_pure",
+    "D_random_full_rank",
+    "E_rank_deficient",
+    "F_non_bell_diagonal",
+    "G_imaginary_coherence",
+    "H_near_pure",
+    "I_near_maximally_mixed",
+    "J_bell_diagonal_asymmetric",
+    "K_bell_isotropic"
+  ],
+  "observable_families": [
+    "F1_pauli_product",
+    "F2_random_hermitian",
+    "F3_projector"
+  ],
+  "general_r_families": [
+    "complex_coherences",
+    "correlated_across_copies",
+    "entangled_across_copy_cut",
+    "product_rho_tensor_sigma",
+    "random_full_rank_4q",
+    "random_pure_4q",
+    "rank_deficient_4q"
+  ],
+  "structural": {
+    "wires_5q": [
+      "c",
+      "A1",
+      "B1",
+      "A2",
+      "B2"
+    ],
+    "wires_6q": [
+      "a",
+      "b",
+      "A1",
+      "B1",
+      "A2",
+      "B2"
+    ],
+    "n_cnot_5q": 16,
+    "n_cnot_6q": 16,
+    "n_cnot_6q_alice": 8,
+    "n_cnot_6q_bob": 8,
+    "cnot_pairs_5q": [
+      [
+        3,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "cnot_pairs_6q": [
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "cross_party_two_qubit_gates_6q": [],
+    "unitarity_5q": 7.771561172376096e-16,
+    "unitarity_6q": 8.881784197001252e-16,
+    "n_cnot_5q_equals_16": true,
+    "n_cnot_6q_equals_16": true,
+    "u5_vs_ideal_fredkins_times_H": 3.1401849173675503e-16,
+    "u6_alice_block_vs_ideal": 3.1401849173675503e-16,
+    "u6_bob_block_vs_ideal": 3.1401849173675503e-16,
+    "ref_gate_vs_module_gate_5q": 0.0,
+    "ref_gate_vs_module_gate_6q": 0.0
+  },
+  "noise_checks": {
+    "same_function_object": true,
+    "convention_string_5q": "two-qubit REPLACEMENT depolarizing applied after every CNOT on that CNOT's two wires, via pqec_distill.noise.replacement_depolarizing",
+    "convention_string_6q": "two-qubit REPLACEMENT depolarizing applied after every CNOT on that CNOT's two wires, via pqec_distill.noise.replacement_depolarizing",
+    "convention_strings_equal": true,
+    "package_channel_vs_ref_channel_5wires": 6.938893903907228e-18,
+    "package_channel_vs_ref_channel_6wires": 3.469446951953614e-18,
+    "n_channels_5q": 16,
+    "n_channels_6q": 16,
+    "channel_locations_5q": [
+      [
+        3,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "channel_locations_6q": [
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "channels_match_cnots_5q": true,
+    "channels_match_cnots_6q": true,
+    "q0_is_identity_channel": 0.0
+  },
+  "primary": {
+    "all": {
+      "n": 78960,
+      "max_abs": 7.771561172376096e-16,
+      "mean_abs": 2.103828507734472e-17,
+      "rms_abs": 4.669584849361496e-17,
+      "max_rel": 7.771561172376096e-16,
+      "worst": [
+        "coh_00_plus_01",
+        "II",
+        1e-06
+      ],
+      "worst_rel": [
+        "coh_00_plus_01",
+        "II",
+        1e-06
+      ]
+    },
+    "pauli": {
+      "n": 22560,
+      "max_abs": 7.771561172376096e-16,
+      "mean_abs": 2.7323825139167394e-17,
+      "rms_abs": 6.455385952420014e-17,
+      "max_rel": 7.771561172376096e-16,
+      "worst": [
+        "coh_00_plus_01",
+        "II",
+        1e-06
+      ],
+      "worst_rel": [
+        "coh_00_plus_01",
+        "II",
+        1e-06
+      ]
+    },
+    "random": {
+      "n": 56400,
+      "max_abs": 4.440892098500626e-16,
+      "mean_abs": 1.8524069052615645e-17,
+      "rms_abs": 3.7226641822303035e-17,
+      "max_rel": 4.440892098500626e-16,
+      "worst": [
+        "comp_00",
+        "randherm_06",
+        1e-06
+      ],
+      "worst_rel": [
+        "comp_00",
+        "randherm_06",
+        1e-06
+      ]
+    },
+    "route_ab": {
+      "n": 78960,
+      "max_abs": 4.440892098500626e-16,
+      "mean_abs": 2.047226091005066e-17,
+      "rms_abs": 4.04729143698585e-17,
+      "max_rel": 4.440892098500626e-16,
+      "worst": [
+        "bell_Phi+",
+        "II",
+        0.0001
+      ],
+      "worst_rel": [
+        "bell_Phi+",
+        "II",
+        0.0001
+      ]
+    },
+    "identity": {
+      "n": 1410,
+      "max_abs": 7.771561172376096e-16,
+      "mean_abs": 7.456696885131274e-17,
+      "rms_abs": 1.3266034024016883e-16,
+      "max_rel": 7.771561172376096e-16,
+      "worst": [
+        "coh_00_plus_01",
+        "II",
+        1e-06
+      ],
+      "worst_rel": [
+        "coh_00_plus_01",
+        "II",
+        1e-06
+      ]
+    }
+  },
+  "primary_reconstruction": {
+    "T_fro": 6.684427777288335e-16,
+    "T_max": 6.661338147750939e-16,
+    "T_trace": 7.771561172376096e-16,
+    "R_fro": 8.092672813107745e-16,
+    "worst_T": [
+      "comp_00",
+      1e-06
+    ],
+    "worst_R": [
+      "coh_00_plus_01",
+      1e-06
+    ]
+  },
+  "general_r": {
+    "all": {
+      "n": 18480,
+      "max_abs": 2.220446049250313e-16,
+      "mean_abs": 1.2008065718439083e-17,
+      "rms_abs": 2.3359483375910267e-17,
+      "max_rel": 2.220446049250313e-16,
+      "worst": [
+        "R_pure4q_00",
+        "II",
+        0.0
+      ],
+      "worst_rel": [
+        "R_pure4q_00",
+        "II",
+        0.0
+      ]
+    },
+    "identity": {
+      "n": 330,
+      "max_abs": 2.220446049250313e-16,
+      "mean_abs": 3.523665587055379e-17,
+      "rms_abs": 6.023977316567622e-17,
+      "max_rel": 2.220446049250313e-16,
+      "worst": [
+        "R_pure4q_00",
+        "II",
+        0.0
+      ],
+      "worst_rel": [
+        "R_pure4q_00",
+        "II",
+        0.0
+      ]
+    },
+    "route_ab": {
+      "n": 18480,
+      "max_abs": 2.220446049250313e-16,
+      "mean_abs": 1.2389643488238838e-17,
+      "rms_abs": 2.0896779610082937e-17,
+      "max_rel": 2.220446049250313e-16,
+      "worst": [
+        "R_pure4q_00",
+        "II",
+        0.001
+      ],
+      "worst_rel": [
+        "R_pure4q_00",
+        "II",
+        0.001
+      ]
+    },
+    "reconstruction": {
+      "T_fro": 2.3978120729330563e-16,
+      "R_fro": 1.6623611685877201e-15,
+      "worst_T": [
+        "R_entangled_cut_01",
+        0.005
+      ]
+    }
+  },
+  "independent_routes": {
+    "five": 2.220446049250313e-16,
+    "six": 4.440892098500626e-16,
+    "five_vs_frozen_ideal": 6.661338147750939e-16,
+    "six_vs_frozen_ideal": 5.551115123125783e-16,
+    "six_vs_frozen_rho_rho": 2.7755575615628914e-16
+  },
+  "negative_controls": {
+    "A_one_cnot_noise_q_plus_delta": {
+      "description": "first 6Q CNOT noise set to q+0.001",
+      "max_abs_diff": 0.00047548310463757515,
+      "n": 128,
+      "detected": true
+    },
+    "B_one_channel_removed": {
+      "description": "depolarizing channel after 6Q CNOT #3 removed",
+      "max_abs_diff": 0.02712844574453921,
+      "n": 128,
+      "detected": true
+    },
+    "C_one_cnot_orientation_flipped": {
+      "description": "one Alice-block CNOT control/target exchanged",
+      "max_abs_diff": 0.5154404691462413,
+      "n": 128,
+      "detected": true
+    },
+    "D_c_xx_alone": {
+      "description": "C_XX alone compared against Delta_5 (no -C_YY)",
+      "max_abs_diff": 0.2258544747028793,
+      "n": 128,
+      "detected": true
+    }
+  },
+  "local_coherence": {
+    "max_abs_diff": 2.7894007457874e-16,
+    "worst": [
+      "comp_00",
+      1e-06
+    ]
+  },
+  "total_seconds": 76.37804126739502
+}
