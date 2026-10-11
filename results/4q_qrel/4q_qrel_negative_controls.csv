@@ -1,0 +1,5 @@
+control,description,epsilon,q,max_abs_rho_diff,max_abs_population_diff,max_abs_ratio_diff,abs_p_succ_diff,q_rel_full_modified,q_rel_full_shift,modified_has_root_in_scan,modified_all_violating,modified_none_violating,detected
+A_one_cnot_noise_plus_1e-3,replacement-depolarizing strength after CNOT #3 set to q + 1e-3,0.15,0.05,0.00010584682510522692,0.00019257297394437156,0.0001723897352816292,0.00045725444531263815,0.06241676218807697,-0.0002494636178016485,True,False,False,True
+B_one_channel_removed,depolarizing channel after CNOT #2 removed,0.15,0.05,0.005117839312379802,0.0093111676762625,0.00825118579796063,0.022862722265624913,0.08237963318824768,0.019713407382369055,True,False,False,True
+C_one_cnot_reversed,"CNOT #4 reversed: (2, 1) -> (1, 2)",0.15,0.05,0.28467629002041117,0.5100732995972508,0.9666639449972878,0.2795283636718748,,,False,True,False,True
+D_wrong_postselection_branch,"postselect (q3,q4) = (0,1) instead of (0,0)",0.15,0.05,0.23549523940304917,0.43815093488314144,0.7827207151394403,0.5892550824218744,,,False,True,False,True
