@@ -1,0 +1,513 @@
+control,description,state,q,metric,delta5,delta6_modified,abs_diff
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,II,0.5549543005565722,0.5545277004873648,0.0004266000692074723
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,II,0.5549543005565722,0.5841624216384971,0.02920812108192483
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,II,0.5549543005565722,-2.7755575615628914e-17,0.5549543005565722
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,II,0.5549543005565722,0.5549543005565721,1.1102230246251565e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,IX,-2.8716689126792915e-17,-1.82748005394767e-18,2.6889209072845244e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,IX,-2.8716689126792915e-17,8.389633704563116e-18,3.710632283135603e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,IX,-2.8716689126792915e-17,-1.2171320969423394e-18,2.7499557029850576e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,IX,-2.8716689126792915e-17,1.1029240979686966e-18,2.981961322476161e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,IY,-3.3473505441268282e-18,-7.068131958896242e-18,3.720781414769414e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,IY,-3.3473505441268282e-18,2.0064671607042673e-17,2.34120221511695e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,IY,-3.3473505441268282e-18,8.463696376791314e-17,8.798431431203996e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,IY,-3.3473505441268282e-18,2.6557135094498614e-17,2.990448563862544e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,IZ,-2.7755575615628914e-17,0.0,2.7755575615628914e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,IZ,-2.7755575615628914e-17,2.7755575615628914e-17,5.551115123125783e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,IZ,-2.7755575615628914e-17,0.36776382168372745,0.36776382168372745
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,IZ,-2.7755575615628914e-17,-4.163336342344337e-17,1.3877787807814457e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,XI,-2.410308843343371e-17,8.592179618902736e-18,3.2695268052336446e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,XI,-2.410308843343371e-17,1.3289138009076156e-17,3.7392226442509864e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,XI,-2.410308843343371e-17,4.0948210219679015e-17,6.505129865311272e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,XI,-2.410308843343371e-17,2.6939813819296102e-17,5.104290225272981e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,XX,0.4876749791155296,0.48716163703225007,0.0005133420832795221
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,XX,0.4876749791155296,0.5133420832795048,0.02566710416397522
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,XX,0.4876749791155296,6.938893903907228e-17,0.48767497911552954
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,XX,0.4876749791155296,0.24383748955776485,0.24383748955776474
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,XY,-4.161433533322869e-16,-4.3939836298815383e-16,2.3255009655866942e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,XY,-4.161433533322869e-16,-4.08258578774937e-16,7.884774557349902e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,XY,-4.161433533322869e-16,1.1102230246251565e-16,5.271656557948025e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,XY,-4.161433533322869e-16,-2.3850511050146497e-16,1.7763824283082192e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,XZ,1.6825317357721324e-17,6.763949757141921e-18,1.0061367600579403e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,XZ,1.6825317357721324e-17,-1.440901038009186e-17,3.1234327737813184e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,XZ,1.6825317357721324e-17,8.496289123100593e-18,8.329028234620731e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,XZ,1.6825317357721324e-17,-8.85370300801746e-18,2.5679020365738783e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,YI,-3.309290026745272e-18,-1.3836356775942924e-18,1.9256543491509797e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,YI,-3.309290026745272e-18,-1.7866621991025618e-17,1.4557331964280346e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,YI,-3.309290026745272e-18,5.614034202134975e-17,5.944963204809502e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,YI,-3.309290026745272e-18,5.454895280120999e-19,3.854779554757372e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,YX,-4.23883493256113e-16,-4.3359112026611503e-16,9.707627010002053e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,YX,-4.23883493256113e-16,-4.541622804807671e-16,3.027878722465411e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,YX,-4.23883493256113e-16,8.082747665352001e-17,5.04710969909633e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,YX,-4.23883493256113e-16,-2.0380437166620004e-16,2.2007912158991295e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,YY,-0.4876749791155295,-0.4871616370322501,0.0005133420832793556
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,YY,-0.4876749791155295,-0.5133420832795048,0.02566710416397533
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,YY,-0.4876749791155295,-6.93889390390723e-17,0.48767497911552943
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,YY,-0.4876749791155295,-0.24383748955776474,0.24383748955776474
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,YZ,1.2671400000439705e-16,9.223063526848115e-17,3.44833647359159e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,YZ,1.2671400000439705e-16,1.1171693400385589e-16,1.499706600054116e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,YZ,1.2671400000439705e-16,-2.040254140789042e-18,1.2875425414518608e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,YZ,1.2671400000439705e-16,1.9742106510601267e-17,1.0697189349379578e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,ZI,-8.326672684688674e-17,-5.551115123125783e-17,2.7755575615628914e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,ZI,-8.326672684688674e-17,-2.7755575615628914e-17,5.551115123125783e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,ZI,-8.326672684688674e-17,0.3780834885871094,0.3780834885871095
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,ZI,-8.326672684688674e-17,-5.551115123125783e-17,2.7755575615628914e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,ZX,-9.073248030248811e-18,9.780512554798632e-18,1.8853760585047445e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,ZX,-9.073248030248811e-18,2.029944222965113e-17,2.9372690259899944e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,ZX,-9.073248030248811e-18,1.7587097779584444e-17,2.6660345809833257e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,ZX,-9.073248030248811e-18,-6.522959397278064e-18,2.5502886329707474e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,ZY,9.073710939258075e-17,8.887763763283821e-17,1.8594717597425442e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,ZY,9.073710939258075e-17,1.1379672012629746e-16,2.3059610733716713e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,ZY,9.073710939258075e-17,1.2998481138165153e-17,7.77386282544156e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,ZY,9.073710939258075e-17,4.962357871689592e-17,4.111353067568483e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.05,ZZ,0.5005085311975173,0.4999816801120462,0.0005268510854710695
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.05,ZZ,0.5005085311975173,0.5200965843752878,0.01958805317777057
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.05,ZZ,0.5005085311975173,-2.7755575615628914e-17,0.5005085311975173
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.05,ZZ,0.5005085311975173,0.25025426559875863,0.25025426559875863
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,II,0.07838315315200005,0.07831872864256005,6.442450943999756e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,II,0.07838315315200005,0.09797894144000008,0.01959578828800003
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,II,0.07838315315200005,-1.0408340855860843e-17,0.07838315315200006
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,II,0.07838315315200005,0.07838315315200006,1.3877787807814457e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,IX,-3.3738146752196977e-18,3.631268135767981e-19,3.736941488796496e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,IX,-3.3738146752196977e-18,3.3241209047556256e-18,6.697935579975323e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,IX,-3.3738146752196977e-18,1.2390993824146877e-18,4.612914057634385e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,IX,-3.3738146752196977e-18,2.9567346784959144e-18,6.330549353715612e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,IY,-1.0444978215673472e-18,2.9747804601687158e-18,4.019278281736063e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,IY,-1.0444978215673472e-18,1.3339675946497224e-18,2.3784654162170696e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,IY,-1.0444978215673472e-18,6.961256897617419e-18,8.005754719184766e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,IY,-1.0444978215673472e-18,1.3757740128193343e-18,2.4202718343866817e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,IZ,-5.204170427930421e-18,-1.0408340855860843e-17,5.204170427930421e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,IZ,-5.204170427930421e-18,-1.3877787807814457e-17,8.673617379884035e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,IZ,-5.204170427930421e-18,0.04130320679967431,0.041303206799674315
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,IZ,-5.204170427930421e-18,-5.204170427930421e-18,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,XI,-1.0131865410031777e-18,-7.049879258012882e-19,3.081986152018895e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,XI,-1.0131865410031777e-18,1.464924248448156e-18,2.4781107894513338e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,XI,-1.0131865410031777e-18,1.986382196343739e-18,2.999568737346917e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,XI,-1.0131865410031777e-18,2.3168610041280145e-18,3.3300475451311922e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,XX,0.04398046511104004,0.04392548952965124,5.497558138880393e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,XX,0.04398046511104004,0.05497558138880004,0.010995116277760002
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,XX,0.04398046511104004,-3.469446951953614e-18,0.04398046511104005
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,XX,0.04398046511104004,0.02199023255552002,0.02199023255552002
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,XY,-3.7474667022686514e-17,-3.6391909889926724e-17,1.0827571327597894e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,XY,-3.7474667022686514e-17,-4.9893214676120296e-17,1.2418547653433782e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,XY,-3.7474667022686514e-17,6.938893903907228e-18,4.441356092659374e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,XY,-3.7474667022686514e-17,-1.9710231699706197e-17,1.7764435322980317e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,XZ,4.634483166512523e-20,2.7305345969594504e-18,2.684189765294325e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,XZ,4.634483166512523e-20,1.2193899580669676e-18,1.1730451264018424e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,XZ,4.634483166512523e-20,2.536906454401805e-18,2.4905616227366796e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,XZ,4.634483166512523e-20,-6.303329005432234e-19,6.766777322083486e-19
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,YI,1.1474154932471154e-18,-9.453915541670835e-19,2.0928070474141987e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,YI,1.1474154932471154e-18,-2.624764839385689e-18,3.7721803326328045e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,YI,1.1474154932471154e-18,4.44206479915689e-18,3.2946493059097744e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,YI,1.1474154932471154e-18,-4.70480575073242e-19,1.6178960683203573e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,YX,-3.7142780994916726e-17,-3.872520064658502e-17,1.5824196516682934e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,YX,-3.7142780994916726e-17,-3.9790004459654187e-17,2.647223464737461e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,YX,-3.7142780994916726e-17,7.15803068566907e-18,4.43008116805858e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,YX,-3.7142780994916726e-17,-2.0405118782618898e-17,1.6737662212297828e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,YY,-0.04398046511104004,-0.04392548952965124,5.497558138880393e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,YY,-0.04398046511104004,-0.05497558138880004,0.010995116277760002
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,YY,-0.04398046511104004,3.469446951953614e-18,0.04398046511104005
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,YY,-0.04398046511104004,-0.021990232555520024,0.021990232555520017
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,YZ,9.612248314276701e-18,5.570503937356288e-18,4.041744376920413e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,YZ,9.612248314276701e-18,5.898830451584014e-18,3.713417862692687e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,YZ,9.612248314276701e-18,2.65967777393654e-20,9.585651536537336e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,YZ,9.612248314276701e-18,2.3659704897843284e-18,7.246277824492374e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,ZI,0.0,-6.938893903907228e-18,6.938893903907228e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,ZI,0.0,-3.469446951953614e-18,3.469446951953614e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,ZI,0.0,0.048136457924620436,0.048136457924620436
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,ZI,0.0,-8.673617379884035e-18,8.673617379884035e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,ZX,-1.256073966947118e-20,1.802391103385257e-18,1.814951843054728e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,ZX,-1.256073966947118e-20,3.1347488814771287e-18,3.1473096211465997e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,ZX,-1.256073966947118e-20,3.810845757361641e-18,3.823406497031112e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,ZX,-1.256073966947118e-20,2.566827936407492e-19,2.692435333102204e-19
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,ZY,1.1489476037240821e-17,6.836583307635212e-18,4.652892729605609e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,ZY,1.1489476037240821e-17,9.152447659038461e-18,2.33702837820236e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,ZY,1.1489476037240821e-17,-1.2065661617625494e-18,1.2696042199003371e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,ZY,1.1489476037240821e-17,3.7614691853844344e-18,7.728006851856386e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,bell_Phi+,0.2,ZZ,0.04947802324992004,0.04941617572085763,6.184752906240876e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,bell_Phi+,0.2,ZZ,0.04947802324992004,0.058411555225600036,0.008933531975679997
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,bell_Phi+,0.2,ZZ,0.04947802324992004,-3.469446951953614e-18,0.04947802324992004
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),bell_Phi+,0.2,ZZ,0.04947802324992004,0.024739011624960026,0.024739011624960013
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,II,0.5549543005565722,0.5545277004873648,0.0004266000692074723
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,II,0.5549543005565722,0.5841624216384969,0.02920812108192461
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,II,0.5549543005565722,-5.551115123125783e-17,0.5549543005565722
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,II,0.5549543005565722,0.5549543005565722,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,IX,-2.7287546895320296e-17,-1.0094409294329456e-17,1.719313760099084e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,IX,-2.7287546895320296e-17,-1.5856126706575354e-17,1.1431420188744942e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,IX,-2.7287546895320296e-17,-5.367085459288814e-17,2.6383307697567843e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,IX,-2.7287546895320296e-17,-6.676359121072806e-18,2.061118777424749e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,IY,-5.698465807263521e-18,2.74459958787166e-17,3.314446168598012e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,IY,-5.698465807263521e-18,2.601801120406562e-17,3.171647701132914e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,IY,-5.698465807263521e-18,6.392780555388207e-17,6.962627136114559e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,IY,-5.698465807263521e-18,1.2190022555833867e-17,1.788848836309739e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,IZ,-2.7755575615628914e-17,1.3877787807814457e-17,4.163336342344337e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,IZ,-2.7755575615628914e-17,-8.326672684688674e-17,5.551115123125783e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,IZ,-2.7755575615628914e-17,0.37253997521208765,0.3725399752120877
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,IZ,-2.7755575615628914e-17,-2.0816681711721685e-17,6.938893903907228e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,XI,-8.355906853946705e-18,6.961954518823312e-18,1.5317861372770017e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,XI,-8.355906853946705e-18,2.620839455218622e-17,3.4564301406132925e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,XI,-8.355906853946705e-18,2.2022006704436378e-17,3.0377913558383085e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,XI,-8.355906853946705e-18,1.5351996516690345e-17,2.3707903370637052e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,XX,3.659458407753136e-16,4.268386446614396e-16,6.089280388612596e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,XX,3.659458407753136e-16,4.112478239711421e-16,4.530198319582847e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,XX,3.659458407753136e-16,-5.551115123125783e-17,4.2145699200657145e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,XX,3.659458407753136e-16,2.3522859294320793e-16,1.307172478321057e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,XY,0.4876749791155295,0.4871616370322501,0.0005133420832793556
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,XY,0.4876749791155295,0.5133420832795048,0.02566710416397533
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,XY,0.4876749791155295,8.326672684688674e-17,0.4876749791155294
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,XY,0.4876749791155295,0.2438374895577648,0.2438374895577647
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,XZ,-1.1267991851070494e-16,-1.0544683065376313e-16,7.233087856941805e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,XZ,-1.1267991851070494e-16,-8.711791424906846e-17,2.5562004261636484e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,XZ,-1.1267991851070494e-16,2.1933924296402277e-17,1.3461384280710723e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,XZ,-1.1267991851070494e-16,-3.9636183443175816e-17,7.304373506752912e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,YI,8.321542937690757e-20,2.2460175094636865e-17,2.2376959665259957e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,YI,8.321542937690757e-20,-1.4940990030043108e-17,1.5024205459420015e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,YI,8.321542937690757e-20,1.5676583464570263e-18,1.4844429170801187e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,YI,8.321542937690757e-20,-2.0646259561254388e-17,2.0729474990631296e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,YX,0.48767497911552965,0.48716163703225007,0.0005133420832795776
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,YX,0.48767497911552965,0.5133420832795048,0.025667104163975163
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,YX,0.48767497911552965,5.551115123125783e-17,0.4876749791155296
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,YX,0.48767497911552965,0.24383748955776485,0.2438374895577648
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,YY,-4.537824870524041e-16,-4.4078245856460407e-16,1.3000028487799999e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,YY,-4.537824870524041e-16,-4.379562938022246e-16,1.5826193250179454e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,YY,-4.537824870524041e-16,1.0288248369426387e-16,5.566649707466679e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,YY,-4.537824870524041e-16,-2.3082506424482227e-16,2.229574228075818e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,YZ,1.317888468509629e-16,1.1137343116763634e-16,2.0415415683326558e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,YZ,1.317888468509629e-16,1.201565387731824e-16,1.1632308077780494e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,YZ,1.317888468509629e-16,1.02432967433323e-17,1.215455501076306e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,YZ,1.317888468509629e-16,4.047464359939569e-17,9.13142032515672e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,ZI,-8.326672684688674e-17,-2.7755575615628914e-17,5.551115123125783e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,ZI,-8.326672684688674e-17,-8.326672684688674e-17,0.0
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,ZI,-8.326672684688674e-17,0.37808348858710933,0.3780834885871094
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,ZI,-8.326672684688674e-17,-1.3877787807814457e-17,6.938893903907228e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,ZX,-1.2211108992573306e-16,-9.15974641581965e-17,3.051362576753657e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,ZX,-1.2211108992573306e-16,-1.2238664039448633e-16,2.755504687532679e-19
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,ZX,-1.2211108992573306e-16,-1.7934262009136684e-17,1.0417682791659637e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,ZX,-1.2211108992573306e-16,-5.219863017561066e-17,6.99124597501224e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,ZY,1.0069946220248203e-16,1.1673275629607389e-16,1.6033294093591853e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,ZY,1.0069946220248203e-16,1.256638416922186e-16,2.4964379489736555e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,ZY,1.0069946220248203e-16,8.093671345607256e-18,9.260579085687478e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,ZY,1.0069946220248203e-16,7.285037765285491e-17,2.784908454962712e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.05,ZZ,0.5005085311975173,0.49998168011204625,0.000526851085471014
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.05,ZZ,0.5005085311975173,0.5200965843752876,0.019588053177770348
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.05,ZZ,0.5005085311975173,0.0,0.5005085311975173
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.05,ZZ,0.5005085311975173,0.2503386968624559,0.25016983433506135
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,II,0.07838315315200006,0.07831872864256004,6.442450944002531e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,II,0.07838315315200006,0.09797894144000008,0.019595788288000016
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,II,0.07838315315200006,0.0,0.07838315315200006
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,II,0.07838315315200006,0.07838315315200006,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,IX,-2.650316070258214e-18,2.5940218396112096e-18,5.2443379098694236e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,IX,-2.650316070258214e-18,1.3281591969388195e-18,3.978475267197033e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,IX,-2.650316070258214e-18,-3.01570998060443e-18,3.6539391034621604e-19
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,IX,-2.650316070258214e-18,9.447724335839522e-19,3.595088503842166e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,IY,1.2363443602225747e-18,-7.409335621313007e-19,1.9772779223538754e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,IY,1.2363443602225747e-18,3.5815116726026416e-18,2.345167312380067e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,IY,1.2363443602225747e-18,8.147430072986452e-18,6.911085712763877e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,IY,1.2363443602225747e-18,2.5947551896964327e-18,1.358410829473858e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,IZ,0.0,-6.938893903907228e-18,6.938893903907228e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,IZ,0.0,-1.0408340855860843e-17,1.0408340855860843e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,IZ,0.0,0.043732807199655166,0.043732807199655166
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,IZ,0.0,-5.204170427930421e-18,5.204170427930421e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,XI,8.934086917836435e-19,3.794885174200506e-19,5.139201743635928e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,XI,8.934086917836435e-19,3.9925449159175045e-18,3.099136224133861e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,XI,8.934086917836435e-19,2.286360933799167e-18,1.3929522420155236e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,XI,8.934086917836435e-19,2.888844396543277e-18,1.9954357047596337e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,XX,3.7805642486027905e-17,3.9704350335560773e-17,1.898707849532868e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,XX,3.7805642486027905e-17,4.740492912414286e-17,9.599286638114953e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,XX,3.7805642486027905e-17,-3.469446951953614e-18,4.127508943798152e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,XX,3.7805642486027905e-17,1.9292395910677104e-17,1.8513246575350802e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,XY,0.043980465111040035,0.04392548952965123,5.497558138880393e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,XY,0.043980465111040035,0.05497558138880004,0.010995116277760009
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,XY,0.043980465111040035,-8.673617379884035e-19,0.043980465111040035
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,XY,0.043980465111040035,0.02199023255552002,0.021990232555520014
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,XZ,-1.1626348161785398e-17,-7.832962903357903e-18,3.793385258427495e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,XZ,-1.1626348161785398e-17,-7.66842892937815e-18,3.9579192324072476e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,XZ,-1.1626348161785398e-17,2.185632142185181e-19,1.1844911376003916e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,XZ,-1.1626348161785398e-17,-4.467029053102715e-18,7.159319108682683e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,YI,-2.8680962393932067e-18,1.62761626534434e-18,4.4957125047375465e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,YI,-2.8680962393932067e-18,-5.346516739715789e-19,2.3334445654216278e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,YI,-2.8680962393932067e-18,3.599079666387912e-18,6.467175905781119e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,YI,-2.8680962393932067e-18,-6.201463603565081e-19,2.2479498790366986e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,YX,0.04398046511104005,0.043925489529651245,5.497558138880393e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,YX,0.04398046511104005,0.05497558138880003,0.010995116277759981
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,YX,0.04398046511104005,-4.3368086899420185e-18,0.043980465111040055
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,YX,0.04398046511104005,0.02199023255552002,0.021990232555520028
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,YY,-3.54007384895182e-17,-3.773560316067871e-17,2.3348646711605136e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,YY,-3.54007384895182e-17,-4.691904605492157e-17,1.151830756540337e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,YY,-3.54007384895182e-17,6.45645139467687e-18,4.185718988419507e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,YY,-3.54007384895182e-17,-2.2884424935635723e-17,1.2516313553882476e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,YZ,1.3990024384968452e-17,8.709061398068075e-18,5.280962986900377e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,YZ,1.3990024384968452e-17,1.1256931362834201e-17,2.7330930221342507e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,YZ,1.3990024384968452e-17,1.2612286716719605e-18,1.2728795713296491e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,YZ,1.3990024384968452e-17,4.254122191973204e-18,9.735902192995249e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,ZI,0.0,3.469446951953614e-18,3.469446951953614e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,ZI,0.0,-1.0408340855860843e-17,1.0408340855860843e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,ZI,0.0,0.048136457924620436,0.048136457924620436
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,ZI,0.0,5.204170427930421e-18,5.204170427930421e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,ZX,-1.158853841905321e-17,-7.355871110584823e-18,4.232667308468387e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,ZX,-1.158853841905321e-17,-9.215762424017994e-18,2.3727759950352172e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,ZX,-1.158853841905321e-17,1.5752363562313987e-19,1.1746062054676351e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,ZX,-1.158853841905321e-17,-4.7531169275429756e-18,6.835421491510235e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,ZY,1.146815975516802e-17,1.1867082329168055e-17,3.989225740000348e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,ZY,1.146815975516802e-17,1.5565648489595598e-17,4.097488734427578e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,ZY,1.146815975516802e-17,2.2377764242939804e-18,9.230383330874039e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,ZY,1.146815975516802e-17,8.698281402963531e-18,2.7698783522044888e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,imag_00_plus_i11,0.2,ZZ,0.04947802324992004,0.04941617572085762,6.18475290624157e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,imag_00_plus_i11,0.2,ZZ,0.04947802324992004,0.05841155522560003,0.00893353197567999
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,imag_00_plus_i11,0.2,ZZ,0.04947802324992004,-6.938893903907228e-18,0.049478023249920046
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),imag_00_plus_i11,0.2,ZZ,0.04947802324992004,0.024910810316800033,0.024567212933120006
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,II,0.2955814584785066,0.29542788245359186,0.00015357602491472555
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,II,0.2955814584785066,0.31113837734579647,0.015556918867289882
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,II,0.2955814584785066,6.938893903907228e-18,0.2955814584785066
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,II,0.2955814584785066,0.2955814584785065,1.1102230246251565e-16
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,IX,-2.2195292105051582e-17,1.3635217823826121e-17,3.58305099288777e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,IX,-2.2195292105051582e-17,7.795817812829394e-18,2.999110991788098e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,IX,-2.2195292105051582e-17,-1.4328895091112626e-19,2.2052003154140456e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,IX,-2.2195292105051582e-17,1.1002189724492209e-17,3.319748182954379e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,IY,3.0185929014000865e-18,-8.866752987648145e-19,3.905268200164901e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,IY,3.0185929014000865e-18,4.061752562749596e-18,1.0431596613495093e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,IY,3.0185929014000865e-18,3.4364284958858504e-17,3.134569205745842e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,IY,3.0185929014000865e-18,6.397628990326183e-19,2.3788300023674683e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,IZ,-1.3877787807814457e-17,-6.938893903907228e-18,6.938893903907228e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,IZ,-1.3877787807814457e-17,-6.245004513516506e-17,4.85722573273506e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,IZ,-1.3877787807814457e-17,0.1770997728315924,0.1770997728315924
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,IZ,-1.3877787807814457e-17,-5.724587470723463e-17,4.336808689942018e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,XI,-1.9798865373782737e-17,4.658285852008676e-18,2.4457151225791414e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,XI,-1.9798865373782737e-17,-2.2073181199768022e-18,1.7591547253805933e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,XI,-1.9798865373782737e-17,-3.809109774309423e-18,1.5989755599473314e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,XI,-1.9798865373782737e-17,-5.992272062357576e-18,1.380659331142516e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,XX,0.2340839899754542,0.23383758577548003,0.0002464041999741817
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,XX,0.2340839899754542,0.24640419997416227,0.01232020999870806
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,XX,0.2340839899754542,4.163336342344337e-17,0.23408398997545415
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,XX,0.2340839899754542,0.14630249373465887,0.08778149624079534
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,XY,-1.89268777831748e-16,-2.0415203679875009e-16,1.488325896700209e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,XY,-1.89268777831748e-16,-1.788322160245214e-16,1.0436561807226599e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,XY,-1.89268777831748e-16,0.041380594169711925,0.04138059416971211
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,XY,-1.89268777831748e-16,-1.0658900368811608e-16,8.267977414363191e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,XZ,1.3673037873043889e-17,8.234239815005486e-18,5.438798058038403e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,XZ,1.3673037873043889e-17,5.6947616659719035e-18,7.978276207071984e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,XZ,1.3673037873043889e-17,-2.6156771527038904e-17,3.982980940008279e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,XZ,1.3673037873043889e-17,5.613165931078058e-18,8.059871941965831e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,YI,7.550414761188326e-18,-5.046788131509027e-18,1.2597202892697352e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,YI,7.550414761188326e-18,-2.6442608662257547e-18,1.019467562741408e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,YI,7.550414761188326e-18,1.680604051175566e-17,9.255625750567335e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,YI,7.550414761188326e-18,5.938710328509808e-18,1.6117044326785177e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,YX,-2.059301493352705e-16,-2.102818432568344e-16,4.3516939215639126e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,YX,-2.059301493352705e-16,-1.9751516511276105e-16,8.414984222509452e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,YX,-2.059301493352705e-16,6.938893903907228e-17,2.753190883743428e-16
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,YX,-2.059301493352705e-16,-1.2371585423119583e-16,8.221429510407467e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,YY,-0.2340839899754542,-0.23383758577548,0.0002464041999742095
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,YY,-0.2340839899754542,-0.2464041999741623,0.012320209998708087
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,YY,-0.2340839899754542,2.7755575615628914e-17,0.23408398997545424
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,YY,-0.2340839899754542,-0.14630249373465887,0.08778149624079534
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,YZ,6.008506706466205e-17,3.849083319703144e-17,2.159423386763061e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,YZ,6.008506706466205e-17,5.2534422614616644e-17,7.550644450045406e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,YZ,6.008506706466205e-17,-3.974856589958928e-18,6.405992365462097e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,YZ,6.008506706466205e-17,3.9461283330798127e-17,2.0623783733863924e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,ZI,-2.7755575615628914e-17,-2.7755575615628914e-17,0.0
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,ZI,-2.7755575615628914e-17,-4.163336342344337e-17,1.3877787807814457e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,ZI,-2.7755575615628914e-17,0.20384940787253306,0.20384940787253308
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,ZI,-2.7755575615628914e-17,-3.469446951953614e-17,6.938893903907228e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,ZX,-2.9287289352297705e-18,-6.111161655266327e-18,3.1824327200365567e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,ZX,-2.9287289352297705e-18,-8.185698688918919e-19,2.1101590663378786e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,ZX,-2.9287289352297705e-18,6.3201367490800366e-18,9.248865684309808e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,ZX,-2.9287289352297705e-18,-2.6949765402356646e-18,2.3375239499410586e-19
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,ZY,6.649870500609097e-17,5.059833707571862e-17,1.5900367930372353e-17
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,ZY,6.649870500609097e-17,4.617952255025154e-17,2.0319182455839433e-17
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,ZY,6.649870500609097e-17,6.647230381455025e-18,5.985147462463595e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,ZY,6.649870500609097e-17,3.0851386329000995e-17,3.564731867708998e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.05,ZZ,0.24024409497480825,0.23999120645378214,0.0002528885210261178
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.05,ZZ,0.24024409497480825,0.24964636050013822,0.009402265525329967
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.05,ZZ,0.24024409497480825,-6.938893903907228e-18,0.24024409497480825
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.05,ZZ,0.24024409497480825,0.15017282286254252,0.09007127211226573
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,II,0.04539780431872004,0.04537461149532164,2.3192823398403284e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,II,0.04539780431872004,0.056747255398400046,0.011349451079680002
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,II,0.04539780431872004,0.0,0.04539780431872004
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,II,0.04539780431872004,0.045397804318720036,6.938893903907228e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,IX,-2.2044098119920216e-18,6.876450338555505e-19,2.892054845847572e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,IX,-2.2044098119920216e-18,1.0364690985304694e-18,3.240878910522491e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,IX,-2.2044098119920216e-18,8.318579114700752e-19,3.0362677234620968e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,IX,-2.2044098119920216e-18,3.712290364922239e-19,2.5756388484842453e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,IY,-8.384404281969178e-19,-6.465050739653684e-19,1.9193535423154944e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,IY,-8.384404281969178e-19,9.070713694153587e-19,1.7455117976122767e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,IY,-8.384404281969178e-19,2.954454893787015e-18,3.7928953219839325e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,IY,-8.384404281969178e-19,3.2626131796428904e-19,1.1647017461612067e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,IZ,-3.469446951953614e-18,-6.938893903907228e-18,3.469446951953614e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,IZ,-3.469446951953614e-18,-7.806255641895632e-18,4.336808689942018e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,IZ,-3.469446951953614e-18,0.020117091311841372,0.020117091311841376
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,IZ,-3.469446951953614e-18,-6.071532165918825e-18,2.6020852139652106e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,XI,-1.882938249764267e-18,-1.3011775365977265e-19,1.7528204961044943e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,XI,-1.882938249764267e-18,7.951444843822374e-19,2.6780827341465043e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,XI,-1.882938249764267e-18,-2.188305626515886e-19,1.6641076871126784e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,XI,-1.882938249764267e-18,3.303321376092888e-19,2.2132703873735556e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,XX,0.021110623253299217,0.02108423497423259,2.6388279066626164e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,XX,0.021110623253299217,0.02638827906662402,0.0052776558133248025
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,XX,0.021110623253299217,2.6020852139652106e-18,0.021110623253299213
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,XX,0.021110623253299217,0.01319413953331201,0.007916483719987207
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,XY,-1.7728257509474823e-17,-1.705433511762849e-17,6.739223918463345e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,XY,-1.7728257509474823e-17,-2.1438551447472252e-17,3.710293937997429e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,XY,-1.7728257509474823e-17,0.003731866214370577,0.003731866214370595
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,XY,-1.7728257509474823e-17,-9.938661111363022e-18,7.789596398111801e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,XZ,1.9586539078372556e-18,2.5268536430852147e-19,1.7059685435287342e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,XZ,1.9586539078372556e-18,2.8109928618892303e-19,1.6775546216483325e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,XZ,1.9586539078372556e-18,-2.1200794854919173e-18,4.0787333933291725e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,XZ,1.9586539078372556e-18,-2.284364112251968e-19,2.1870903190624525e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,YI,4.263256414560598e-19,-7.759654957817046e-20,5.0392219103423025e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,YI,4.263256414560598e-19,5.797316086367713e-19,1.5340596718071156e-19
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,YI,4.263256414560598e-19,8.307624269037875e-19,4.0443678544772768e-19
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,YI,4.263256414560598e-19,-4.944218858083631e-19,9.20747527264423e-19
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,YX,-1.779064672343351e-17,-1.8110994798865817e-17,3.2034807543230746e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,YX,-1.779064672343351e-17,-2.288844992431133e-17,5.097803200877819e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,YX,-1.779064672343351e-17,3.5236570605778894e-18,2.13143037840114e-17
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,YX,-1.779064672343351e-17,-1.1104516059640998e-17,6.686130663792512e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,YY,-0.021110623253299217,-0.02108423497423259,2.6388279066626164e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,YY,-0.021110623253299217,-0.026388279066624026,0.005277655813324809
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,YY,-0.021110623253299217,2.6020852139652106e-18,0.02111062325329922
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,YY,-0.021110623253299217,-0.013194139533312013,0.007916483719987204
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,YZ,4.710262555196361e-18,5.5690187470558654e-18,8.587561918595043e-19
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,YZ,4.710262555196361e-18,4.14812201156459e-18,5.621405436317709e-19
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,YZ,4.710262555196361e-18,2.025714530397878e-18,2.684548024798483e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,YZ,4.710262555196361e-18,2.3169437957043777e-18,2.3933187594919834e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,ZI,-3.469446951953614e-18,-1.734723475976807e-18,1.734723475976807e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,ZI,-3.469446951953614e-18,-1.734723475976807e-18,1.734723475976807e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,ZI,-3.469446951953614e-18,0.029477126852767575,0.029477126852767578
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,ZI,-3.469446951953614e-18,-3.469446951953614e-18,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,ZX,-1.544970979344835e-19,1.8554853322544327e-18,2.009982430188916e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,ZX,-1.544970979344835e-19,4.063643656446276e-19,5.608614635791111e-19
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,ZX,-1.544970979344835e-19,7.506325205762542e-19,9.051296185107376e-19
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,ZX,-1.544970979344835e-19,8.205416462812057e-20,2.3655126256260406e-19
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,ZY,5.215383680479136e-18,2.5399758605734454e-18,2.6754078199056904e-18
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,ZY,5.215383680479136e-18,1.3861499405769366e-18,3.8292337399021996e-18
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,ZY,5.215383680479136e-18,5.781764663880688e-19,4.637207214091067e-18
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,ZY,5.215383680479136e-18,2.950661296007223e-18,2.2647223844719126e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,isotropic_eps0.4,0.2,ZZ,0.023749451159961618,0.02371976434601167,2.9686813949946628e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,isotropic_eps0.4,0.2,ZZ,0.023749451159961618,0.02803754650828802,0.004288095348326401
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,isotropic_eps0.4,0.2,ZZ,0.023749451159961618,-6.938893903907228e-18,0.023749451159961625
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),isotropic_eps0.4,0.2,ZZ,0.023749451159961618,0.014884638661017616,0.008864812498944002
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,II,0.25738253256350385,0.25729508898529657,8.744357820728021e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,II,0.25738253256350385,0.2709289816457935,0.013546449082289636
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,II,0.25738253256350385,-0.016335309466497125,0.273717842030001
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,II,0.25738253256350385,0.25738253256350385,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,IX,-0.13117909702684985,-0.13115934850162564,1.9748525224211333e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,IX,-0.13117909702684985,-0.13808326002826296,0.006904163001413111
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,IX,-0.13117909702684985,0.014247415621105762,0.1454265126479556
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,IX,-0.13117909702684985,-0.13117909702684982,2.7755575615628914e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,IY,-0.003115146391672298,-0.0031139471300337847,1.199261638513277e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,IY,-0.003115146391672298,-0.0032791014649182146,0.00016395507324591663
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,IY,-0.003115146391672298,-0.06413829907428367,0.061023152682611374
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,IY,-0.003115146391672298,-0.0031151463916723066,8.673617379884035e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,IZ,0.038049175895583404,0.03800851599568189,4.0659899901512864e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,IZ,0.038049175895583404,0.04005176410061408,0.0020025882050306795
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,IZ,0.038049175895583404,0.025220957351825345,0.012828218543758058
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,IZ,0.038049175895583404,0.03804917589558337,3.469446951953614e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,XI,-0.02708009891918258,-0.02705159355189922,2.850536728336156e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,XI,-0.02708009891918258,-0.02850536728335004,0.0014252683641674604
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,XI,-0.02708009891918258,0.1022682366686052,0.12934833558778777
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,XI,-0.02708009891918258,-0.02708009891918255,3.122502256758253e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,XX,0.09858831975987736,0.09848454258118272,0.00010377717869464176
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,XX,0.09858831975987736,0.10377717869460773,0.005188858934730367
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,XX,0.09858831975987736,-0.07398822247959166,0.17257654223946903
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,XX,0.09858831975987736,0.07359362084540133,0.024994698914476032
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,XY,-0.004733044001604824,-0.004728061850024175,4.982151580649671e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,XY,-0.004733044001604824,-0.004982151580636642,0.00024910757903181743
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,XY,-0.004733044001604824,-0.005902988131132459,0.0011699441295276343
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,XY,-0.004733044001604824,-0.004237454244482141,0.0004955897571226834
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,XZ,-0.034484359662642745,-0.03444806033668202,3.6299325960727213e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,XZ,-0.034484359662642745,-0.03629932596067656,0.001814966298033814
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,XZ,-0.034484359662642745,0.040270143277368116,0.07475450294001086
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,XZ,-0.034484359662642745,-0.047859315886493954,0.013374956223851209
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,YI,-0.14462912729672295,-0.14447688611009485,0.00015224118662809927
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,YI,-0.14462912729672295,-0.1522411866281294,0.007612059331406462
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,YI,-0.14462912729672295,-6.938893903907228e-18,0.14462912729672295
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,YI,-0.14462912729672295,-0.14462912729672295,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,YX,0.07399234596936721,0.07391445928939942,7.788667996778964e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,YX,0.07399234596936721,0.07788667996775496,0.0038943339983877473
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,YX,0.07399234596936721,2.949029909160572e-17,0.07399234596936718
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,YX,0.07399234596936721,0.0893137468279418,0.015321400858574585
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,YY,-0.0008144175920622252,-0.0008135603103863534,8.572816758718044e-07
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,YY,-0.0008144175920622252,-0.0008572816758549619,4.2864083792736735e-05
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,YY,-0.0008144175920622252,3.0357660829594124e-17,0.0008144175920622556
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,YY,-0.0008144175920622252,0.003766834140756351,0.004581251732818576
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,YZ,-0.10528168241630265,-0.10517085959270656,0.00011082282359609064
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,YZ,-0.10528168241630265,-0.11082282359610805,0.005541141179805406
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,YZ,-0.10528168241630265,-0.0002319955840797555,0.10504968683222289
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,YZ,-0.10528168241630265,-0.08075904187168237,0.024522640544620278
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,ZI,0.004893393809554447,0.00488824286870225,5.150940852197139e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,ZI,0.004893393809554447,0.005454909486282064,0.0005615156767276169
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,ZI,0.004893393809554447,0.17905991664634335,0.1741665228367889
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,ZI,0.004893393809554447,0.004893393809554468,2.0816681711721685e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,ZX,-0.014841097168553443,-0.01482547496100757,1.5622207545872707e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,ZX,-0.014841097168553443,-0.015896451953298023,0.0010553547847445797
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,ZX,-0.014841097168553443,-0.09209432404265235,0.0772532268740989
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,ZX,-0.014841097168553443,-0.012875456264699239,0.0019656409038542044
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,ZY,-0.09522348020727493,-0.09512324496495153,0.00010023524232340153
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,ZY,-0.09522348020727493,-0.09877320411296309,0.003549723905688154
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,ZY,-0.09522348020727493,-0.002162460851182201,0.09306101935609273
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,ZY,-0.09522348020727493,-0.07809866259482591,0.017124817612449023
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.05,ZZ,0.021373267937888057,0.021350769761111346,2.2498176776710593e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.05,ZZ,0.021373267937888057,0.02292317871615036,0.0015499107782623034
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.05,ZZ,0.021373267937888057,0.02516958714824295,0.0037963192103548926
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.05,ZZ,0.021373267937888057,0.023155491060356956,0.001782223122468899
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,II,0.04187177072853311,0.04185763434420029,1.413638433282044e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,II,0.04187177072853311,0.0523397134106664,0.010467942682133288
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,II,0.04187177072853311,-0.0020513876468822023,0.043923158375415314
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,II,0.04187177072853311,0.04187177072853311,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,IX,-0.01630577990417778,-0.016303268415356342,2.511488821438368e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,IX,-0.01630577990417778,-0.020382224880222226,0.004076444976044445
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,IX,-0.01630577990417778,0.0015258050772971442,0.017831584981474927
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,IX,-0.01630577990417778,-0.01630577990417778,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,IY,-0.00037328688731249433,-0.0003731343730277608,1.5251428473351397e-07
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,IY,-0.00037328688731249433,-0.00046660860914061976,9.332172182812543e-05
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,IY,-0.00037328688731249433,-0.006868792557140931,0.006495505669828436
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,IY,-0.00037328688731249433,-0.00037328688731249737,3.0357660829594124e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,IZ,0.004236710763136194,0.004231312197422834,5.398565713360046e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,IZ,0.004236710763136194,0.005295888453920241,0.0010591776907840468
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,IZ,0.004236710763136194,0.0028912777853916747,0.0013454329777445196
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,IZ,0.004236710763136194,0.00423671076313619,4.336808689942018e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,XI,-0.0027795163468970346,-0.00277604195146341,3.474395433624485e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,XI,-0.0027795163468970346,-0.00347439543362129,0.0006948790867242552
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,XI,-0.0027795163468970346,0.012747860540356714,0.015527376887253749
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,XI,-0.0027795163468970346,-0.002779516346897033,1.734723475976807e-18
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,XX,0.008891085955279576,0.008879972097835476,1.1113857444100192e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,XX,0.008891085955279576,0.011113857444099467,0.002222771488819891
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,XX,0.008891085955279576,-0.006672551549175687,0.015563637504455264
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,XX,0.008891085955279576,0.006636964807701394,0.002254121147578182
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,XY,-0.0004268446926662706,-0.00042631113680043835,5.335558658322486e-07
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,XY,-0.0004268446926662706,-0.000533555865832837,0.00010671117316656637
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,XY,-0.0004268446926662706,-0.000532354897565192,0.00010551020489892135
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,XY,-0.0004268446926662706,-0.00038215044146221384,4.469425120405676e-05
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,XZ,-0.0032171232586944752,-0.003213101854621106,4.021404073369268e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,XZ,-0.0032171232586944752,-0.004021404073368091,0.000804280814673616
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,XZ,-0.0032171232586944752,0.003973294852038965,0.00719041811073344
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,XZ,-0.0032171232586944752,-0.004531580022225332,0.001314456763530857
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,YI,-0.018028197267413275,-0.018005662020829004,2.2535246584270974e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,YI,-0.018028197267413275,-0.022535246584266595,0.0045070493168533204
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,YI,-0.018028197267413275,-4.336808689942018e-19,0.018028197267413275
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,YI,-0.018028197267413275,-0.018028197267413275,0.0
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,YX,0.006672923421849039,0.006664582267571727,8.341154277311663e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,YX,0.006672923421849039,0.008341154277311297,0.001668230855462258
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,YX,0.006672923421849039,2.168404344971009e-18,0.006672923421849037
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,YX,0.006672923421849039,0.00805466815916345,0.0013817447373144116
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,YY,-7.34474107293194e-05,-7.335560146590572e-05,9.180926341368321e-08
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,YY,-7.34474107293194e-05,-9.180926341164578e-05,1.836185268232638e-05
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,YY,-7.34474107293194e-05,1.0842021724855044e-18,7.344741072932049e-05
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,YY,-7.34474107293194e-05,0.00033970805270155686,0.00041315546343087626
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,YZ,-0.00994918699318096,-0.009936750509439481,1.2436483741478516e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,YZ,-0.00994918699318096,-0.012436483741476198,0.0024872967482952382
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,YZ,-0.00994918699318096,-9.938084197530809e-05,0.009849806151205651
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,YZ,-0.00994918699318096,-0.00763116889981218,0.0023180180933687795
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,ZI,0.00038292929499368286,0.00038245063337493355,4.78661618749307e-07
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,ZI,0.00038292929499368286,0.0006599803832361851,0.00027705108824250223
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,ZI,0.00038292929499368286,0.028008463706722227,0.027625534411728544
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,ZI,0.00038292929499368286,0.0003829292949936716,1.1275702593849246e-17
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,ZX,-0.0012503196944230939,-0.001248756794805064,1.562899618029901e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,ZX,-0.0012503196944230939,-0.0017024060886819065,0.00045208639425881264
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,ZX,-0.0012503196944230939,-0.011245785018538006,0.009995465324114912
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,ZX,-0.0012503196944230939,-0.0010658643454956281,0.00018445534892746573
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,ZY,-0.0090573555748662,-0.009046033880397616,1.1321694468583235e-05
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,ZY,-0.0090573555748662,-0.010577964477516192,0.0015206089026499926
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,ZY,-0.0090573555748662,-0.00024669866775261216,0.008810656907113587
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,ZY,-0.0090573555748662,-0.00739517869407484,0.0016621768807913596
+A_one_cnot_noise_q_plus_delta,first 6Q CNOT noise set to q+0.001,rand_mixed_00,0.2,ZZ,0.0018502128316750972,0.001847900065635501,2.312766039596313e-06
+B_one_channel_removed,depolarizing channel after 6Q CNOT #3 removed,rand_mixed_00,0.2,ZZ,0.0018502128316750972,0.002528961954547374,0.0006787491228722768
+C_one_cnot_orientation_flipped,one Alice-block CNOT control/target exchanged,rand_mixed_00,0.2,ZZ,0.0018502128316750972,0.002228970948821906,0.0003787581171468086
+D_c_xx_alone,C_XX alone compared against Delta_5 (no -C_YY),rand_mixed_00,0.2,ZZ,0.0018502128316750972,0.002062781315493448,0.00021256848381835062
