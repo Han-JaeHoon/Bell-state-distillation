@@ -1,0 +1,43 @@
+protocol,epsilon,F_0,note,q,F0,F1,dF1,status,first_violating_round,rounds_run,denominator,p_succ
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.0,0.9999999999999998,1.0,2.220446049250313e-16,PASS,,1,0.9999999999999984,nan
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",1e-06,0.9999999999999998,0.9999978750008749,-2.1249991248861733e-06,FAIL,0,1,0.9999870000794975,nan
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.001,0.9999999999999998,0.9978758756886885,-0.0021241243113112596,FAIL,0,1,0.9870791978016861,nan
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.01,0.9999999999999998,0.9788381994553421,-0.02116180054465766,FAIL,0,1,0.8776548783289333,nan
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.05,0.9999999999999998,0.8960310969157639,-0.1039689030842359,FAIL,0,1,0.5154404691462409,nan
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.2,0.9999999999999998,0.6175520459440053,-0.3824479540559945,FAIL,0,1,0.05982889443327999,nan
+type3,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.5,0.9999999999999998,0.29605263157894735,-0.7039473684210524,FAIL,0,1,0.0002899169921875,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.0,0.25,0.25,0.0,PASS,,1,0.24999999999999978,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",1e-06,0.25,0.24999999999999997,-2.7755575615628914e-17,PASS,,1,0.24999750001124954,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.001,0.25,0.24999999999999997,-2.7755575615628914e-17,PASS,,1,0.24751122005243664,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.01,0.25,0.25,0.0,PASS,,1,0.22609551875220074,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.05,0.25,0.25,0.0,PASS,,1,0.14968423480959447,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.2,0.25,0.25,0.0,PASS,,1,0.026843545600000074,nan
+type3,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.5,0.25,0.25,0.0,PASS,,1,0.000244140625,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.0,0.9999999999999998,1.0,2.220446049250313e-16,PASS,,1,0.9999999999999996,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",1e-06,0.9999999999999998,0.9999982500009374,-1.7499990623282002e-06,FAIL,0,1,0.9999885000607488,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.001,0.9999999999999998,0.9982509375938127,-0.0017490624061871074,FAIL,0,1,0.9885605554230933,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.01,0.9999999999999998,0.9825938443773317,-0.017406155622668118,FAIL,0,1,0.8908841725392974,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.05,0.9999999999999998,0.914855866486851,-0.08514413351314876,FAIL,0,1,0.5549543005565718,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.2,0.9999999999999998,0.6883561643835615,-0.31164383561643827,FAIL,0,1,0.07838315315200006,nan
+type4,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.5,0.9999999999999998,0.3750000000000081,-0.6249999999999917,FAIL,0,1,0.0004272460937499445,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.0,0.25,0.25,0.0,PASS,,1,0.2500000000000001,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",1e-06,0.25,0.25,0.0,PASS,,1,0.24999750001124987,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.001,0.25,0.25,0.0,PASS,,1,0.2475112200524371,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.01,0.25,0.25,0.0,PASS,,1,0.22609551875220124,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.05,0.25,0.25,0.0,PASS,,1,0.1496842348095947,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.2,0.25,0.24999999999999997,-2.7755575615628914e-17,PASS,,1,0.02684354560000002,nan
+type4,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.5,0.25,0.25,0.0,PASS,,1,0.000244140625,nan
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.0,0.9999999999999998,1.0,2.220446049250313e-16,PASS,,1,0.9999999999999993,0.9999999999999993
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",1e-06,0.9999999999999998,0.99999899999875,-1.0000012498068145e-06,FAIL,0,1,0.9999967500057492,0.9999967500057492
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.001,0.9999999999999998,0.9989987498146444,-0.0010012501853553513,FAIL,0,1,0.9967557447524988,0.9967557447524988
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.01,0.9999999999999998,0.9898748342928005,-0.010125165707199235,FAIL,0,1,0.9680697749499994,0.9680697749499994
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.05,0.9999999999999998,0.9468661680401931,-0.0531338319598067,FAIL,0,1,0.8512342187499993,0.8512342187499993
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.2,0.9999999999999998,0.753174368817363,-0.24682563118263678,FAIL,0,1,0.5418399999999999,0.5418399999999999
+4q,0.0,0.9999999999999998,"F_0 = 1 and fidelity cannot exceed one, so F_1 > F_0 is impossible: degenerate",0.5,0.9999999999999998,0.368421052631579,-0.6315789473684208,FAIL,0,1,0.29687499999999983,0.29687499999999983
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.0,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",1e-06,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.001,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.01,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.05,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.2,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
+4q,1.0,0.25,"maximally mixed input; the behaviour is measured, not assumed",0.5,0.25,0.25,0.0,PASS,,1,0.24999999999999994,0.24999999999999994
